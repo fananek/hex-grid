@@ -7,7 +7,7 @@
         <img src="https://img.shields.io/badge/spm-&#x2713-brightgreen.svg" alt="Swift Package Manager Compatible">
     </a>
     <a href="#">
-        <img src="https://img.shields.io/badge/coverage-99.7%25-brightgreen.svg" alt="coverage 99,7%">
+        <img src="https://img.shields.io/badge/coverage-99.8%25-brightgreen.svg" alt="coverage 99,8%">
     </a>
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
@@ -232,7 +232,7 @@ Converting cell coordinates to pixel coordinates and vice versa might be handy a
 let screenCoords = grid.pixelCoordinates(for: cell)
 
 // return cell for specified screen coordinates (or nil if such cell doesn't exists)
-let cell = try gridPointy.cellAt(point)
+let cell = try grid.cellAt(point)
 ``` 
 
 ## Implementation fundamentals

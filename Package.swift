@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "HexGrid",
+    name: "hex-grid",
     products: [
         .library(
             name: "HexGrid",

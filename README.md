@@ -40,11 +40,12 @@ The library is meant for generic backend use. Therefore it doesn't not offer any
 - [x] Find the shortest path from A to B (optimized A* search algorithm).
 - [x] Hexagon rendering related stuff (e.g. polygon corners).  
 - [x] Code inline documentation (quick help).
-- [x] Very high unit tests coverage.
+- [x] Solid unit tests coverage.
 
 ## What's coming next?
 
 - [ ] Review and update readme.md.
+- [ ] Generate full documentation.
 - [ ] More testing (including real projects).
 - [ ] Demo with visualization.
 - [ ] Possibly Implement FieldOfView algorithm (evaluating `RayCasting` vs `ShadowCasting` vs `own solution`).

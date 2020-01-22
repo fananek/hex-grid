@@ -266,6 +266,20 @@ Properties:
 - isBlocked: `Bool` - used by algorithms (reachableCells, pathfinding etc.)
 - cost: `Float` - used by pathfinding algorithm. For the sake of simplicity lets put graph theory aside. You can imagine cost as an amount of energy needed to pass a cell. Pathfinding algorithm then search for path requiring the less effort.
 
+#### CubeCoordinates
+
+The most common coordinates used within HexGrid library is cube coordinate system. This type of coordinates has three axis x, y and z. The only condition is that sum of its all values has to be equal zero.
+
+```
+// valid cube coordinates
+CubeCoordinates(x: 1, y: 0, z: -1) -> sum = 0
+
+// invalid cube coordinates
+CubeCoordinates(x: 1, y: 1, z: -1) -> sum = 1 -> throws error
+```
+
+For more details check [Amit Patel's explanation](https://www.redblobgames.com/grids/hexagons/#coordinates-cube).
+
 #### Enumerations
 
 ##### Orientation

@@ -31,7 +31,7 @@ class HeapTests: XCTestCase {
         var a2 = array2
         if a1.count != a2.count { return false }
         while a1.count > 0 {
-            if let i = a2.index(of: a1[0]) {
+            if let i = a2.firstIndex(of: a1[0]) {
                 a1.remove(at: 0)
                 a2.remove(at: i)
             } else {
@@ -266,7 +266,7 @@ class HeapTests: XCTestCase {
             for k in 1...m {
                 let i = Int(arc4random_uniform(UInt32(n - k + 1)))
                 let v = h.remove(at: i)!
-                let j = a.index(of: v)!
+                let j = a.firstIndex(of: v)!
                 a.remove(at: j)
                 
                 XCTAssertTrue(verifyMaxHeap(h))

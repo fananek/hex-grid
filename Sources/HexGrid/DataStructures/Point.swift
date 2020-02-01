@@ -1,6 +1,6 @@
 public struct Point: Codable {
-    var x: Double
-    var y: Double
+    public var x: Double
+    public var y: Double
 
     public init (x: Double, y: Double) {
         self.x = x

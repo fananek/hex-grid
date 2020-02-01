@@ -64,7 +64,7 @@ name: "MyApp",
 dependencies: [
 ...
 // Add HexGrid package here
-.package(url: "https://github.com/fananek/HexGrid.git", from: "0.1.0")
+.package(url: "https://github.com/fananek/HexGrid.git", from: "0.2.0")
 ],
 ...
 ```

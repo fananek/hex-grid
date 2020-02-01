@@ -1,10 +1,10 @@
 /// HexGrid is an entry point of the package. It represents a grid of hexagonal cells
 public class HexGrid: Codable {
-    var orientaion: Orientation
-    var offsetLayout: OffsetLayout
-    var hexSize: HexSize
-    var origin: Point
-    var cells: Set<Cell>
+    public var orientaion: Orientation
+    public var offsetLayout: OffsetLayout
+    public var hexSize: HexSize
+    public var origin: Point
+    public var cells: Set<Cell>
     
     // MARK: Initializers
     /// Default initializer

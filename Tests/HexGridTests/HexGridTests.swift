@@ -666,6 +666,33 @@ class HexGridTests: XCTestCase {
             XCTFail("Unable to find matching cell.")
         }
     }
+    
+    // Test grid pixel dimensions
+    func testGridPixelDimensions() throws {
+        let hexSize = HexSize(width: 10.0, height: 10.0)
+        let gridOrigin = Point(x: 0.0, y: 0.0)
+        let gridPointy = HexGrid(
+            shape: GridShape.hexagon(2),
+            orientation: Orientation.pointyOnTop,
+            offsetLayout: OffsetLayout.even,
+            hexSize: hexSize,
+            origin: gridOrigin)
+        let expectedWidthPonity: Double = 86.6
+        let expectedHeightPonity: Double = 80.0
+        XCTAssertEqual((gridPointy.pixelWidth * 10).rounded()/10, expectedWidthPonity)
+        XCTAssertEqual(gridPointy.pixelHeight, expectedHeightPonity)
+        
+        let gridFlat = HexGrid(
+            shape: GridShape.hexagon(2),
+            orientation: Orientation.flatOnTop,
+            offsetLayout: OffsetLayout.even,
+            hexSize: hexSize,
+            origin: gridOrigin)
+        let expectedWidthFlat: Double = 80.0
+        let expectedHeightFlat: Double = 86.6
+        XCTAssertEqual(gridFlat.pixelWidth, expectedWidthFlat)
+        XCTAssertEqual((gridFlat.pixelHeight * 10).rounded()/10, expectedHeightFlat)
+    }
         
     static var allTests = [
         ("Test cell by coordinates", testGetCell),
@@ -694,6 +721,7 @@ class HexGridTests: XCTestCase {
         ("Test non existing path", testFindNoPath),
         ("Test calculation of polygon corners", testPolygonCorners),
         ("Test calculation cell pixel coordinates", testPixelCoordinates),
-        ("Test get cell for pixel coordinates", testCellAtPixel)
+        ("Test get cell for pixel coordinates", testCellAtPixel),
+        ("Test grid pixel dimensions", testGridPixelDimensions)
     ]
 }

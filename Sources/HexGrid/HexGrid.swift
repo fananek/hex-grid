@@ -4,7 +4,13 @@ public class HexGrid: Codable {
     public var offsetLayout: OffsetLayout
     public var hexSize: HexSize
     public var origin: Point
-    public var cells: Set<Cell>
+    public var cells: Set<Cell> {
+        didSet {
+            updatePixelDimensions()
+        }
+    }
+    private(set) public var pixelWidth: Double = 0
+    private(set) public var pixelHeight: Double = 0
     
     // MARK: Initializers
     /// Default initializer
@@ -25,6 +31,7 @@ public class HexGrid: Codable {
         self.offsetLayout = offsetLayout
         self.hexSize = hexSize
         self.origin = origin
+        updatePixelDimensions()
     }
     
     /// Initializer with generated grid shape
@@ -63,6 +70,7 @@ public class HexGrid: Codable {
         } catch {
             self.cells = Set<Cell>()
         }
+        updatePixelDimensions()
     }
     
     // MARK: Coordinates
@@ -355,7 +363,7 @@ public class HexGrid: Codable {
     }
     
     // MARK: UI and Drawing
-
+    
     /// Calculate screen coordinates for corners all hexagon
     /// - Parameter cell: `Cell`
     /// - Returns: `[Point]` Array of points (x, y - screen coordinates). Each point represents one of polygon (hexagon) corners.
@@ -387,5 +395,34 @@ public class HexGrid: Codable {
             origin: self.origin,
             orientation: self.orientaion)
         return cellAt(coords)
+    }
+    
+    // MARK: Internal functions
+    /// Function keeps grid dimenstions udpated using property observer
+    fileprivate func updatePixelDimensions() -> Void {
+        var minX: Double = 0.0
+        var maxX: Double = 0.0
+        var minY: Double = 0.0
+        var maxY: Double = 0.0
+        
+        for cell in cells {
+            let pixelCoords = pixelCoordinates(for: cell)
+            minX = min(minX, pixelCoords.x)
+            maxX = max(maxX, pixelCoords.x)
+            minY = min(minY, pixelCoords.y)
+            maxY = max(maxY, pixelCoords.y)
+        }
+        var cellPixelWidth: Double
+        var cellPixelHeight: Double
+        switch orientaion {
+        case .pointyOnTop:
+            cellPixelWidth = (3.0).squareRoot() * hexSize.width
+            cellPixelHeight = 2.0 * hexSize.height
+        case .flatOnTop:
+            cellPixelWidth = 2.0 * hexSize.width
+            cellPixelHeight = (3.0).squareRoot() * hexSize.height
+        }
+        pixelWidth = (maxX - minX) + cellPixelWidth
+        pixelHeight = (maxY - minY) + cellPixelHeight
     }
 }

@@ -117,21 +117,28 @@ class ConvertorTests: XCTestCase {
     // Convert coordinates from pixel to cube
     func testConvertPixelToCube() throws {
         let point1 = Convertor.pixelToCube(
-            from: Point(x: 8.2, y: 6.5),
+            from: Point(x: 3.2, y: 4.5),
             hexSize: HexSize(width: 10.0, height: 10.0),
             origin: Point(x: 0.0, y: 0.0),
             orientation: Orientation.pointyOnTop)
         let point2 = Convertor.pixelToCube(
-            from: Point(x: 22.2, y: 16.5),
+            from: Point(x: 22.2, y: 4.5),
+            hexSize: HexSize(width: 10.0, height: 10.0),
+            origin: Point(x: 0.0, y: 0.0),
+            orientation: Orientation.pointyOnTop)
+        let point3 = Convertor.pixelToCube(
+            from: Point(x: 0.0, y: -22.5),
             hexSize: HexSize(width: 10.0, height: 10.0),
             origin: Point(x: 0.0, y: 0.0),
             orientation: Orientation.pointyOnTop)
         
         let expectedCube1 = try CubeCoordinates(x: 0, y: 0, z: 0)
-        let expectedCube2 = try CubeCoordinates(x: 0, y: -1, z: 1)
+        let expectedCube2 = try CubeCoordinates(x: 1, y: -1, z: 0)
+        let expectedCube3 = try CubeCoordinates(x: 1, y: 1, z: -2)
         
         XCTAssertEqual(expectedCube1, point1)
         XCTAssertEqual(expectedCube2, point2)
+        XCTAssertEqual(expectedCube3, point3)
     }
     
     

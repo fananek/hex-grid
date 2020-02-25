@@ -13,7 +13,7 @@ internal struct OrientationMatrix {
             self.f01 = 0.0
             self.f11 = 3.0/2.0
             self.b00 = (3.0).squareRoot() / 3.0
-            self.b10 = -1.0
+            self.b10 = -1.0/3.0
             self.b01 = 0.0
             self.b11 = 2.0/3.0
             self.startAngle = 0.5

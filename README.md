@@ -64,7 +64,7 @@ name: "MyApp",
 dependencies: [
 ...
 // Add HexGrid package here
-.package(url: "https://github.com/fananek/HexGrid.git", from: "0.3.0")
+.package(url: "https://github.com/fananek/HexGrid.git", from: "0.3.1")
 ],
 ...
 ```
@@ -255,6 +255,8 @@ Properties:
 - offsetLayout: `OffsetLayout` - see [OffsetLayout enumeration](#OffsetLayout)
 - hexSize: `HexSize` - width and height of a hexagon
 - origin: `Point` - 'display coordinates' (x, y) of a grid origin
+- pixelWidth: `Double` - pixel width of a grid
+- pixelHeight: `Double` - pixel width of a grid
 
 #### Cell
 

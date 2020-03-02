@@ -142,7 +142,7 @@ let cell = grid.cellAt(try CubeCoordinates(x: 1, y: 0, z: -1))
 
 #### Validate coordinates
 
-Check whether some coordinates valid (means it exist on a grid).
+Check whether some coordinates are valid (means it exist on a grid).
 
 ```
 // returns Bool
@@ -254,6 +254,7 @@ Properties:
 - origin: `Point` - 'display coordinates' (x, y) of a grid origin
 - pixelWidth: `Double` - pixel width of a grid
 - pixelHeight: `Double` - pixel width of a grid
+- attributes: `[String: Attribute]` - dictionary of custom attributes (most primitive types are supported as well as nesting)
 
 #### Cell
 
@@ -262,6 +263,7 @@ Cell is a building block of a grid.
 Properties:
 
 - coordinates: `CubeCoordinates` - cell placement on a grid coordinate system
+- attributes: `[String: Attribute]` - dictionary of custom attributes (most primitive types are supported as well as nesting)
 - isBlocked: `Bool` - used by algorithms (reachableCells, pathfinding etc.)
 - cost: `Float` - used by pathfinding algorithm. For the sake of simplicity lets put graph theory aside. You can imagine cost as an amount of energy needed to pass a cell. Pathfinding algorithm then search for path requiring the less effort.
 

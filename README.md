@@ -6,9 +6,6 @@
     <a href="https://swift.org/package-manager">
         <img src="https://img.shields.io/badge/spm-&#x2713-brightgreen.svg" alt="Swift Package Manager Compatible">
     </a>
-    <a href="#">
-        <img src="https://img.shields.io/badge/coverage-99.8%25-brightgreen.svg" alt="coverage 99,8%">
-    </a>
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
     </a>
@@ -64,7 +61,7 @@ name: "MyApp",
 dependencies: [
 ...
 // Add HexGrid package here
-.package(url: "https://github.com/fananek/HexGrid.git", from: "0.3.1")
+.package(url: "https://github.com/fananek/HexGrid.git", from: "0.3.2")
 ],
 ...
 ```

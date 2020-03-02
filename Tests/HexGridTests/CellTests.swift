@@ -41,12 +41,28 @@ class CellTests: XCTestCase {
         XCTAssertEqual(try origin.distance(to: target), 2)
     }
     
+    func testCellAttributes() throws {
+        let cell = try Cell(CubeCoordinates(x: 0, y: 0, z: 0))
+        cell.attributes["isVisible"] = true
+        cell.attributes["customValue"] = 20
+        cell.attributes["title"] = "Cell Title"
+        
+        XCTAssertEqual(cell.attributes["isVisible"], true)
+        XCTAssertEqual(cell.attributes["customValue"], 20)
+        XCTAssertEqual(cell.attributes["title"], "Cell Title")
+        
+        // assign new title
+        cell.attributes["title"] = "New Title"
+        XCTAssertEqual(cell.attributes["title"], "New Title")
+    }
+    
     static var allTests = [
         ("Test Create cell", testCreateCell),
         ("Test Rotate cell left", testRotateLeft),
         ("Test Rotate cell right", testRotateRight),
         ("Test Distance for coordinates", testDistanceForCoordinates),
-        ("Test Distance for  cell", testDistanceForCell)
+        ("Test Distance for  cell", testDistanceForCell),
+        ("Test cell attributes", testCellAttributes)
     ]
 }
 

@@ -9,6 +9,7 @@ public class HexGrid: Codable {
             updatePixelDimensions()
         }
     }
+    public var attributes: [String: Attribute]
     private(set) public var pixelWidth: Double = 0
     private(set) public var pixelHeight: Double = 0
     
@@ -25,12 +26,14 @@ public class HexGrid: Codable {
         orientation: Orientation = Orientation.pointyOnTop,
         offsetLayout: OffsetLayout = OffsetLayout.even,
         hexSize: HexSize = HexSize(width: 10.0, height: 10.0),
-        origin: Point = Point(x: 0, y: 0)) {
+        origin: Point = Point(x: 0, y: 0),
+        attributes: [String: Attribute] = [String: Attribute]()) {
         self.cells = cells
         self.orientaion = orientation
         self.offsetLayout = offsetLayout
         self.hexSize = hexSize
         self.origin = origin
+        self.attributes = attributes
         updatePixelDimensions()
     }
     
@@ -46,11 +49,13 @@ public class HexGrid: Codable {
         orientation: Orientation = Orientation.pointyOnTop,
         offsetLayout: OffsetLayout = OffsetLayout.even,
         hexSize: HexSize = HexSize(width: 10.0, height: 10.0),
-        origin: Point = Point(x: 0, y: 0)) {
+        origin: Point = Point(x: 0, y: 0),
+        attributes: [String: Attribute] = [String: Attribute]()) {
         self.orientaion = orientation
         self.offsetLayout = offsetLayout
         self.hexSize = hexSize
         self.origin = origin
+        self.attributes = attributes
         
         do {
             switch shape {

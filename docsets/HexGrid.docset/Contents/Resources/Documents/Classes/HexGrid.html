@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HexGrid Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/HexGrid" class="dashAnchor"></a>
+    <a title="HexGrid Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">HexGrid Docs</a> (62% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">HexGrid Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        HexGrid Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Cell.html">Cell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HexGrid.html">HexGrid</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Direction.html">Direction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Direction/Flat.html">– Flat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Direction/Pointy.html">– Pointy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/GridShape.html">GridShape</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/OffsetLayout.html">OffsetLayout</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Orientation.html">Orientation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Rotation.html">Rotation</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Attribute.html">Attribute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AttributeDecodable.html">AttributeDecodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AttributeEncodable.html">AttributeEncodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AxialCoordinates.html">AxialCoordinates</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CubeCoordinates.html">CubeCoordinates</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CubeFractionalCoordinates.html">CubeFractionalCoordinates</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/HexSize.html">HexSize</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OffsetCoordinates.html">OffsetCoordinates</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Point.html">Point</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>HexGrid</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">HexGrid</span> <span class="p">:</span> <span class="kt">Codable</span></code></pre>
+
+                </div>
+              </div>
+            <p>HexGrid is an entry point of the package. It represents a grid of hexagonal cells</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC10orientaionAA11OrientationOvp"></a>
+                    <a name="//apple_ref/swift/Property/orientaion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC10orientaionAA11OrientationOvp">orientaion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">orientaion</span><span class="p">:</span> <span class="kt"><a href="../Enums/Orientation.html">Orientation</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC12offsetLayoutAA06OffsetD0Ovp"></a>
+                    <a name="//apple_ref/swift/Property/offsetLayout" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC12offsetLayoutAA06OffsetD0Ovp">offsetLayout</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">offsetLayout</span><span class="p">:</span> <span class="kt"><a href="../Enums/OffsetLayout.html">OffsetLayout</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC7hexSizeAA0aD0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/hexSize" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC7hexSizeAA0aD0Vvp">hexSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hexSize</span><span class="p">:</span> <span class="kt"><a href="../Structs/HexSize.html">HexSize</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC6originAA5PointVvp"></a>
+                    <a name="//apple_ref/swift/Property/origin" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC6originAA5PointVvp">origin</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">origin</span><span class="p">:</span> <span class="kt"><a href="../Structs/Point.html">Point</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC5cellsShyAA4CellCGvp"></a>
+                    <a name="//apple_ref/swift/Property/cells" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC5cellsShyAA4CellCGvp">cells</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cells</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC10attributesSDySSAA9AttributeVGvp"></a>
+                    <a name="//apple_ref/swift/Property/attributes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC10attributesSDySSAA9AttributeVGvp">attributes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">attributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt"><a href="../Structs/Attribute.html">Attribute</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC10pixelWidthSdvp"></a>
+                    <a name="//apple_ref/swift/Property/pixelWidth" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC10pixelWidthSdvp">pixelWidth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private(set)</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">pixelWidth</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC11pixelHeightSdvp"></a>
+                    <a name="//apple_ref/swift/Property/pixelHeight" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC11pixelHeightSdvp">pixelHeight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private(set)</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">pixelHeight</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializers"></a>
+                <a name="//apple_ref/swift/Section/Initializers" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Initializers"></a>
+                  <h3 class="section-name"><p>Initializers</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC5cells11orientation12offsetLayout7hexSize6origin10attributesABShyAA4CellCG_AA11OrientationOAA06OffsetF0OAA0aH0VAA5PointVSDySSAA9AttributeVGtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(cells:orientation:offsetLayout:hexSize:origin:attributes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC5cells11orientation12offsetLayout7hexSize6origin10attributesABShyAA4CellCG_AA11OrientationOAA06OffsetF0OAA0aH0VAA5PointVSDySSAA9AttributeVGtcfc">init(cells:orientation:offsetLayout:hexSize:origin:attributes:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default initializer</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
+    <span class="nv">cells</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="nv">orientation</span><span class="p">:</span> <span class="kt"><a href="../Enums/Orientation.html">Orientation</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/Orientation.html">Orientation</a></span><span class="o">.</span><span class="n">pointyOnTop</span><span class="p">,</span>
+    <span class="nv">offsetLayout</span><span class="p">:</span> <span class="kt"><a href="../Enums/OffsetLayout.html">OffsetLayout</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/OffsetLayout.html">OffsetLayout</a></span><span class="o">.</span><span class="n">even</span><span class="p">,</span>
+    <span class="nv">hexSize</span><span class="p">:</span> <span class="kt"><a href="../Structs/HexSize.html">HexSize</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/HexSize.html">HexSize</a></span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">),</span>
+    <span class="nv">origin</span><span class="p">:</span> <span class="kt"><a href="../Structs/Point.html">Point</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/Point.html">Point</a></span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="nv">attributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt"><a href="../Structs/Attribute.html">Attribute</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt"><a href="../Structs/Attribute.html">Attribute</a></span><span class="p">]())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cells</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>grid cells <code>Set&lt;Cell&gt;</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orientation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Grid<code><a href="../Enums/Orientation.html">Orientation</a></code> enumeration</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>offsetLayout</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Enums/OffsetLayout.html">OffsetLayout</a></code> enumeration (used to specify row or column offset for rectangular grids)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hexSize</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/HexSize.html">HexSize</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>origin</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Grid origin coordinates (used for drawing related math)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC5shape11orientation12offsetLayout7hexSize6origin10attributesAbA0B5ShapeO_AA11OrientationOAA06OffsetF0OAA0aH0VAA5PointVSDySSAA9AttributeVGtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(shape:orientation:offsetLayout:hexSize:origin:attributes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC5shape11orientation12offsetLayout7hexSize6origin10attributesAbA0B5ShapeO_AA11OrientationOAA06OffsetF0OAA0aH0VAA5PointVSDySSAA9AttributeVGtcfc">init(shape:orientation:offsetLayout:hexSize:origin:attributes:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializer with generated grid shape</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
+    <span class="nv">shape</span><span class="p">:</span> <span class="kt"><a href="../Enums/GridShape.html">GridShape</a></span><span class="p">,</span>
+    <span class="nv">orientation</span><span class="p">:</span> <span class="kt"><a href="../Enums/Orientation.html">Orientation</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/Orientation.html">Orientation</a></span><span class="o">.</span><span class="n">pointyOnTop</span><span class="p">,</span>
+    <span class="nv">offsetLayout</span><span class="p">:</span> <span class="kt"><a href="../Enums/OffsetLayout.html">OffsetLayout</a></span> <span class="o">=</span> <span class="kt"><a href="../Enums/OffsetLayout.html">OffsetLayout</a></span><span class="o">.</span><span class="n">even</span><span class="p">,</span>
+    <span class="nv">hexSize</span><span class="p">:</span> <span class="kt"><a href="../Structs/HexSize.html">HexSize</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/HexSize.html">HexSize</a></span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">),</span>
+    <span class="nv">origin</span><span class="p">:</span> <span class="kt"><a href="../Structs/Point.html">Point</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/Point.html">Point</a></span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="nv">attributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt"><a href="../Structs/Attribute.html">Attribute</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt"><a href="../Structs/Attribute.html">Attribute</a></span><span class="p">]())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>shape</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Shape to be generated</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orientation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Grid<code><a href="../Enums/Orientation.html">Orientation</a></code> enumeration</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>offsetLayout</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Enums/OffsetLayout.html">OffsetLayout</a></code> enumeration (used to specify row or column offset for rectangular grids)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hexSize</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/HexSize.html">HexSize</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>origin</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Grid origin coordinates (used for drawing related math)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Coordinates"></a>
+                <a name="//apple_ref/swift/Section/Coordinates" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Coordinates"></a>
+                  <h3 class="section-name"><p>Coordinates</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC19allCellsCoordinatesShyAA04CubeE0VGyF"></a>
+                    <a name="//apple_ref/swift/Method/allCellsCoordinates()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC19allCellsCoordinatesShyAA04CubeE0VGyF">allCellsCoordinates()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Coordinates of all available grid cells</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">allCellsCoordinates</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC15nonBlockedCellsShyAA4CellCGyF"></a>
+                    <a name="//apple_ref/swift/Method/nonBlockedCells()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC15nonBlockedCellsShyAA4CellCGyF">nonBlockedCells()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All non-blocked grid cells</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">nonBlockedCells</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;Cell&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC26nonBlockedCellsCoordinatesShyAA04CubeF0VGyF"></a>
+                    <a name="//apple_ref/swift/Method/nonBlockedCellsCoordinates()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC26nonBlockedCellsCoordinatesShyAA04CubeF0VGyF">nonBlockedCellsCoordinates()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All non-blocked grid cells coordinates</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">nonBlockedCellsCoordinates</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC12blockedCellsShyAA4CellCGyF"></a>
+                    <a name="//apple_ref/swift/Method/blockedCells()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC12blockedCellsShyAA4CellCGyF">blockedCells()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All blocked grid cells</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">blockedCells</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;Cell&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC23blockedCellsCoordinatesShyAA04CubeE0VGyF"></a>
+                    <a name="//apple_ref/swift/Method/blockedCellsCoordinates()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC23blockedCellsCoordinatesShyAA04CubeE0VGyF">blockedCellsCoordinates()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All blocked grid cells coordinates</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">blockedCellsCoordinates</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC6cellAtyAA4CellCSgAA15CubeCoordinatesVF"></a>
+                    <a name="//apple_ref/swift/Method/cellAt(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC6cellAtyAA4CellCSgAA15CubeCoordinatesVF">cellAt(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tries to get a grid cells for specified coordinates</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cellAt</span><span class="p">(</span><span class="n">_</span> <span class="nv">coordinates</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coordinates</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Classes/Cell.html">Cell</a></code> or <code>nil</code> in case cell with provided coordinates doesn&rsquo;t exist</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC18isValidCoordinatesySbAA04CubeE0VF"></a>
+                    <a name="//apple_ref/swift/Method/isValidCoordinates(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC18isValidCoordinatesySbAA04CubeE0VF">isValidCoordinates(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Check whether grid cells with specified coordinates exists</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isValidCoordinates</span><span class="p">(</span><span class="n">_</span> <span class="nv">coordinates</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coordinates</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Bool</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Cell%20relations%20(neighbors%20and%20ranges)"></a>
+                <a name="//apple_ref/swift/Section/Cell relations (neighbors and ranges)" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Cell%20relations%20(neighbors%20and%20ranges)"></a>
+                  <h3 class="section-name"><p>Cell relations (neighbors and ranges)</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC8neighbor3for2atAA4CellCSgAG_SitKF"></a>
+                    <a name="//apple_ref/swift/Method/neighbor(for:at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC8neighbor3for2atAA4CellCSgAG_SitKF">neighbor(for:at:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for a cell neighbor at specified direction</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Consider using <code><a href="../Enums/Direction.html">Direction</a></code> enumeration instead of an Integer value.</p>
+
+<p>Example: <code>Direction.Pointy.northEast.rawValue</code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">neighbor</span><span class="p">(</span><span class="k">for</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">,</span> <span class="n">at</span> <span class="nv">direction</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cell</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>cell</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>direction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Int</code> index of direction</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Classes/Cell.html">Cell</a></code> or <code>nil</code> in case neighbor cell doesn&rsquo;t exist on the grid</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC19neighborCoordinates3for2atAA04CubeD0VSgAG_SitKF"></a>
+                    <a name="//apple_ref/swift/Method/neighborCoordinates(for:at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC19neighborCoordinates3for2atAA04CubeD0VSgAG_SitKF">neighborCoordinates(for:at:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for a neighbor coordinates at specified direction</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Consider using <code><a href="../Enums/Direction.html">Direction</a></code> enumeration instead of an Integer value.</p>
+
+<p>Example: <code>Direction.Pointy.northEast.rawValue</code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">neighborCoordinates</span><span class="p">(</span>
+    <span class="k">for</span> <span class="nv">coordinates</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">,</span>
+    <span class="n">at</span> <span class="nv">direction</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coordinates</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>direction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Int</code> index of direction</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code> or <code>nil</code> in case neighbor coordinates are not valid</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC9neighbors3forShyAA4CellCGAF_tKF"></a>
+                    <a name="//apple_ref/swift/Method/neighbors(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC9neighbors3forShyAA4CellCGAF_tKF">neighbors(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all available neighbor cells for specified cell</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">neighbors</span><span class="p">(</span><span class="k">for</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cell</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Cell.html">Cell</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;Cell&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC20neighborsCoordinates3forShyAA04CubeD0VGAF_tKF"></a>
+                    <a name="//apple_ref/swift/Method/neighborsCoordinates(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC20neighborsCoordinates3forShyAA04CubeD0VGAF_tKF">neighborsCoordinates(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all available neighbor coordinates for specified coordinates</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">neighborsCoordinates</span><span class="p">(</span><span class="k">for</span> <span class="nv">coordinates</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coordinates</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC16diagonalNeighbor3for2atAA4CellCSgAG_SitKF"></a>
+                    <a name="//apple_ref/swift/Method/diagonalNeighbor(for:at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC16diagonalNeighbor3for2atAA4CellCSgAG_SitKF">diagonalNeighbor(for:at:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for a cell neighbor at specified diagonal direction</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Consider using <code><a href="../Enums/Direction.html">Direction</a></code> enumeration instead of an Integer value.</p>
+
+<p>Example: <code>Direction.Pointy.northEast.rawValue</code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">diagonalNeighbor</span><span class="p">(</span><span class="k">for</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">,</span> <span class="n">at</span> <span class="nv">direction</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cell</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>cell</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>direction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Int</code> index of direction</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Classes/Cell.html">Cell</a></code> or <code>nil</code> in case neighbor cell doesn&rsquo;t exist on the grid</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC27diagonalNeighborCoordinates3for2atAA04CubeE0VSgAG_SitKF"></a>
+                    <a name="//apple_ref/swift/Method/diagonalNeighborCoordinates(for:at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC27diagonalNeighborCoordinates3for2atAA04CubeE0VSgAG_SitKF">diagonalNeighborCoordinates(for:at:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for a neighbor coordinates at specified diagonal direction</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Consider using <code><a href="../Enums/Direction.html">Direction</a></code> enumeration instead of an Integer value.</p>
+
+<p>Example: <code>Direction.Pointy.northEast.rawValue</code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">diagonalNeighborCoordinates</span><span class="p">(</span>
+    <span class="k">for</span> <span class="nv">coordinates</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">,</span>
+    <span class="n">at</span> <span class="nv">direction</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coordinates</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>direction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Int</code> index of direction</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code> or <code>nil</code> in case neighbor coordinates are not valid</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC17diagonalNeighbors3forShyAA4CellCGAF_tKF"></a>
+                    <a name="//apple_ref/swift/Method/diagonalNeighbors(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC17diagonalNeighbors3forShyAA4CellCGAF_tKF">diagonalNeighbors(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all available diagonal neighbor cells for specified cell</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">diagonalNeighbors</span><span class="p">(</span><span class="k">for</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cell</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Cell.html">Cell</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;Cell&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC28diagonalNeighborsCoordinates3forShyAA04CubeE0VGAF_tKF"></a>
+                    <a name="//apple_ref/swift/Method/diagonalNeighborsCoordinates(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC28diagonalNeighborsCoordinates3forShyAA04CubeE0VGAF_tKF">diagonalNeighborsCoordinates(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all available diagonal neighbor coordinates for specified coordinates</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">diagonalNeighborsCoordinates</span><span class="p">(</span><span class="k">for</span> <span class="nv">coordinates</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coordinates</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC15lineCoordinates4from2toShyAA04CubeD0VGSgAG_AGtKF"></a>
+                    <a name="//apple_ref/swift/Method/lineCoordinates(from:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC15lineCoordinates4from2toShyAA04CubeD0VGSgAG_AGtKF">lineCoordinates(from:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for coordinates making a line from origin to target coordinates</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">lineCoordinates</span><span class="p">(</span>
+    <span class="n">from</span> <span class="nv">origin</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">,</span>
+    <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="o">&gt;</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>origin</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>target</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;CubeCoordinates&gt;</code> or <code>nil</code> in case valid line doesn&rsquo;t exist</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC4line4from2toShyAA4CellCGSgAG_AGtKF"></a>
+                    <a name="//apple_ref/swift/Method/line(from:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC4line4from2toShyAA4CellCGSgAG_AGtKF">line(from:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for cells making a line from origin to target cell</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">line</span><span class="p">(</span><span class="n">from</span> <span class="nv">origin</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="o">&gt;</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>origin</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Cell.html">Cell</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>target</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Cell.html">Cell</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;Cell&gt;</code> or <code>nil</code> in case valid line doesn&rsquo;t exist</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC15ringCoordinates4from2in16includingBlockedShyAA04CubeD0VGAH_SiSbtKF"></a>
+                    <a name="//apple_ref/swift/Method/ringCoordinates(from:in:includingBlocked:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC15ringCoordinates4from2in16includingBlockedShyAA04CubeD0VGAH_SiSbtKF">ringCoordinates(from:in:includingBlocked:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for coordinates making a ring from origin coordinates in specified radius</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Coordinates of blocked cells are excluded by default.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">ringCoordinates</span><span class="p">(</span>
+    <span class="n">from</span> <span class="nv">coordinates</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">,</span>
+    <span class="k">in</span> <span class="nv">radius</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span>
+    <span class="nv">includingBlocked</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coordinates</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>radius</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Int</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>includingBlocked</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional <code>Bool</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC4ring4from2in16includingBlockedShyAA4CellCGAH_SiSbtKF"></a>
+                    <a name="//apple_ref/swift/Method/ring(from:in:includingBlocked:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC4ring4from2in16includingBlockedShyAA4CellCGAH_SiSbtKF">ring(from:in:includingBlocked:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for cells making a ring from origin cell in specified radius</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Blocked cells are excluded by default.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">ring</span><span class="p">(</span><span class="n">from</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">,</span> <span class="k">in</span> <span class="nv">radius</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">includingBlocked</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cell</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Cell.html">Cell</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>radius</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Int</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>includingBlocked</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional <code>Bool</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;Cell&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC21filledRingCoordinates4from2in16includingBlockedShyAA04CubeE0VGAH_SiSbtKF"></a>
+                    <a name="//apple_ref/swift/Method/filledRingCoordinates(from:in:includingBlocked:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC21filledRingCoordinates4from2in16includingBlockedShyAA04CubeE0VGAH_SiSbtKF">filledRingCoordinates(from:in:includingBlocked:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for coordinates making a filled ring from origin coordinates in specified radius</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Coordinates of blocked cells are excluded by default.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">filledRingCoordinates</span><span class="p">(</span><span class="n">from</span> <span class="nv">coordinates</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">,</span> <span class="k">in</span> <span class="nv">radius</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">includingBlocked</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coordinates</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>radius</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Int</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>includingBlocked</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional <code>Bool</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC10filledRing4from2in16includingBlockedShyAA4CellCGAH_SiSbtKF"></a>
+                    <a name="//apple_ref/swift/Method/filledRing(from:in:includingBlocked:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC10filledRing4from2in16includingBlockedShyAA4CellCGAH_SiSbtKF">filledRing(from:in:includingBlocked:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for cells making a filled ring from origin cell in specified radius</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    Blocked cells are excluded by default.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">filledRing</span><span class="p">(</span><span class="n">from</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">,</span> <span class="k">in</span> <span class="nv">radius</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">includingBlocked</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cell</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Cell.html">Cell</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>radius</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Int</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>includingBlocked</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optional <code>Bool</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;Cell&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Grid%20searching%20(flood%20search%20and%20pathfinding)"></a>
+                <a name="//apple_ref/swift/Section/Grid searching (flood search and pathfinding)" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Grid%20searching%20(flood%20search%20and%20pathfinding)"></a>
+                  <h3 class="section-name"><p>Grid searching (flood search and pathfinding)</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC24findReachableCoordinates4from2inShyAA04CubeE0VGAG_SitKF"></a>
+                    <a name="//apple_ref/swift/Method/findReachableCoordinates(from:in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC24findReachableCoordinates4from2inShyAA04CubeE0VGAG_SitKF">findReachableCoordinates(from:in:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for all coordinates reachanble from origin coordinates within specified number of steps</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This function internally use Breadth First Search algorithm.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">findReachableCoordinates</span><span class="p">(</span><span class="n">from</span> <span class="nv">coordinates</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">,</span> <span class="k">in</span> <span class="nv">steps</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coordinates</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code> origin</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>steps</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>maximum number of steps</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC13findReachable4from2inShyAA4CellCGAG_SitKF"></a>
+                    <a name="//apple_ref/swift/Method/findReachable(from:in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC13findReachable4from2inShyAA4CellCGAG_SitKF">findReachable(from:in:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for all cells reachanble from origin cell within specified number of steps</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This function internally use Breadth First Search algorithm.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">findReachable</span><span class="p">(</span><span class="n">from</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">,</span> <span class="k">in</span> <span class="nv">steps</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cell</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Cell.html">Cell</a></code> origin</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>steps</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>maximum number of steps</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Set&lt;Cell&gt;</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC19findPathCoordinates4from2toSayAA04CubeE0VGSgAG_AGtKF"></a>
+                    <a name="//apple_ref/swift/Method/findPathCoordinates(from:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC19findPathCoordinates4from2toSayAA04CubeE0VGSgAG_AGtKF">findPathCoordinates(from:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for the sortest path from origin to target coordinates</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This function internally use A* algorithm.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">findPathCoordinates</span><span class="p">(</span><span class="n">from</span> <span class="nv">origin</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>origin</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code> starting position</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>target</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/CubeCoordinates.html">CubeCoordinates</a></code> target position</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>[CubeCoordinates]</code> sorted array of adjacent coordinates or <code>nil</code> in case valid path doesn&rsquo;t exist</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC8findPath4from2toSayAA4CellCGSgAG_AGtKF"></a>
+                    <a name="//apple_ref/swift/Method/findPath(from:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC8findPath4from2toSayAA4CellCGSgAG_AGtKF">findPath(from:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Search for the sortest path from origin to target cell</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Structs.html#/s:7HexGrid21InvalidArgumentsErrorV">InvalidArgumentsError</a></code> in case underlying cube coordinates initializer propagate the error.
+
+</div><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This function internally use A* algorithm.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">findPath</span><span class="p">(</span><span class="n">from</span> <span class="nv">origin</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">]?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>origin</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Cell.html">Cell</a></code> starting position</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>target</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Cell.html">Cell</a></code> target position</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>[Cell]</code> sorted array of adjacent cells or <code>nil</code> in case valid path doesn&rsquo;t exist</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UI%20and%20Drawing"></a>
+                <a name="//apple_ref/swift/Section/UI and Drawing" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/UI%20and%20Drawing"></a>
+                  <h3 class="section-name"><p>UI and Drawing</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC14polygonCorners3forSayAA5PointVGAA4CellC_tF"></a>
+                    <a name="//apple_ref/swift/Method/polygonCorners(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC14polygonCorners3forSayAA5PointVGAA4CellC_tF">polygonCorners(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculate screen coordinates for corners all hexagon</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This function take into account grid orientation as well as its origin screen coordinates.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">polygonCorners</span><span class="p">(</span><span class="k">for</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/Point.html">Point</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cell</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Cell.html">Cell</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>[Point]</code> Array of points (x, y - screen coordinates). Each point represents one of polygon (hexagon) corners.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC16pixelCoordinates3forAA5PointVAA4CellC_tF"></a>
+                    <a name="//apple_ref/swift/Method/pixelCoordinates(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC16pixelCoordinates3forAA5PointVAA4CellC_tF">pixelCoordinates(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculate screen coordinates for center of a hexagon</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This function take into account grid orientation as well as its origin screen coordinates.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">pixelCoordinates</span><span class="p">(</span><span class="k">for</span> <span class="nv">cell</span><span class="p">:</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Point.html">Point</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cell</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/Cell.html">Cell</a></code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Structs/Point.html">Point</a></code> (x, y - screen coordinates) of a cell center</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7HexGridAAC6cellAtyAA4CellCSgAA5PointVKF"></a>
+                    <a name="//apple_ref/swift/Method/cellAt(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7HexGridAAC6cellAtyAA4CellCSgAA5PointVKF">cellAt(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get cell for specified screen coordinates</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This function take into account grid orientation as well as its origin screen coordinates.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cellAt</span><span class="p">(</span><span class="n">_</span> <span class="nv">pixelCoordinates</span><span class="p">:</span> <span class="kt"><a href="../Structs/Point.html">Point</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Cell.html">Cell</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pixelCoordinates</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Structs/Point.html">Point</a></code> (x, y - screen coordinates)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Cell?</code> or <code>nil</code> if cell doesn&rsquo;t exist for provided screen coordinates</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external">fananek</a>. All rights reserved. (Last updated: 2020-03-17)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -9,7 +9,7 @@
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
     </a>
-    <a href="#">
+    <a href="https://fananek.github.io/HexGrid">
         <img src="http://img.shields.io/badge/read_the-docs-2196f3.svg" alt="Documentation">
     </a>
 </p>
@@ -38,11 +38,11 @@ The library is meant for generic backend use. Therefore it doesn't not offer any
 - [x] Hexagon rendering related stuff (e.g. polygon corners).  
 - [x] Code inline documentation (quick help).
 - [x] Solid unit tests coverage.
+- [x] Generate full documentation.
 
 ## What's coming next?
 
 - [ ] Review and update readme.md.
-- [ ] Generate full documentation.
 - [ ] More testing (including real projects).
 - [ ] Demo with visualization.
 - [ ] Possibly Implement FieldOfView algorithm (evaluating `RayCasting` vs `ShadowCasting` vs `own solution`).
@@ -235,7 +235,7 @@ let cell = try grid.cellAt(point)
 
 ## Implementation fundamentals
 
-For detailed information see complete [documentation TBD](#)
+For detailed information see complete [documentation](https://fananek.github.io/HexGrid)
 
 ### Data structures you should know
 

@@ -1,7 +1,10 @@
 /// Enumeration for hexagonal grid shapes
 
 public enum GridShape {
-    case rectangle(Int, Int) //width, height
-    case hexagon(Int) // radius
-    case triangle(Int) // side size
+    /// width, height
+    case rectangle(Int, Int)
+    /// radius
+    case hexagon(Int)
+    /// side size
+    case triangle(Int)
 }

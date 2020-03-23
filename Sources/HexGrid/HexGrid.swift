@@ -17,7 +17,7 @@ public class HexGrid: Codable {
     /// Default initializer
     /// - Parameters:
     ///   - cells: grid cells `Set<Cell>`
-    ///   - orientation: Grid`Orientation` enumeration
+    ///   - orientation: Grid `Orientation` enumeration
     ///   - offsetLayout: `OffsetLayout` enumeration (used to specify row or column offset for rectangular grids)
     ///   - hexSize: `HexSize`
     ///   - origin: Grid origin coordinates (used for drawing related math)
@@ -40,7 +40,7 @@ public class HexGrid: Codable {
     /// Initializer with generated grid shape
     /// - Parameters:
     ///   - shape: Shape to be generated
-    ///   - orientation: Grid`Orientation` enumeration
+    ///   - orientation: Grid `Orientation` enumeration
     ///   - offsetLayout: `OffsetLayout` enumeration (used to specify row or column offset for rectangular grids)
     ///   - hexSize: `HexSize`
     ///   - origin: Grid origin coordinates (used for drawing related math)

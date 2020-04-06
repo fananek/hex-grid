@@ -15,6 +15,8 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "HexGridTests",
-            dependencies: ["HexGrid"])
+            dependencies: [
+            .target(name: "HexGrid")
+        ]),
     ]
 )

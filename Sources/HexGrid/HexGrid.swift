@@ -255,18 +255,19 @@ public class HexGrid: Codable {
     ///   - coordinates: `CubeCoordinates`
     ///   - radius: `Int`
     ///   - includingBlocked: optional `Bool`
-    /// - Returns: `Set<CubeCoordinates>`
+    /// - Returns: `Array<CubeCoordinates>`
     /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
     /// - Note: Coordinates of blocked cells are excluded by default.
     public func ringCoordinates(
         from coordinates: CubeCoordinates,
         in radius: Int,
-        includingBlocked: Bool = false) throws -> Set<CubeCoordinates> {
+        includingBlocked: Bool = false) throws -> [CubeCoordinates] {
         let ring = try Math.ring(from: coordinates, in: radius)
         if includingBlocked {
-            return ring.intersection(self.allCellsCoordinates())
+            return ring.filter({self.allCellsCoordinates().contains($0)})
         }
-        return ring.intersection(self.nonBlockedCellsCoordinates())
+        
+        return ring.filter({self.nonBlockedCellsCoordinates().contains($0)})
     }
     
     /// Search for cells making a ring from origin cell in specified radius
@@ -274,14 +275,14 @@ public class HexGrid: Codable {
     ///   - cell: `Cell`
     ///   - radius: `Int`
     ///   - includingBlocked: optional `Bool`
-    /// - Returns: `Set<Cell>`
+    /// - Returns: `Array<Cell>`
     /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
     /// - Note: Blocked cells are excluded by default.
-    public func ring(from cell: Cell, in radius: Int, includingBlocked: Bool = false) throws -> Set<Cell> {
-        return Set(try self.ringCoordinates(
+    public func ring(from cell: Cell, in radius: Int, includingBlocked: Bool = false) throws -> [Cell] {
+        return try self.ringCoordinates(
             from: cell.coordinates,
             in: radius,
-            includingBlocked: includingBlocked ).compactMap { self.cellAt($0) })
+            includingBlocked: includingBlocked).compactMap { self.cellAt($0)}
     }
     
     /// Search for coordinates making a filled ring from origin coordinates in specified radius

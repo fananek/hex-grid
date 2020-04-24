@@ -363,21 +363,21 @@ class HexGridTests: XCTestCase {
             shape: GridShape.hexagon(1))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         
-        let testSet: Set<CubeCoordinates> = try [
-            CubeCoordinates(x:  1,  y: -1,  z:  0),
-            CubeCoordinates(x:  0,  y: -1,  z:  1),
-            CubeCoordinates(x: -1,  y:  0,  z:  1),
-            CubeCoordinates(x: -1,  y:  1,  z:  0),
-            CubeCoordinates(x:  0,  y:  1,  z: -1)
+        let testSet: Array<CubeCoordinates> = try [
+            CubeCoordinates(x:  -1,  y: 1,  z:  0),
+            CubeCoordinates(x:  0,  y: 1,  z:  -1),
+            CubeCoordinates(x: 1,  y:  -1,  z:  0),
+            CubeCoordinates(x:  0,  y:  -1,  z: 1),
+            CubeCoordinates(x:  -1,  y:  0,  z: 1)
         ]
         
-        let testSetWithBlocked: Set<CubeCoordinates> = try [
-            CubeCoordinates(x:  1,  y:  0,  z: -1),
-            CubeCoordinates(x:  1,  y: -1,  z:  0),
-            CubeCoordinates(x:  0,  y: -1,  z:  1),
-            CubeCoordinates(x: -1,  y:  0,  z:  1),
-            CubeCoordinates(x: -1,  y:  1,  z:  0),
-            CubeCoordinates(x:  0,  y:  1,  z: -1)
+        let testSetWithBlocked: Array<CubeCoordinates> = try [
+            CubeCoordinates(x:  -1,  y: 1,  z:  0),
+            CubeCoordinates(x:  0,  y: 1,  z:  -1),
+            CubeCoordinates(x: 1,  y:  0,  z:  -1),
+            CubeCoordinates(x: 1,  y:  -1,  z:  0),
+            CubeCoordinates(x:  0,  y:  -1,  z: 1),
+            CubeCoordinates(x:  -1,  y:  0,  z: 1)
         ]
         
         let origin = try CubeCoordinates(x: 0, y: 0, z: 0)
@@ -393,21 +393,22 @@ class HexGridTests: XCTestCase {
             shape: GridShape.hexagon(1))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         
-        let testSet: Set<Cell> = try [
-            Cell(CubeCoordinates(x:  1,  y: -1,  z:  0)),
-            Cell(CubeCoordinates(x:  0,  y: -1,  z:  1)),
-            Cell(CubeCoordinates(x: -1,  y:  0,  z:  1)),
-            Cell(CubeCoordinates(x: -1,  y:  1,  z:  0)),
-            Cell(CubeCoordinates(x:  0,  y:  1,  z: -1))
+        let testSet: Array<Cell> = try [
+            Cell(CubeCoordinates(x:  -1,  y: 1,  z:  0)),
+            Cell(CubeCoordinates(x:  0,  y: 1,  z:  -1)),
+            Cell(CubeCoordinates(x: 1,  y:  -1,  z:  0)),
+            Cell(CubeCoordinates(x:  0,  y:  -1,  z: 1)),
+            Cell(CubeCoordinates(x:  -1,  y:  0,  z: 1))
         ]
         
-        let testSetWithBlocked: Set<Cell> = try [
-            Cell(CubeCoordinates(x:  1,  y:  0,  z: -1)),
-            Cell(CubeCoordinates(x:  1,  y: -1,  z:  0)),
-            Cell(CubeCoordinates(x:  0,  y: -1,  z:  1)),
-            Cell(CubeCoordinates(x: -1,  y:  0,  z:  1)),
-            Cell(CubeCoordinates(x: -1,  y:  1,  z:  0)),
-            Cell(CubeCoordinates(x:  0,  y:  1,  z: -1))
+        let testSetWithBlocked: Array<Cell> = try [
+            Cell(CubeCoordinates(x:  -1,  y: 1,  z:  0)),
+            Cell(CubeCoordinates(x:  0,  y: 1,  z:  -1)),
+            Cell(CubeCoordinates(x:  1,  y: 0,  z:  -1)),
+            Cell(CubeCoordinates(x: 1,  y:  -1,  z:  0)),
+            Cell(CubeCoordinates(x:  0,  y:  -1,  z: 1)),
+            Cell(CubeCoordinates(x:  -1,  y:  0,  z: 1))
+
         ]
         
         if let originCell = try grid.cellAt(CubeCoordinates(x: 0, y: 0, z: 0)) {

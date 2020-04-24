@@ -268,19 +268,19 @@ internal struct Math {
     /// - Parameters:
     ///     - from: coordinates of a ring center
     ///     - in: ring radius
-    /// - Returns: Set of all coordinates making a ring from hex `origin` on `radius`
-    static func ring(from origin: CubeCoordinates, in radius: Int) throws -> Set<CubeCoordinates> {
-        var results = Set<CubeCoordinates>()
+    /// - Returns: Array of all coordinates making a ring from hex `origin` on `radius`
+    static func ring(from origin: CubeCoordinates, in radius: Int) throws -> [CubeCoordinates] {
+        var results = [CubeCoordinates]()
         switch radius {
         case Int.min..<0:
             throw InvalidArgumentsError(message: "Radius can't be less than zero.")
         case 0:
-            results.insert(origin)
+            results.append(origin)
         default:
             var h = try add(a: origin, b: scale(a: direction(at: 4), c: radius))
             for side in 0..<6 {
                 for _ in 0..<radius {
-                    results.insert(h)
+                    results.append(h)
                     h = try neighbor(at: side, origin: h)
                 }
             }

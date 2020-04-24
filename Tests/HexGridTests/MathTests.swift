@@ -179,13 +179,13 @@ class MathTests: XCTestCase {
     /// Test ring
     func testRing() throws {
         let ring = try Math.ring(from: CubeCoordinates(x: 1, y: -1, z: 0), in: 1)
-        let testSet: Set<CubeCoordinates> = try [
-            CubeCoordinates(x:  0,  y: -1,  z:  1),
-            CubeCoordinates(x:  0,  y:  0,  z:  0),
-            CubeCoordinates(x:  1,  y:  0,  z: -1),
-            CubeCoordinates(x:  2,  y: -1,  z: -1),
-            CubeCoordinates(x:  2,  y: -2,  z:  0),
-            CubeCoordinates(x:  1,  y: -2,  z:  1)
+        let testSet: [CubeCoordinates] = try [
+            CubeCoordinates(x:  0,  y: 0,  z:  0),
+            CubeCoordinates(x:  1,  y:  0,  z:  -1),
+            CubeCoordinates(x:  2,  y:  -1,  z: -1),
+            CubeCoordinates(x:  2,  y: -2,  z: 0),
+            CubeCoordinates(x:  1,  y: -2,  z:  1),
+            CubeCoordinates(x:  0,  y: -1,  z:  1)
             ]
         XCTAssertEqual(ring, testSet)
     }
@@ -193,7 +193,7 @@ class MathTests: XCTestCase {
     /// Test zero ring
     func testZeroRing() throws {
         let ring = try Math.ring(from: CubeCoordinates(x: 1, y: -1, z: 0), in: 0)
-        let testSet: Set<CubeCoordinates> = try [
+        let testSet: Array<CubeCoordinates> = try [
             CubeCoordinates(x: 1, y: -1, z: 0),
         ]
         XCTAssertEqual(ring, testSet)
@@ -203,7 +203,7 @@ class MathTests: XCTestCase {
     func testInvalidRing() throws {
         XCTAssertThrowsError(try Math.ring(from: CubeCoordinates(x: 1, y: -1, z: 0), in: -1))
     }
-    
+        
     /// Test filled ring
     func testFilledRing() throws {
         let filledRing = try Math.filledRing(from: CubeCoordinates(x: 0, y: 0, z: 0), in: 1)

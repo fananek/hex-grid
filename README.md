@@ -1,7 +1,7 @@
 # HexGrid
 <p align="center">
     <a href="https://swift.org">
-        <img src="http://img.shields.io/badge/swift-5.1-orange.svg" alt="Swift 5.1">
+        <img src="http://img.shields.io/badge/swift-5.2-orange.svg" alt="Swift 5.2">
     </a>
     <a href="https://swift.org/package-manager">
         <img src="https://img.shields.io/badge/spm-&#x2713-brightgreen.svg" alt="Swift Package Manager Compatible">
@@ -9,7 +9,7 @@
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
     </a>
-    <a href="https://fananek.github.io/HexGrid">
+    <a href="https://fananek.github.io/hex-grid/">
         <img src="http://img.shields.io/badge/read_the-docs-2196f3.svg" alt="Documentation">
     </a>
 </p>
@@ -239,7 +239,7 @@ let cell = try grid.cellAt(point)
 
 ## Implementation fundamentals
 
-For detailed information see complete [documentation](https://fananek.github.io/HexGrid)
+For detailed information see complete [documentation](https://fananek.github.io/hex-grid/)
 
 ### Data structures you should know
 

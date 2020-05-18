@@ -51,7 +51,7 @@ The library is meant for generic backend use. Therefore it doesn't not offer any
 
 ### Integrating HexGrid to your project
 
-Add HexGrid as a dependency to your `Package.swift` file. If you need swift 4.1 support, use version 0.1.0, otherwise go with the lastest available release. 
+Add HexGrid as a dependency to your `Package.swift` file. 
 
 ```swift
 import PackageDescription
@@ -61,7 +61,7 @@ name: "MyApp",
 dependencies: [
 ...
 // Add HexGrid package here
-.package(url: "https://github.com/fananek/hex-grid.git", from: "0.3.3")
+.package(url: "https://github.com/fananek/hex-grid.git", from: "0.3.4")
 ],
 ...
 targets: [

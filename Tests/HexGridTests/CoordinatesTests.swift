@@ -111,8 +111,8 @@ class CoordinatesTests: XCTestCase {
             orientation: Orientation.pointyOnTop,
             hexSize: HexSize(width: 10.0, height: 10.0),
             origin: Point(x: 0.0, y: 0.0))
-        XCTAssertEqual(pixelCoordinates.x, 25.98076211353316)
-        XCTAssertEqual(pixelCoordinates.y, -15.0)
+        XCTAssertEqual(pixelCoordinates.x, 12.99038105676658)
+        XCTAssertEqual(pixelCoordinates.y, -7.5)
     }
     
     /// Convert coordinates from cube to offset using `pointy on top` orientation and `odd` offset layout

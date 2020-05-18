@@ -190,7 +190,7 @@ internal struct Heap<T> {
     
     /**
      * Looks at a parent node and makes sure it is still larger (max-heap) or
-     * smaller (min-heap) than its childeren.
+     * smaller (min-heap) than its children.
      */
     internal mutating func shiftDown(from index: Int, until endIndex: Int) {
         let leftChildIndex = self.leftChildIndex(ofIndex: index)

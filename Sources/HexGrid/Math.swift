@@ -80,7 +80,7 @@ internal struct Math {
     /// This formula `(6 + (index % 6)) % 6` make it work with index outside of 0...5.
     /// Works also with negative numbers.
     ///
-    /// This makes `directions`  a closed loop. When an index overflow the array boundry it continues on the other side.
+    /// This makes `directions`  a closed loop. When an index overflow the array boundary it continues on the other side.
     ///
     /// examples:
     ///
@@ -98,7 +98,7 @@ internal struct Math {
     /// - Parameters:
     ///     - at: index of desired direction (0...5).
     ///     - origin: Coordinates of the origin hexagon.
-    /// - Returns: Coordinates of a neighnor at specified direction
+    /// - Returns: Coordinates of a neighbor at specified direction
     /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
     static func neighbor(at index: Int, origin: CubeCoordinates) throws -> CubeCoordinates {
         return try add(a: origin, b: direction(at: index))
@@ -136,7 +136,7 @@ internal struct Math {
     /// - Note:
     /// This formula `(6 + (index % 6)) % 6` make it work with index outside of 0...5. Works also with negative numbers.
     ///
-    /// This makes `diagonalDirections` a closed loop. When index overflow an array boundry it continues on the other side.
+    /// This makes `diagonalDirections` a closed loop. When index overflow an array boundary it continues on the other side.
     ///
     /// examples:
     ///
@@ -147,7 +147,7 @@ internal struct Math {
     ///   index `13` will return the same direction as index `1`
     static func diagonalDirection(at index: Int) -> CubeCoordinates {
         // This ugly formula make it work with index outside of 0...5
-        // It's usefull for negative numbers (e.g. backward rotation)
+        // It's useful for negative numbers (e.g. backward rotation)
         return diagonalDirections[(6 + (index % 6)) % 6]
     }
     
@@ -156,7 +156,7 @@ internal struct Math {
     /// - Parameters:
     ///     - at: index of desired direction (0...5).
     ///     - origin: Coordinates of the origin hexagon.
-    /// - Returns: Coordinates of a diagonal neighnor at specified direction
+    /// - Returns: Coordinates of a diagonal neighbor at specified direction
     /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
     static func diagonalNeighbor(at index: Int, origin: CubeCoordinates) throws -> CubeCoordinates {
         return try add(a: origin, b: diagonalDirection(at: index))
@@ -210,7 +210,7 @@ internal struct Math {
     /// - Parameters:
     ///     - coordinates: coordinates of a hex
     ///     - hexSize: represents display height and width of a hex
-    ///     - gridOrigin: dispaly coordinates of a grid origin
+    ///     - gridOrigin: display coordinates of a grid origin
     ///     - orientation: orientation of a grid
     /// - Returns: Array of six display coordinates (polygon vertices).
     static func hexCorners(
@@ -244,7 +244,7 @@ internal struct Math {
     /// Line between two hexes
     /// - Parameters:
     ///     - from: origin coordinates
-    ///     - to: target coodrinates
+    ///     - to: target coordinates
     /// - Returns: Set of all coordinates making a line from coordinate `a` to coordinate `b`
     static func line(from a: CubeCoordinates, to b: CubeCoordinates) throws -> Set<CubeCoordinates> {
         let n = try distance(from: a, to: b)

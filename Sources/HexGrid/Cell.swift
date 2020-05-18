@@ -32,7 +32,7 @@ public class Cell: Codable {
         }
     }
 
-    /// Manhatan distance to coordinates
+    /// Manhattan distance to coordinates
     ///
     /// - parameters:
     ///   - coordinates: Target coordinates
@@ -42,7 +42,7 @@ public class Cell: Codable {
         return try Math.distance(from: self.coordinates, to: coordinates)
     }
 
-    /// Manhatan distance to cell
+    /// Manhattan distance to cell
     ///
     /// - parameters:
     ///   - cell: Target cell

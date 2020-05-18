@@ -1,6 +1,6 @@
 /// HexGrid is an entry point of the package. It represents a grid of hexagonal cells
 public class HexGrid: Codable {
-    public var orientaion: Orientation
+    public var orientation: Orientation
     public var offsetLayout: OffsetLayout
     public var hexSize: HexSize
     public var origin: Point
@@ -29,7 +29,7 @@ public class HexGrid: Codable {
         origin: Point = Point(x: 0, y: 0),
         attributes: [String: Attribute] = [String: Attribute]()) {
         self.cells = cells
-        self.orientaion = orientation
+        self.orientation = orientation
         self.offsetLayout = offsetLayout
         self.hexSize = hexSize
         self.origin = origin
@@ -51,7 +51,7 @@ public class HexGrid: Codable {
         hexSize: HexSize = HexSize(width: 10.0, height: 10.0),
         origin: Point = Point(x: 0, y: 0),
         attributes: [String: Attribute] = [String: Attribute]()) {
-        self.orientaion = orientation
+        self.orientation = orientation
         self.offsetLayout = offsetLayout
         self.hexSize = hexSize
         self.origin = origin
@@ -318,7 +318,7 @@ public class HexGrid: Codable {
     
     // MARK: Grid searching (flood search and pathfinding)
     
-    /// Search for all coordinates reachanble from origin coordinates within specified number of steps
+    /// Search for all coordinates reachable from origin coordinates within specified number of steps
     /// - Parameters:
     ///   - coordinates: `CubeCoordinates` origin
     ///   - steps: maximum number of steps
@@ -329,7 +329,7 @@ public class HexGrid: Codable {
         return try Math.breadthFirstSearch(from: coordinates, in: steps, on: self)
     }
     
-    /// Search for all cells reachanble from origin cell within specified number of steps
+    /// Search for all cells reachable from origin cell within specified number of steps
     /// - Parameters:
     ///   - cell: `Cell` origin
     ///   - steps: maximum number of steps
@@ -342,7 +342,7 @@ public class HexGrid: Codable {
             in: steps).compactMap{ self.cellAt($0) })
     }
     
-    /// Search for the sortest path from origin to target coordinates
+    /// Search for the shortest path from origin to target coordinates
     /// - Parameters:
     ///   - origin: `CubeCoordinates` starting position
     ///   - target: `CubeCoordinates` target position
@@ -353,7 +353,7 @@ public class HexGrid: Codable {
         return try Math.aStarPath(from: origin, to: target, on: self)
     }
     
-    /// Search for the sortest path from origin to target cell
+    /// Search for the shortest path from origin to target cell
     /// - Parameters:
     ///   - origin: `Cell` starting position
     ///   - target: `Cell` target position
@@ -378,7 +378,7 @@ public class HexGrid: Codable {
             coordinates: cell.coordinates,
             hexSize: self.hexSize,
             origin: self.origin,
-            orientation: self.orientaion)
+            orientation: self.orientation)
     }
     
     /// Calculate screen coordinates for center of a hexagon
@@ -386,7 +386,7 @@ public class HexGrid: Codable {
     /// - Returns: `Point` (x, y - screen coordinates) of a cell center
     /// - Note: This function take into account grid orientation as well as its origin screen coordinates.
     public func pixelCoordinates(for cell: Cell) -> Point {
-        return cell.coordinates.toPixel(orientation: self.orientaion, hexSize: self.hexSize, origin: self.origin)
+        return cell.coordinates.toPixel(orientation: self.orientation, hexSize: self.hexSize, origin: self.origin)
     }
     
     /// Get cell for specified screen coordinates
@@ -398,12 +398,12 @@ public class HexGrid: Codable {
             from: pixelCoordinates,
             hexSize: self.hexSize,
             origin: self.origin,
-            orientation: self.orientaion)
+            orientation: self.orientation)
         return cellAt(coords)
     }
     
     // MARK: Internal functions
-    /// Function keeps grid dimenstions udpated using property observer
+    /// Function keeps grid dimensions updated using property observer
     fileprivate func updatePixelDimensions() -> Void {
         var minX: Double = 0.0
         var maxX: Double = 0.0
@@ -419,7 +419,7 @@ public class HexGrid: Codable {
         }
         var cellPixelWidth: Double
         var cellPixelHeight: Double
-        switch orientaion {
+        switch orientation {
         case .pointyOnTop:
             cellPixelWidth = (3.0).squareRoot() * hexSize.width
             cellPixelHeight = 2.0 * hexSize.height

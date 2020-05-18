@@ -644,7 +644,7 @@ class HexGridTests: XCTestCase {
             origin: gridOrigin)
         let cell = try Cell(CubeCoordinates(x: 1, y: -1, z: 0))
         let center = gridPointy.pixelCoordinates(for: cell)
-        let expectedCenter = Point(x: 17.32050807568877, y: 0.0)
+        let expectedCenter = Point(x: 8.660254037844386, y: 0.0)
         XCTAssertEqual(center, expectedCenter)
     }
     
@@ -677,10 +677,10 @@ class HexGridTests: XCTestCase {
             offsetLayout: OffsetLayout.even,
             hexSize: hexSize,
             origin: gridOrigin)
-        let expectedWidthPonity: Double = 86.6
-        let expectedHeightPonity: Double = 80.0
-        XCTAssertEqual((gridPointy.pixelWidth * 10).rounded()/10, expectedWidthPonity)
-        XCTAssertEqual(gridPointy.pixelHeight, expectedHeightPonity)
+        let expectedWidthPointy: Double = 52.0
+        let expectedHeightPointy: Double = 50.0
+        XCTAssertEqual((gridPointy.pixelWidth * 10).rounded()/10, expectedWidthPointy)
+        XCTAssertEqual(gridPointy.pixelHeight, expectedHeightPointy)
         
         let gridFlat = HexGrid(
             shape: GridShape.hexagon(2),
@@ -688,8 +688,8 @@ class HexGridTests: XCTestCase {
             offsetLayout: OffsetLayout.even,
             hexSize: hexSize,
             origin: gridOrigin)
-        let expectedWidthFlat: Double = 80.0
-        let expectedHeightFlat: Double = 86.6
+        let expectedWidthFlat: Double = 50.0
+        let expectedHeightFlat: Double = 52.0
         XCTAssertEqual(gridFlat.pixelWidth, expectedWidthFlat)
         XCTAssertEqual((gridFlat.pixelHeight * 10).rounded()/10, expectedHeightFlat)
     }

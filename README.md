@@ -122,14 +122,14 @@ HexGrid conforms to swift `Codable` protocol so it can be easily encoded to or d
 
 Example:
 
-```
+```swift
 // encode (grid to JSON)
 let grid = HexGrid(shape: GridShape.hexagon(5) )
 let encoder = JSONEncoder()
 let data = try encoder.encode(grid)
 ```
 
-```
+```swift
 // decode (JSON to grid)
 let decoder = JSONDecoder()
 let grid = try decoder.decode(HexGrid.self, from: data)
@@ -140,7 +140,7 @@ Almost all functions has two variants. One works with `Cell` and the other one w
 
 #### Get Cell at coordinates
 
-```
+```swift
 let cell = grid.cellAt(try CubeCoordinates(x: 1, y: 0, z: -1))
 ```
 
@@ -148,14 +148,14 @@ let cell = grid.cellAt(try CubeCoordinates(x: 1, y: 0, z: -1))
 
 Check whether some coordinates are valid (means it exist on a grid).
 
-```
+```swift
 // returns Bool
 isValidCoordinates(try CubeCoordinates(x: 2, y: 4, z: -6))
 ```
 
 #### Get blocked or non blocked Cells
 
-```
+```swift
 let blockedCells = grid.blockedCells()
 // or
 let nonBlockedCells = grid.nonBlockedCells()
@@ -163,7 +163,7 @@ let nonBlockedCells = grid.nonBlockedCells()
 
 #### Get single neighbor
 
-```
+```swift
 // get neighbor for a specific Cell
 let neighbor = try grid.neighbor(
             for: someCell,
@@ -177,7 +177,7 @@ let neighborCoordinates = try grid.neighborCoordinates(
 
 #### Get all neighbors
 
-```
+```swift
 // get all neighbors for a specific Cell
 let neighbors = try grid.neighbors(for: someCell)
 
@@ -187,35 +187,35 @@ let neighborsCoords = try grid.neighbors(for: someCoordinates)
 
 #### Get line from A to B
 
-```
+```swift
 // returns nil in case line doesn't exist
 let line = try grid.line(from: originCell, to: targetCell)
 ```
 
 #### Get ring
 
-```
+```swift
 // returns all cells making a ring from origin cell in radius
 let ring = try grid.ring(from: originCell, in: 2)
 ```
 
 #### Get filled ring
 
-```
+```swift
 // returns all cells making a filled ring from origin cell in radius
 let ring = try grid.filledRing(from: originCell, in: 2)
 ```
 
 #### Find reachable cells
 
-```
+```swift
 // find all reachable cells (max. 4 steps away from origin)
 let reachableCells = try grid.findReachable(from: origin, in: 4)
 ```
 
 #### Find shortest path
 
-```
+```swift
 // returns nil in case path doesn't exist at all
 let path = try grid.findPath(from: originCell, to: targetCell)
 ```
@@ -223,13 +223,13 @@ let path = try grid.findPath(from: originCell, to: targetCell)
 ### Drawing related functions
 If you want to render a grid, you will need screen coordinates of polygon corners for a `Cell`.
 
-```
+```swift
 let corners = grid.polygonCorners(for: someCell)
 ```
 
 Converting cell coordinates to pixel coordinates and vice versa might be handy as well.
 
-```
+```swift
 // return Ponit struct with x: and y: values
 let screenCoords = grid.pixelCoordinates(for: cell)
 
@@ -275,7 +275,7 @@ Properties:
 
 The most common coordinates used within HexGrid library is cube coordinate system. This type of coordinates has three axis x, y and z. The only condition is that sum of its all values has to be equal zero.
 
-```
+```swift
 // valid cube coordinates
 CubeCoordinates(x: 1, y: 0, z: -1) -> sum = 0
 

@@ -1,7 +1,7 @@
 # HexGrid
 <p align="center">
     <a href="https://swift.org">
-        <img src="http://img.shields.io/badge/swift-5.2-orange.svg" alt="Swift 5.2">
+        <img src="http://img.shields.io/badge/swift-5.3-orange.svg" alt="Swift 5.3">
     </a>
     <a href="https://swift.org/package-manager">
         <img src="https://img.shields.io/badge/spm-&#x2713-brightgreen.svg" alt="Swift Package Manager Compatible">
@@ -269,7 +269,7 @@ Properties:
 - coordinates: `CubeCoordinates` - cell placement on a grid coordinate system
 - attributes: `[String: Attribute]` - dictionary of custom attributes (most primitive types are supported as well as nesting)
 - isBlocked: `Bool` - used by algorithms (reachableCells, pathfinding etc.)
-- cost: `Float` - used by pathfinding algorithm. For the sake of simplicity lets put graph theory aside. You can imagine cost as an amount of energy needed to pass a cell. Pathfinding algorithm then search for path requiring the less effort.
+- cost: `Float` - used by pathfinding algorithm. For the sake of simplicity let's put graph theory aside. You can imagine cost as an amount of energy needed to pass a cell. Pathfinding algorithm then search for path requiring the less effort.
 
 #### CubeCoordinates
 

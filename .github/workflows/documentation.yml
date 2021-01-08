@@ -12,11 +12,10 @@ jobs:
       - name: Generate Documentation
         uses: SwiftDocOrg/swift-doc@master
         with:
-          inputs: "Sources"
+          inputs: Sources
           module-name: hex-grid
           output: ./documentation
-          format: "html"
-          base-url: "/hex-grid/"
+          format: html
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

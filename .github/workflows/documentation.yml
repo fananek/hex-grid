@@ -16,7 +16,7 @@ jobs:
           module-name: hex-grid
           output: ./documentation
           format: "html"
-          base-url: "https://fananek.github.io/hex-grid/"
+          base-url: "/hex-grid/"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

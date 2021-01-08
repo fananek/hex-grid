@@ -15,6 +15,7 @@ jobs:
           inputs: "Sources"
           module-name: hex-grid
           format: "html"
+          base-url: "https://fananek.github.io/hex-grid/"
           output: "Documentation"
       - name: Update Permissions
         run: 'sudo chown --recursive $USER Documentation'

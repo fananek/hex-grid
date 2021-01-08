@@ -16,9 +16,9 @@ jobs:
           module-name: hex-grid
           output: "Documentation"
           format: "html"
-      - name: Upload Documentation to Wiki
-        uses: SwiftDocOrg/github-wiki-publish-action@v1
+      - name: Publish generated content to GitHub Pages
+        uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
         with:
-          path: "Documentation"
-        env:
-          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          dir: "Documentation"
+          branch: gh-pages
+          token: ${{ secrets.ACCESS_TOKEN }}  

@@ -15,6 +15,7 @@ jobs:
           inputs: "Sources"
           module-name: hex-grid
           output: "Documentation"
+          format: "html"
       - name: Upload Documentation to Wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:

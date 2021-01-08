@@ -1,4 +1,0 @@
-module: HexGrid
-swift_build_tool: spm
-author: fananek
-theme: apple

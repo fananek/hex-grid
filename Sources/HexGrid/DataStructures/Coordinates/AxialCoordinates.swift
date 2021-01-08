@@ -5,8 +5,7 @@
 /// Axial coordinates are used mainly for storage purposes.
 /// Use it carefully because it can't be validated like Cube coordinates.
 public struct AxialCoordinates: Codable {
-    public let q: Int
-    public let r: Int
+    public let q, r: Int
 
     /// Basic Initializer
     ///

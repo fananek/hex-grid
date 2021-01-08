@@ -43,7 +43,6 @@ The library is meant for generic backend use. Therefore it doesn't not offer any
 ## What's coming next?
 
 - [ ] Review and update readme.md.
-- [ ] More testing (including real projects).
 - [ ] Demo with visualization.
 - [ ] Possibly Implement FieldOfView algorithm (evaluating `RayCasting` vs `ShadowCasting` vs `own solution`).
 

@@ -19,6 +19,6 @@ jobs:
       - name: Publish generated content to GitHub Pages
         uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
         with:
-          dir: "Documentation"
+          dir: documentation
           branch: gh-pages
           token: ${{ secrets.ACCESS_TOKEN }}  

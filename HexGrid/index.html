@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hex-grid - HexGrid</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                hex-grid
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#hexgrid.init(cells:orientation:offsetlayout:hexsize:origin:attributes:)">init(cells:​orientation:​offset​Layout:​hex​Size:​origin:​attributes:​)</a></li><li class="initializer"><a href="#hexgrid.init(shape:orientation:offsetlayout:hexsize:origin:attributes:)">init(shape:​orientation:​offset​Layout:​hex​Size:​origin:​attributes:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#hexgrid.orientation">orientation</a></li><li class="variable"><a href="#hexgrid.offsetlayout">offset​Layout</a></li><li class="variable"><a href="#hexgrid.hexsize">hex​Size</a></li><li class="variable"><a href="#hexgrid.origin">origin</a></li><li class="variable"><a href="#hexgrid.cells">cells</a></li><li class="variable"><a href="#hexgrid.attributes">attributes</a></li><li class="variable"><a href="#hexgrid.pixelwidth">pixel​Width</a></li><li class="variable"><a href="#hexgrid.pixelheight">pixel​Height</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#hexgrid.allcellscoordinates()">all​Cells​Coordinates()</a></li><li class="function"><a href="#hexgrid.nonblockedcells()">non​Blocked​Cells()</a></li><li class="function"><a href="#hexgrid.nonblockedcellscoordinates()">non​Blocked​Cells​Coordinates()</a></li><li class="function"><a href="#hexgrid.blockedcells()">blocked​Cells()</a></li><li class="function"><a href="#hexgrid.blockedcellscoordinates()">blocked​Cells​Coordinates()</a></li><li class="function"><a href="#hexgrid.cellat(_:)">cell​At(_:​)</a></li><li class="function"><a href="#hexgrid.isvalidcoordinates(_:)">is​Valid​Coordinates(_:​)</a></li><li class="function"><a href="#hexgrid.neighbor(for:at:)">neighbor(for:​at:​)</a></li><li class="function"><a href="#hexgrid.neighborcoordinates(for:at:)">neighbor​Coordinates(for:​at:​)</a></li><li class="function"><a href="#hexgrid.neighbors(for:)">neighbors(for:​)</a></li><li class="function"><a href="#hexgrid.neighborscoordinates(for:)">neighbors​Coordinates(for:​)</a></li><li class="function"><a href="#hexgrid.diagonalneighbor(for:at:)">diagonal​Neighbor(for:​at:​)</a></li><li class="function"><a href="#hexgrid.diagonalneighborcoordinates(for:at:)">diagonal​Neighbor​Coordinates(for:​at:​)</a></li><li class="function"><a href="#hexgrid.diagonalneighbors(for:)">diagonal​Neighbors(for:​)</a></li><li class="function"><a href="#hexgrid.diagonalneighborscoordinates(for:)">diagonal​Neighbors​Coordinates(for:​)</a></li><li class="function"><a href="#hexgrid.linecoordinates(from:to:)">line​Coordinates(from:​to:​)</a></li><li class="function"><a href="#hexgrid.line(from:to:)">line(from:​to:​)</a></li><li class="function"><a href="#hexgrid.ringcoordinates(from:in:includingblocked:)">ring​Coordinates(from:​in:​including​Blocked:​)</a></li><li class="function"><a href="#hexgrid.ring(from:in:includingblocked:)">ring(from:​in:​including​Blocked:​)</a></li><li class="function"><a href="#hexgrid.filledringcoordinates(from:in:includingblocked:)">filled​Ring​Coordinates(from:​in:​including​Blocked:​)</a></li><li class="function"><a href="#hexgrid.filledring(from:in:includingblocked:)">filled​Ring(from:​in:​including​Blocked:​)</a></li><li class="function"><a href="#hexgrid.findreachablecoordinates(from:in:)">find​Reachable​Coordinates(from:​in:​)</a></li><li class="function"><a href="#hexgrid.findreachable(from:in:)">find​Reachable(from:​in:​)</a></li><li class="function"><a href="#hexgrid.findpathcoordinates(from:to:)">find​Path​Coordinates(from:​to:​)</a></li><li class="function"><a href="#hexgrid.findpath(from:to:)">find​Path(from:​to:​)</a></li><li class="function"><a href="#hexgrid.polygoncorners(for:)">polygon​Corners(for:​)</a></li><li class="function"><a href="#hexgrid.pixelcoordinates(for:)">pixel​Coordinates(for:​)</a></li><li class="function"><a href="#hexgrid.cellat(_:)">cell​At(_:​)</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Class</small>
+    <code class="name">Hex​Grid</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="type">HexGrid</span>: <span class="type">Codable</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>HexGrid is an entry point of the package. It represents a grid of hexagonal cells</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.44.1 (20200629.0846)
+ -->
+<!-- Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- HexGrid -->
+<g id="node1" class="node class current">
+<title>HexGrid</title>
+<g id="a_node1"><a xlink:href="/HexGrid" xlink:title="HexGrid">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">HexGrid</text>
+</a>
+</g>
+</g>
+<!-- Codable -->
+<g id="node2" class="node unknown">
+<title>Codable</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,0 336,0 336,0 528,0 528,0 534,0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">Codable</text>
+</g>
+<!-- HexGrid&#45;&gt;Codable -->
+<g id="edge1" class="edge conformsTo">
+<title>HexGrid&#45;&gt;Codable</title>
+<path fill="none" stroke="black" d="M432,-71.7C432,-63.98 432,-54.71 432,-46.11"/>
+<polygon fill="black" stroke="black" points="435.5,-46.1 432,-36.1 428.5,-46.1 435.5,-46.1"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for HexGrid.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>Codable</code></dt>
+</dl>
+</section>
+    <section id="initializers">
+        <h2>Initializers</h2>
+
+        <div role="article" class="initializer" id="hexgrid.init(cells:orientation:offsetlayout:hexsize:origin:attributes:)">
+    <h3>
+        <code>init(cells:​orientation:​offset​Layout:​hex​Size:​origin:​attributes:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">cells</span>: <span class="type">Set</span>&lt;<a href="/Cell"><span class="type">Cell</span></a>&gt;, <span class="variable">orientation</span>: <a href="/Orientation"><span class="type">Orientation</span></a> = <span class="variable">Orientation</span>.<span class="type">pointyOnTop</span>, <span class="variable">offsetLayout</span>: <a href="/OffsetLayout"><span class="type">OffsetLayout</span></a> = <span class="variable">OffsetLayout</span>.<span class="type">even</span>, <span class="variable">hexSize</span>: <a href="/HexSize"><span class="type">HexSize</span></a> = <span class="variable">HexSize</span>(<span class="variable">width</span>: <span class="number literal">10.0</span>, <span class="variable">height</span>: <span class="number literal">10.0</span>), <span class="variable">origin</span>: <a href="/Point"><span class="type">Point</span></a> = <span class="variable">Point</span>(<span class="variable">x</span>: <span class="number literal">0</span>, <span class="variable">y</span>: <span class="number literal">0</span>), <span class="variable">attributes</span>: [<span class="type">String</span>: <a href="/Attribute"><span class="type">Attribute</span></a>] = [<span class="type">String</span>: <a href="/Attribute"><span class="type">Attribute</span></a>]())</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Default initializer</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>cells</th>
+    <td><code class="type">Set&lt;Cell&gt;</code></td>
+    <td><p>grid cells <code>Set&lt;Cell&gt;</code></p>
+</td>
+</tr>
+<tr>
+    <th>orientation</th>
+    <td><code class="type">Orientation</code></td>
+    <td><p>Grid <code>Orientation</code> enumeration</p>
+</td>
+</tr>
+<tr>
+    <th>offset​Layout</th>
+    <td><code class="type">Offset​Layout</code></td>
+    <td><p><code>OffsetLayout</code> enumeration (used to specify row or column offset for rectangular grids)</p>
+</td>
+</tr>
+<tr>
+    <th>hex​Size</th>
+    <td><code class="type">Hex​Size</code></td>
+    <td><p><code>HexSize</code></p>
+</td>
+</tr>
+<tr>
+    <th>origin</th>
+    <td><code class="type">Point</code></td>
+    <td><p>Grid origin coordinates (used for drawing related math)</p>
+</td>
+</tr>
+  </tbody>
+</table>
+</div>
+<div role="article" class="initializer" id="hexgrid.init(shape:orientation:offsetlayout:hexsize:origin:attributes:)">
+    <h3>
+        <code>init(shape:​orientation:​offset​Layout:​hex​Size:​origin:​attributes:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">shape</span>: <a href="/GridShape"><span class="type">GridShape</span></a>, <span class="variable">orientation</span>: <a href="/Orientation"><span class="type">Orientation</span></a> = <span class="variable">Orientation</span>.<span class="type">pointyOnTop</span>, <span class="variable">offsetLayout</span>: <a href="/OffsetLayout"><span class="type">OffsetLayout</span></a> = <span class="variable">OffsetLayout</span>.<span class="type">even</span>, <span class="variable">hexSize</span>: <a href="/HexSize"><span class="type">HexSize</span></a> = <span class="variable">HexSize</span>(<span class="variable">width</span>: <span class="number literal">10.0</span>, <span class="variable">height</span>: <span class="number literal">10.0</span>), <span class="variable">origin</span>: <a href="/Point"><span class="type">Point</span></a> = <span class="variable">Point</span>(<span class="variable">x</span>: <span class="number literal">0</span>, <span class="variable">y</span>: <span class="number literal">0</span>), <span class="variable">attributes</span>: [<span class="type">String</span>: <a href="/Attribute"><span class="type">Attribute</span></a>] = [<span class="type">String</span>: <a href="/Attribute"><span class="type">Attribute</span></a>]())</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Initializer with generated grid shape</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>shape</th>
+    <td><code class="type">Grid​Shape</code></td>
+    <td><p>Shape to be generated</p>
+</td>
+</tr>
+<tr>
+    <th>orientation</th>
+    <td><code class="type">Orientation</code></td>
+    <td><p>Grid <code>Orientation</code> enumeration</p>
+</td>
+</tr>
+<tr>
+    <th>offset​Layout</th>
+    <td><code class="type">Offset​Layout</code></td>
+    <td><p><code>OffsetLayout</code> enumeration (used to specify row or column offset for rectangular grids)</p>
+</td>
+</tr>
+<tr>
+    <th>hex​Size</th>
+    <td><code class="type">Hex​Size</code></td>
+    <td><p><code>HexSize</code></p>
+</td>
+</tr>
+<tr>
+    <th>origin</th>
+    <td><code class="type">Point</code></td>
+    <td><p>Grid origin coordinates (used for drawing related math)</p>
+</td>
+</tr>
+  </tbody>
+</table>
+</div>
+    </section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="hexgrid.orientation">
+    <h3>
+        <code>orientation</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">orientation</span>: <a href="/Orientation"><span class="type">Orientation</span></a></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="hexgrid.offsetlayout">
+    <h3>
+        <code>offset​Layout</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">offsetLayout</span>: <a href="/OffsetLayout"><span class="type">OffsetLayout</span></a></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="hexgrid.hexsize">
+    <h3>
+        <code>hex​Size</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">hexSize</span>: <a href="/HexSize"><span class="type">HexSize</span></a></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="hexgrid.origin">
+    <h3>
+        <code>origin</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">origin</span>: <a href="/Point"><span class="type">Point</span></a></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="hexgrid.cells">
+    <h3>
+        <code>cells</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">cells</span>: <span class="type">Set</span>&lt;<a href="/Cell"><span class="type">Cell</span></a>&gt;</code></pre></body></html>
+</div>
+<div role="article" class="variable" id="hexgrid.attributes">
+    <h3>
+        <code>attributes</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">attributes</span>: [<span class="type">String</span>: <a href="/Attribute"><span class="type">Attribute</span></a>]</code></pre></body></html>
+</div>
+<div role="article" class="variable" id="hexgrid.pixelwidth">
+    <h3>
+        <code>pixel​Width</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">pixelWidth</span>: <span class="type">Double</span> = <span class="number literal">0</span></code></pre></body></html>
+</div>
+<div role="article" class="variable" id="hexgrid.pixelheight">
+    <h3>
+        <code>pixel​Height</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">pixelHeight</span>: <span class="type">Double</span> = <span class="number literal">0</span></code></pre></body></html>
+</div>
+    </section>
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="function" id="hexgrid.allcellscoordinates()">
+    <h3>
+        <code>all​Cells​Coordinates()</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">allCellsCoordinates</span>() -&gt; <span class="type">Set</span>&lt;<a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Coordinates of all available grid cells</p>
+
+</div>
+  <h4>Returns</h4>
+  <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.nonblockedcells()">
+    <h3>
+        <code>non​Blocked​Cells()</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">nonBlockedCells</span>() -&gt; <span class="type">Set</span>&lt;<a href="/Cell"><span class="type">Cell</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>All non-blocked grid cells</p>
+
+</div>
+  <h4>Returns</h4>
+  <p><code>Set&lt;Cell&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.nonblockedcellscoordinates()">
+    <h3>
+        <code>non​Blocked​Cells​Coordinates()</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">nonBlockedCellsCoordinates</span>() -&gt; <span class="type">Set</span>&lt;<a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>All non-blocked grid cells coordinates</p>
+
+</div>
+  <h4>Returns</h4>
+  <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.blockedcells()">
+    <h3>
+        <code>blocked​Cells()</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">blockedCells</span>() -&gt; <span class="type">Set</span>&lt;<a href="/Cell"><span class="type">Cell</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>All blocked grid cells</p>
+
+</div>
+  <h4>Returns</h4>
+  <p><code>Set&lt;Cell&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.blockedcellscoordinates()">
+    <h3>
+        <code>blocked​Cells​Coordinates()</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">blockedCellsCoordinates</span>() -&gt; <span class="type">Set</span>&lt;<a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>All blocked grid cells coordinates</p>
+
+</div>
+  <h4>Returns</h4>
+  <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.cellat(_:)">
+    <h3>
+        <code>cell​At(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">cellAt</span>(<span class="keyword">_</span> <span class="variable">coordinates</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>) -&gt; <a href="/Cell"><span class="type">Cell</span></a>?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Tries to get a grid cells for specified coordinates</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>coordinates</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Returns</h4>
+  <p><code>Cell</code> or <code>nil</code> in case cell with provided coordinates doesn't exist</p>
+
+</div>
+<div role="article" class="function" id="hexgrid.isvalidcoordinates(_:)">
+    <h3>
+        <code>is​Valid​Coordinates(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">isValidCoordinates</span>(<span class="keyword">_</span> <span class="variable">coordinates</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>) -&gt; <span class="type">Bool</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Check whether grid cells with specified coordinates exists</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>coordinates</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Returns</h4>
+  <p><code>Bool</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.neighbor(for:at:)">
+    <h3>
+        <code>neighbor(for:​at:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">neighbor</span>(<span class="variable">for</span> <span class="variable">cell</span>: <a href="/Cell"><span class="type">Cell</span></a>, <span class="variable">at</span> <span class="variable">direction</span>: <span class="type">Int</span>) <span class="keyword">throws</span> -&gt; <a href="/Cell"><span class="type">Cell</span></a>?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for a cell neighbor at specified direction</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>Example: <code>Direction.Pointy.northEast.rawValue</code></p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>cell</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>cell</code></p>
+</td>
+</tr>
+<tr>
+    <th>direction</th>
+    <td><code class="type">Int</code></td>
+    <td><p><code>Int</code> index of direction</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Cell</code> or <code>nil</code> in case neighbor cell doesn't exist on the grid</p>
+
+</div>
+<div role="article" class="function" id="hexgrid.neighborcoordinates(for:at:)">
+    <h3>
+        <code>neighbor​Coordinates(for:​at:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">neighborCoordinates</span>(<span class="variable">for</span> <span class="variable">coordinates</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>, <span class="variable">at</span> <span class="variable">direction</span>: <span class="type">Int</span>) <span class="keyword">throws</span> -&gt; <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for a neighbor coordinates at specified direction</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>Example: <code>Direction.Pointy.northEast.rawValue</code></p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>coordinates</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code></p>
+</td>
+</tr>
+<tr>
+    <th>direction</th>
+    <td><code class="type">Int</code></td>
+    <td><p><code>Int</code> index of direction</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>CubeCoordinates</code> or <code>nil</code> in case neighbor coordinates are not valid</p>
+
+</div>
+<div role="article" class="function" id="hexgrid.neighbors(for:)">
+    <h3>
+        <code>neighbors(for:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">neighbors</span>(<span class="variable">for</span> <span class="variable">cell</span>: <a href="/Cell"><span class="type">Cell</span></a>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/Cell"><span class="type">Cell</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Get all available neighbor cells for specified cell</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>cell</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>Cell</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;Cell&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.neighborscoordinates(for:)">
+    <h3>
+        <code>neighbors​Coordinates(for:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">neighborsCoordinates</span>(<span class="variable">for</span> <span class="variable">coordinates</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Get all available neighbor coordinates for specified coordinates</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>coordinates</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.diagonalneighbor(for:at:)">
+    <h3>
+        <code>diagonal​Neighbor(for:​at:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">diagonalNeighbor</span>(<span class="variable">for</span> <span class="variable">cell</span>: <a href="/Cell"><span class="type">Cell</span></a>, <span class="variable">at</span> <span class="variable">direction</span>: <span class="type">Int</span>) <span class="keyword">throws</span> -&gt; <a href="/Cell"><span class="type">Cell</span></a>?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for a cell neighbor at specified diagonal direction</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>Example: <code>Direction.Pointy.northEast.rawValue</code></p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>cell</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>cell</code></p>
+</td>
+</tr>
+<tr>
+    <th>direction</th>
+    <td><code class="type">Int</code></td>
+    <td><p><code>Int</code> index of direction</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Cell</code> or <code>nil</code> in case neighbor cell doesn't exist on the grid</p>
+
+</div>
+<div role="article" class="function" id="hexgrid.diagonalneighborcoordinates(for:at:)">
+    <h3>
+        <code>diagonal​Neighbor​Coordinates(for:​at:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">diagonalNeighborCoordinates</span>(<span class="variable">for</span> <span class="variable">coordinates</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>, <span class="variable">at</span> <span class="variable">direction</span>: <span class="type">Int</span>) <span class="keyword">throws</span> -&gt; <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for a neighbor coordinates at specified diagonal direction</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>Example: <code>Direction.Pointy.northEast.rawValue</code></p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>coordinates</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code></p>
+</td>
+</tr>
+<tr>
+    <th>direction</th>
+    <td><code class="type">Int</code></td>
+    <td><p><code>Int</code> index of direction</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>CubeCoordinates</code> or <code>nil</code> in case neighbor coordinates are not valid</p>
+
+</div>
+<div role="article" class="function" id="hexgrid.diagonalneighbors(for:)">
+    <h3>
+        <code>diagonal​Neighbors(for:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">diagonalNeighbors</span>(<span class="variable">for</span> <span class="variable">cell</span>: <a href="/Cell"><span class="type">Cell</span></a>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/Cell"><span class="type">Cell</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Get all available diagonal neighbor cells for specified cell</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>cell</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>Cell</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;Cell&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.diagonalneighborscoordinates(for:)">
+    <h3>
+        <code>diagonal​Neighbors​Coordinates(for:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">diagonalNeighborsCoordinates</span>(<span class="variable">for</span> <span class="variable">coordinates</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Get all available diagonal neighbor coordinates for specified coordinates</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>coordinates</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.linecoordinates(from:to:)">
+    <h3>
+        <code>line​Coordinates(from:​to:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">lineCoordinates</span>(<span class="variable">from</span> <span class="variable">origin</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>, <span class="variable">to</span> <span class="variable">target</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>&gt;?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for coordinates making a line from origin to target coordinates</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>origin</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code></p>
+</td>
+</tr>
+<tr>
+    <th>target</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;CubeCoordinates&gt;</code> or <code>nil</code> in case valid line doesn't exist</p>
+
+</div>
+<div role="article" class="function" id="hexgrid.line(from:to:)">
+    <h3>
+        <code>line(from:​to:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">line</span>(<span class="variable">from</span> <span class="variable">origin</span>: <a href="/Cell"><span class="type">Cell</span></a>, <span class="variable">to</span> <span class="variable">target</span>: <a href="/Cell"><span class="type">Cell</span></a>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/Cell"><span class="type">Cell</span></a>&gt;?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for cells making a line from origin to target cell</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>origin</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>Cell</code></p>
+</td>
+</tr>
+<tr>
+    <th>target</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>Cell</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;Cell&gt;</code> or <code>nil</code> in case valid line doesn't exist</p>
+
+</div>
+<div role="article" class="function" id="hexgrid.ringcoordinates(from:in:includingblocked:)">
+    <h3>
+        <code>ring​Coordinates(from:​in:​including​Blocked:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">ringCoordinates</span>(<span class="variable">from</span> <span class="variable">coordinates</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>, <span class="variable">in</span> <span class="variable">radius</span>: <span class="type">Int</span>, <span class="variable">includingBlocked</span>: <span class="type">Bool</span> = <span class="keyword">false</span>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for coordinates making a ring from origin coordinates in specified radius</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>Coordinates of blocked cells are excluded by default.</p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>coordinates</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code></p>
+</td>
+</tr>
+<tr>
+    <th>radius</th>
+    <td><code class="type">Int</code></td>
+    <td><p><code>Int</code></p>
+</td>
+</tr>
+<tr>
+    <th>including​Blocked</th>
+    <td><code class="type">Bool</code></td>
+    <td><p>optional <code>Bool</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.ring(from:in:includingblocked:)">
+    <h3>
+        <code>ring(from:​in:​including​Blocked:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">ring</span>(<span class="variable">from</span> <span class="variable">cell</span>: <a href="/Cell"><span class="type">Cell</span></a>, <span class="variable">in</span> <span class="variable">radius</span>: <span class="type">Int</span>, <span class="variable">includingBlocked</span>: <span class="type">Bool</span> = <span class="keyword">false</span>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/Cell"><span class="type">Cell</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for cells making a ring from origin cell in specified radius</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>Blocked cells are excluded by default.</p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>cell</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>Cell</code></p>
+</td>
+</tr>
+<tr>
+    <th>radius</th>
+    <td><code class="type">Int</code></td>
+    <td><p><code>Int</code></p>
+</td>
+</tr>
+<tr>
+    <th>including​Blocked</th>
+    <td><code class="type">Bool</code></td>
+    <td><p>optional <code>Bool</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;Cell&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.filledringcoordinates(from:in:includingblocked:)">
+    <h3>
+        <code>filled​Ring​Coordinates(from:​in:​including​Blocked:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">filledRingCoordinates</span>(<span class="variable">from</span> <span class="variable">coordinates</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>, <span class="variable">in</span> <span class="variable">radius</span>: <span class="type">Int</span>, <span class="variable">includingBlocked</span>: <span class="type">Bool</span> = <span class="keyword">false</span>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for coordinates making a filled ring from origin coordinates in specified radius</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>Coordinates of blocked cells are excluded by default.</p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>coordinates</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code></p>
+</td>
+</tr>
+<tr>
+    <th>radius</th>
+    <td><code class="type">Int</code></td>
+    <td><p><code>Int</code></p>
+</td>
+</tr>
+<tr>
+    <th>including​Blocked</th>
+    <td><code class="type">Bool</code></td>
+    <td><p>optional <code>Bool</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.filledring(from:in:includingblocked:)">
+    <h3>
+        <code>filled​Ring(from:​in:​including​Blocked:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">filledRing</span>(<span class="variable">from</span> <span class="variable">cell</span>: <a href="/Cell"><span class="type">Cell</span></a>, <span class="variable">in</span> <span class="variable">radius</span>: <span class="type">Int</span>, <span class="variable">includingBlocked</span>: <span class="type">Bool</span> = <span class="keyword">false</span>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/Cell"><span class="type">Cell</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for cells making a filled ring from origin cell in specified radius</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>Blocked cells are excluded by default.</p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>cell</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>Cell</code></p>
+</td>
+</tr>
+<tr>
+    <th>radius</th>
+    <td><code class="type">Int</code></td>
+    <td><p><code>Int</code></p>
+</td>
+</tr>
+<tr>
+    <th>including​Blocked</th>
+    <td><code class="type">Bool</code></td>
+    <td><p>optional <code>Bool</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;Cell&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.findreachablecoordinates(from:in:)">
+    <h3>
+        <code>find​Reachable​Coordinates(from:​in:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">findReachableCoordinates</span>(<span class="variable">from</span> <span class="variable">coordinates</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>, <span class="variable">in</span> <span class="variable">steps</span>: <span class="type">Int</span>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for all coordinates reachable from origin coordinates within specified number of steps</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>This function internally use Breadth First Search algorithm.</p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>coordinates</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code> origin</p>
+</td>
+</tr>
+<tr>
+    <th>steps</th>
+    <td><code class="type">Int</code></td>
+    <td><p>maximum number of steps</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;CubeCoordinates&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.findreachable(from:in:)">
+    <h3>
+        <code>find​Reachable(from:​in:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">findReachable</span>(<span class="variable">from</span> <span class="variable">cell</span>: <a href="/Cell"><span class="type">Cell</span></a>, <span class="variable">in</span> <span class="variable">steps</span>: <span class="type">Int</span>) <span class="keyword">throws</span> -&gt; <span class="type">Set</span>&lt;<a href="/Cell"><span class="type">Cell</span></a>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for all cells reachable from origin cell within specified number of steps</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>This function internally use Breadth First Search algorithm.</p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>cell</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>Cell</code> origin</p>
+</td>
+</tr>
+<tr>
+    <th>steps</th>
+    <td><code class="type">Int</code></td>
+    <td><p>maximum number of steps</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>Set&lt;Cell&gt;</code></p>
+
+</div>
+<div role="article" class="function" id="hexgrid.findpathcoordinates(from:to:)">
+    <h3>
+        <code>find​Path​Coordinates(from:​to:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">findPathCoordinates</span>(<span class="variable">from</span> <span class="variable">origin</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>, <span class="variable">to</span> <span class="variable">target</span>: <a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>) <span class="keyword">throws</span> -&gt; [<a href="/CubeCoordinates"><span class="type">CubeCoordinates</span></a>]?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for the shortest path from origin to target coordinates</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>This function internally use A* algorithm.</p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>origin</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code> starting position</p>
+</td>
+</tr>
+<tr>
+    <th>target</th>
+    <td><code class="type">Cube​Coordinates</code></td>
+    <td><p><code>CubeCoordinates</code> target position</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>[CubeCoordinates]</code> sorted array of adjacent coordinates or <code>nil</code> in case valid path doesn't exist</p>
+
+</div>
+<div role="article" class="function" id="hexgrid.findpath(from:to:)">
+    <h3>
+        <code>find​Path(from:​to:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">findPath</span>(<span class="variable">from</span> <span class="variable">origin</span>: <a href="/Cell"><span class="type">Cell</span></a>, <span class="variable">to</span> <span class="variable">target</span>: <a href="/Cell"><span class="type">Cell</span></a>) <span class="keyword">throws</span> -&gt; [<a href="/Cell"><span class="type">Cell</span></a>]?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Search for the shortest path from origin to target cell</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>This function internally use A* algorithm.</p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>origin</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>Cell</code> starting position</p>
+</td>
+</tr>
+<tr>
+    <th>target</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>Cell</code> target position</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Throws</h4>
+  <p><code>InvalidArgumentsError</code> in case underlying cube coordinates initializer propagate the error.</p>
+
+  <h4>Returns</h4>
+  <p><code>[Cell]</code> sorted array of adjacent cells or <code>nil</code> in case valid path doesn't exist</p>
+
+</div>
+<div role="article" class="function" id="hexgrid.polygoncorners(for:)">
+    <h3>
+        <code>polygon​Corners(for:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">polygonCorners</span>(<span class="variable">for</span> <span class="variable">cell</span>: <a href="/Cell"><span class="type">Cell</span></a>) -&gt; [<a href="/Point"><span class="type">Point</span></a>]</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Calculate screen coordinates for corners all hexagon</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>This function take into account grid orientation as well as its origin screen coordinates.</p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>cell</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>Cell</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Returns</h4>
+  <p><code>[Point]</code> Array of points (x, y - screen coordinates). Each point represents one of polygon (hexagon) corners.</p>
+
+</div>
+<div role="article" class="function" id="hexgrid.pixelcoordinates(for:)">
+    <h3>
+        <code>pixel​Coordinates(for:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">pixelCoordinates</span>(<span class="variable">for</span> <span class="variable">cell</span>: <a href="/Cell"><span class="type">Cell</span></a>) -&gt; <a href="/Point"><span class="type">Point</span></a></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Calculate screen coordinates for center of a hexagon</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>This function take into account grid orientation as well as its origin screen coordinates.</p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>cell</th>
+    <td><code class="type">Cell</code></td>
+    <td><p><code>Cell</code></p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Returns</h4>
+  <p><code>Point</code> (x, y - screen coordinates) of a cell center</p>
+
+</div>
+<div role="article" class="function" id="hexgrid.cellat(_:)">
+    <h3>
+        <code>cell​At(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">cellAt</span>(<span class="keyword">_</span> <span class="variable">pixelCoordinates</span>: <a href="/Point"><span class="type">Point</span></a>) <span class="keyword">throws</span> -&gt; <a href="/Cell"><span class="type">Cell</span></a>?</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Get cell for specified screen coordinates</p>
+
+</div>
+<div class="discussion">
+    <aside class="note">
+    <p>This function take into account grid orientation as well as its origin screen coordinates.</p>
+
+</aside>
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>pixel​Coordinates</th>
+    <td><code class="type">Point</code></td>
+    <td><p><code>Point</code> (x, y - screen coordinates)</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Returns</h4>
+  <p><code>Cell?</code> or <code>nil</code> if cell doesn't exist for provided screen coordinates</p>
+
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2021-01-08T15:53:46+0100">8. ledna 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>

@@ -12,12 +12,11 @@ jobs:
       - name: Generate Documentation
         uses: SwiftDocOrg/swift-doc@master
         with:
-          inputs: Sources
+          inputs: "Sources"
           module-name: hex-grid
-          output: ./documentation
-          format: html
+          format: "html"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
-          publish_dir: ./documentation
+          publish_dir: ./.build/documentation

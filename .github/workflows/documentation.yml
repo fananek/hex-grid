@@ -14,11 +14,11 @@ jobs:
         with:
           inputs: "Sources"
           module-name: hex-grid
-          output: "Documentation"
+          output: ./documentation
           format: "html"
-      - name: Publish generated content to GitHub Pages
-        uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
+          base-url: "https://fananek.github.io/hex-grid/"
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          dir: documentation
-          branch: gh-pages
-          token: ${{ secrets.ACCESS_TOKEN }}  
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: ./documentation

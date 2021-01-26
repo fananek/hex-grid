@@ -38,7 +38,7 @@ The library is meant for generic backend use. Therefore it doesn't not offer any
 - [x] Hexagon rendering related stuff (e.g. polygon corners).  
 - [x] Code inline documentation (quick help).
 - [x] Solid unit tests coverage.
-- [x] Automated documentation generator (SfiftDoc + GitHub Actions -> hosted on repo GitHub Pages).
+- [x] Automated documentation generator (SwiftDoc + GitHub Actions -> hosted on repo GitHub Pages).
 
 ## What's coming next?
 

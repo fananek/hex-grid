@@ -1,8 +1,8 @@
 /// Enumeration for hexagon orientation
 
 public enum Orientation: String, Codable {
-    /// ⬢ - pointyOnTop
+    /// ⬢ - pointy side on top of a hexagon
     case pointyOnTop
-    /// ⬣ - flatOnTop
+    /// ⬣ - flat side on top of a hexagon
     case flatOnTop
 }

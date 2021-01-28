@@ -46,7 +46,8 @@ internal struct Math {
     ///     - coordinates: Coordinates of a hexagon.
     /// - Returns: Length
     static func length (coordinates: CubeCoordinates) -> Int {
-        return ((abs(coordinates.x) + abs(coordinates.y) + abs(coordinates.z)) / 2)
+        // using right shift bit >> by 1 = which is basically division by 2
+        return (abs(coordinates.x) + abs(coordinates.y) + abs(coordinates.z)) >> 1
     }
     
     /// Distance between `from`and `to` hexagons in grid units

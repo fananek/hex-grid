@@ -18,13 +18,15 @@ internal struct Convertor {
         
         switch orientation {
         case Orientation.pointyOnTop:
-            column = from.x + ((from.z + offsetLayout.rawValue * (abs(from.z) & 1)) / 2)
+            // using right shift bit >> by 1 = which is basically division by 2
+            column = from.x + ((from.z + offsetLayout.rawValue * (abs(from.z) & 1)) >> 1)
             row = from.z
             return OffsetCoordinates(column: column, row: row, orientation: orientation, offsetLayout: offsetLayout)
             
         case Orientation.flatOnTop:
             column = from.x
-            row = from.z + ((from.x + offsetLayout.rawValue * (abs(from.x) & 1)) / 2)
+            // using right shift bit >> by 1 = which is basically division by 2
+            row = from.z + ((from.x + offsetLayout.rawValue * (abs(from.x) & 1)) >> 1)
             return OffsetCoordinates(column: column, row: row, orientation: orientation, offsetLayout: offsetLayout)
         }
     }
@@ -39,15 +41,16 @@ internal struct Convertor {
         
         switch from.orientation {
         case Orientation.pointyOnTop:
-            
-            x = from.column - ((from.row + from.offsetLayout.rawValue * (abs(from.row) & 1)) / 2)
+            // using right shift bit >> by 1 = which is basically division by 2
+            x = from.column - ((from.row + from.offsetLayout.rawValue * (abs(from.row) & 1)) >> 1)
             z = from.row
             y = -x - z
             return try CubeCoordinates(x: x, y: y, z: z)
             
         case Orientation.flatOnTop:
             x = from.column
-            z = from.row - ((from.column + from.offsetLayout.rawValue * (abs(from.column) & 1)) / 2)
+            // using right shift bit >> by 1 = which is basically division by 2
+            z = from.row - ((from.column + from.offsetLayout.rawValue * (abs(from.column) & 1)) >> 1)
             y = -x - z
             return try CubeCoordinates(x: x, y: y, z: z)
         }
@@ -77,8 +80,8 @@ internal struct Convertor {
         orientation: Orientation) -> Point {
         let axialCoords = coordinates.toAxial()
         let orientation = OrientationMatrix(orientation: orientation)
-        let x = ((orientation.f00 * Double(axialCoords.q)) + (orientation.f10 * Double(axialCoords.r))) * (hexSize.width/2)
-        let y = ((orientation.f01 * Double(axialCoords.q)) + (orientation.f11 * Double(axialCoords.r))) * (hexSize.height/2)
+        let x = ((orientation.f00 * Double(axialCoords.q)) + (orientation.f10 * Double(axialCoords.r))) * (hexSize.width / 2)
+        let y = ((orientation.f01 * Double(axialCoords.q)) + (orientation.f11 * Double(axialCoords.r))) * (hexSize.height / 2)
 
         return Point(x: x + gridOrigin.x, y: y + gridOrigin.y)
     }

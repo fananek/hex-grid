@@ -77,7 +77,8 @@ internal struct Heap<T> {
      * The element at index 0 is the root of the tree and has no parent.
      */
     @inline(__always) internal func parentIndex(ofIndex i: Int) -> Int {
-        return (i - 1) / 2
+        // using right shift bit >> by 1 = which is basically division by 2
+        return (i - 1) >> 1
     }
     
     /**

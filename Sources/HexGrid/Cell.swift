@@ -2,6 +2,7 @@
 public class Cell: Codable {
     public var coordinates: CubeCoordinates
     public var isBlocked: Bool
+    public var isOpaque: Bool
     public var cost: Double
     public var attributes: [String: Attribute]
     
@@ -11,9 +12,10 @@ public class Cell: Codable {
     ///     - coordinates: Cube coordinates of a cell
     ///     - isBlocked: Bool value specipyfing whether cell is blocked or not
     ///     - cost: Cost of passing the cell (used in pathfinding).
-    public init(_ coordinates: CubeCoordinates, isBlocked: Bool = false, cost: Double = 0, attributes: [String: Attribute] = [String: Attribute]()) {
+    public init(_ coordinates: CubeCoordinates, isBlocked: Bool = false, isOpaque: Bool = false, cost: Double = 0, attributes: [String: Attribute] = [String: Attribute]()) {
         self.coordinates = coordinates
         self.isBlocked = isBlocked
+        self.isOpaque = isOpaque
         self.cost = cost
         self.attributes = attributes
     }

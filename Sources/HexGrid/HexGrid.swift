@@ -110,6 +110,18 @@ public class HexGrid: Codable {
         return Set(blockedCells().map { $0.coordinates })
     }
     
+    /// All opaque grid cells
+    /// - Returns: `Set<Cell>`
+    public func opaqueCells() -> Set<Cell> {
+        return self.cells.filter { $0.isOpaque }
+    }
+    
+    /// All opaque grid cells coordinates
+    /// - Returns: `Set<CubeCoordinates>`
+    public func opaqueCellsCoordinates() -> Set<CubeCoordinates> {
+        return Set(opaqueCells().map { $0.coordinates })
+    }
+    
     /// Tries to get a grid cells for specified coordinates
     /// - Parameter coordinates: `CubeCoordinates`
     /// - Returns: `Cell` or `nil` in case cell with provided coordinates doesn't exist
@@ -340,6 +352,30 @@ public class HexGrid: Codable {
         return Set(try self.findReachableCoordinates(
             from: cell.coordinates,
             in: steps).compactMap{ self.cellAt($0) })
+    }
+    
+    /// Search for the all coordinates visible from origin coordinates
+    /// - Parameters:
+    ///   - origin: `CubeCoordinates` viewers position
+    ///   - radius: `Int` target position
+    /// - Returns: `Set<CubeCoordinates>` set of cooridnates visible from origin coordinates within specified radius
+    /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
+    /// - Note: This function internally shadowcasting algorithm designed for hexagonal grids.
+    public func fieldOfViewCoordinates(from origin: CubeCoordinates, in radius: Int) throws -> Set<CubeCoordinates> {
+        return try Math.calculateFieldOfView(from: origin, in: radius, on: self)
+    }
+    
+    /// Search for the all coordinates visible from origin coordinates
+    /// - Parameters:
+    ///   - origin: `Cell` viewers position
+    ///   - radius: `Int` target position
+    /// - Returns: `Set<Cell>` set of cells visible from origin coordinates within specified radius
+    /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
+    /// - Note: This function internally shadowcasting algorithm designed for hexagonal grids.
+    public func fieldOfView(from origin: Cell, in radius: Int) throws -> Set<Cell> {
+        return Set(try self.fieldOfViewCoordinates(
+            from: origin.coordinates,
+            in: radius).compactMap{ self.cellAt($0) })
     }
     
     /// Search for the shortest path from origin to target coordinates

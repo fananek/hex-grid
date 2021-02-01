@@ -308,6 +308,7 @@ internal struct Math {
     /// Breadth First Search algorithm (flood algorithm)
     ///     - from: coordinates of a search origin
     ///     - in: search radius
+    ///     - on: grid used for pathfinding
     ///     - blocked: set of blocked coordinates
     /// - Returns: Set of all reachable coordinates within specified `radius`, considering obstacles
     static func breadthFirstSearch(
@@ -332,6 +333,66 @@ internal struct Math {
                     if !(blocked.contains(neighborCoordinates) || results.contains(neighborCoordinates) || !grid.isValidCoordinates(neighborCoordinates)) {
                         results.insert(neighborCoordinates)
                         fringes[k].insert(neighborCoordinates)
+                    }
+                }
+            }
+        }
+        return results
+    }
+    
+    
+    /// Field of view (shadowcasting)
+    /// - Parameters:
+    ///   - origin: viewers position
+    ///   - radius: maximum radius distance from origin
+    ///   - grid: grid used for field of view calculation
+    /// - Throws: propagates error (usually might be caused by invalid CubeCoordinates)
+    /// - Returns: `Set<CubeCoordinates>`
+    static func calculateFieldOfView (
+        from origin: CubeCoordinates,
+        in radius: Int,
+        on grid: HexGrid) throws -> Set<CubeCoordinates> {
+        var results = Set<CubeCoordinates>()
+        let opaque = grid.opaqueCellsCoordinates()
+        var shadows = Set<Shadow>()
+        results.insert(origin)
+        print("Origin: x=\(origin.x), y=\(origin.y), z=\(origin.z)")
+        
+        switch radius {
+        case Int.min..<0:
+            throw InvalidArgumentsError(message: "Radius can't be less than zero.")
+        default:
+            for step in 1...radius {
+                var hexIndex = 1
+                var h = try add(a: origin, b: scale(a: direction(at: 4), c: step))
+                for side in 0..<6 {
+                    for _ in 0..<step {
+                        // opaque cell casts shadow
+                        let angleSize = Double((360 / (6 * step)))
+                        let centerAngle = Double((hexIndex - 1)) * angleSize
+                        let minAngle = centerAngle - angleSize / 2
+                        let maxAngle = minAngle + angleSize
+                        var isShaded = false
+                        for shadow in shadows {
+                            if shadow.minAngle...shadow.maxAngle ~= centerAngle {
+                                isShaded = true
+                                break
+                            }
+                        }
+                        if !isShaded {
+                            results.insert(h)
+                        }
+                        if opaque.contains(h){
+                            if minAngle < 0 {
+                                shadows.insert(Shadow(minAngle: 360 + minAngle, maxAngle: 360))
+                                shadows.insert(Shadow(minAngle: 0, maxAngle: maxAngle))
+                            } else {
+                                shadows.insert(Shadow(minAngle: minAngle, maxAngle: maxAngle))
+                            }
+                        }
+                        
+                        h = try neighbor(at: side, origin: h)
+                        hexIndex += 1
                     }
                 }
             }
@@ -387,26 +448,36 @@ internal struct Math {
             // Get all non blocked neighbors for current Node
             for nextCoords in try grid.neighborsCoordinates(for: currentNode.coordinates)
                 .subtracting(grid.blockedCellsCoordinates()) {
-                    let newCost = (exploredNodes[currentNode.coordinates] ?? 0)
-                        + (grid.cellAt(nextCoords)?.cost ?? 0) + 10
-                    let nextNode = Node(
-                        coordinates: nextCoords,
-                        parent: currentNode,
-                        costScore: newCost,
-                        // Manhattan distance seems to have a good performance/accuracy balance
-                        heuristicScore: Double(try distance(from: nextCoords, to: to))
-                    )
-                    // If a neighbor has not been visited or we found a better path,
-                    // enqueue it in priority queue and store or update record in exploredNodes.
-                    if let exploredNextNodeCost = exploredNodes[nextCoords], newCost > exploredNextNodeCost {
-                        continue
-                    } else {
-                        exploredNodes[nextCoords] = nextNode.costScore
-                        frontier.enqueue(nextNode)
-                    }
+                let newCost = (exploredNodes[currentNode.coordinates] ?? 0)
+                    + (grid.cellAt(nextCoords)?.cost ?? 0) + 10
+                let nextNode = Node(
+                    coordinates: nextCoords,
+                    parent: currentNode,
+                    costScore: newCost,
+                    // Manhattan distance seems to have a good performance/accuracy balance
+                    heuristicScore: Double(try distance(from: nextCoords, to: to))
+                )
+                // If a neighbor has not been visited or we found a better path,
+                // enqueue it in priority queue and store or update record in exploredNodes.
+                if let exploredNextNodeCost = exploredNodes[nextCoords], newCost > exploredNextNodeCost {
+                    continue
+                } else {
+                    exploredNodes[nextCoords] = nextNode.costScore
+                    frontier.enqueue(nextNode)
+                }
             }
         }
         // There is no valid path
         return nil
+    }
+}
+
+extension Math {
+    /// Support structure
+    /// `minAngle` - minimal angle related to origin position
+    /// `maxAngle` - maximal angle related to origin position
+    fileprivate struct Shadow: Hashable {
+        let minAngle: Double
+        let maxAngle: Double
     }
 }

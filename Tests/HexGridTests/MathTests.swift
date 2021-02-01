@@ -178,8 +178,8 @@ class MathTests: XCTestCase {
 
     /// Test ring
     func testRing() throws {
-        let ring = try Math.ring(from: CubeCoordinates(x: 1, y: -1, z: 0), in: 1)
-        let testSet: Set<CubeCoordinates> = try [
+        let ring1 = try Math.ring(from: CubeCoordinates(x: 1, y: -1, z: 0), in: 1)
+        let testSet1: Set<CubeCoordinates> = try [
             CubeCoordinates(x:  0,  y: -1,  z:  1),
             CubeCoordinates(x:  0,  y:  0,  z:  0),
             CubeCoordinates(x:  1,  y:  0,  z: -1),
@@ -187,7 +187,24 @@ class MathTests: XCTestCase {
             CubeCoordinates(x:  2,  y: -2,  z:  0),
             CubeCoordinates(x:  1,  y: -2,  z:  1)
             ]
-        XCTAssertEqual(ring, testSet)
+        XCTAssertEqual(ring1, testSet1)
+        
+        let ring2 = try Math.ring(from: CubeCoordinates(x: 1, y: -1, z: 0), in: 2)
+        let testSet2: Set<CubeCoordinates> = try [
+            CubeCoordinates(x: -1, y: -1, z: 2),
+            CubeCoordinates(x: 0, y: -2, z: 2),
+            CubeCoordinates(x: 1, y: -3, z: 2),
+            CubeCoordinates(x: 2, y: -3, z: 1),
+            CubeCoordinates(x: 3, y: -3, z: 0),
+            CubeCoordinates(x: 3, y: -2, z: -1),
+            CubeCoordinates(x: 3, y: -1, z: -2),
+            CubeCoordinates(x: 2, y: 0, z: -2),
+            CubeCoordinates(x: 1, y: 1, z: -2),
+            CubeCoordinates(x: 0, y: 1, z: -1),
+            CubeCoordinates(x: -1, y: 1, z: 0),
+            CubeCoordinates(x: -1, y: 0, z: 1)
+            ]
+        XCTAssertEqual(ring2, testSet2)
     }
     
     /// Test zero ring
@@ -224,10 +241,65 @@ class MathTests: XCTestCase {
         XCTAssertThrowsError(try Math.filledRing(from: CubeCoordinates(x: 0, y: 0, z: 0), in: -5))
     }
     
+    func testFieldOfView () throws {
+        let grid = HexGrid(shape: GridShape.hexagon(3))
+        grid.cellAt(try CubeCoordinates(x: -1,  y:  1,  z:  0))?.isOpaque = true
+        grid.cellAt(try CubeCoordinates(x: -1,  y:  0,  z:  1))?.isOpaque = true
+        grid.cellAt(try CubeCoordinates(x:  1,  y: -1,  z:  0))?.isOpaque = true
+        grid.cellAt(try CubeCoordinates(x:  1,  y:  1,  z: -2))?.isOpaque = true
+        let fovSet = try Math.calculateFieldOfView(from: CubeCoordinates(x: 0, y: 0, z: 0), in: 3, on: grid)
+        let testSet: Set<CubeCoordinates> = try [
+            // origin/center
+            CubeCoordinates(x:  0,  y:  0,  z:  0),
+            // 1st ring
+            CubeCoordinates(x: -1,  y:  1,  z:  0), // isOpauqe
+            CubeCoordinates(x:  0,  y:  1,  z: -1),
+            CubeCoordinates(x:  1,  y:  0,  z: -1),
+            CubeCoordinates(x:  1,  y: -1,  z:  0), // isOpaque
+            CubeCoordinates(x:  0,  y: -1,  z:  1),
+            CubeCoordinates(x: -1,  y:  0,  z:  1), // isOpauqe
+            
+            // 2nd ring
+            // CubeCoordinates(x: -2,  y:  2,  z:  0), // is shaded = true
+            // CubeCoordinates(x: -1,  y:  2,  z: -1), // is shaded = true
+            CubeCoordinates(x:  0,  y:  2,  z: -2),
+            CubeCoordinates(x:  1,  y:  1,  z: -2),
+            CubeCoordinates(x:  2,  y:  0,  z: -2),
+            // CubeCoordinates(x:  2,  y: -1,  z: -1), // is shaded = true
+            // CubeCoordinates(x:  2,  y: -2,  z:  0), // is shaded = true
+            // CubeCoordinates(x:  1,  y: -2,  z:  1), // is shaded = true
+            CubeCoordinates(x:  0,  y: -2,  z:  2),
+            // CubeCoordinates(x: -1,  y: -1,  z:  2), // is shaded = true
+            // CubeCoordinates(x: -2,  y:  0,  z:  2), // is shaded = true
+            // CubeCoordinates(x: -2,  y:  1,  z:  1), // is shaded = true
+            
+            // 3rd ring
+            // CubeCoordinates(x:  -3,  y:  3,  z: 0), // is shaded = true
+            // CubeCoordinates(x:  -2,  y:  3,  z: -1), // is shaded = true
+            CubeCoordinates(x:  -1,  y:  3,  z: -2),
+            CubeCoordinates(x:  0,  y:  3,  z: -3),
+            // CubeCoordinates(x:  1,  y:  2,  z: -3), // is shaded = true
+            // CubeCoordinates(x:  2,  y:  1,  z: -3), // is shaded = true
+            CubeCoordinates(x:  3,  y:  0,  z: -3),
+            CubeCoordinates(x:  3,  y:  -1,  z: -2),
+            // CubeCoordinates(x:  3,  y:  -2,  z: -1), // is shaded = true
+            // CubeCoordinates(x:  3,  y:  -3,  z: 0), // is shaded = true
+            // CubeCoordinates(x:  2,  y:  -3,  z: 1), // is shaded = true
+            CubeCoordinates(x:  1,  y:  -3,  z: 2),
+            CubeCoordinates(x:  0,  y:  -3,  z: 3),
+            CubeCoordinates(x:  -1,  y:  -2,  z: 3),
+            // CubeCoordinates(x:  -2,  y:  -1,  z: 3), // is shaded = true
+            // CubeCoordinates(x:  -3,  y:  0,  z: 3), // is shaded = true
+            // CubeCoordinates(x:  -3,  y:  1,  z: 2), // is shaded = true
+            // CubeCoordinates(x:  -3,  y:  2,  z: 1) // is shaded = true
+        ]
+        XCTAssertEqual(testSet, fovSet)
+        XCTAssertThrowsError(try Math.calculateFieldOfView(from: CubeCoordinates(x: 0, y: 0, z: 0), in: -5, on: grid))
+    }
+        
     /// Test breadthFirstSearch algorithm
     func testBreadthFirstSearch() throws {
-        let grid = HexGrid(
-            shape: GridShape.hexagon(2))
+        let grid = HexGrid(shape: GridShape.hexagon(2))
         grid.cellAt(try CubeCoordinates(x:  1,  y:  0,  z: -1))?.isBlocked = true
         grid.cellAt(try CubeCoordinates(x:  0,  y:  1,  z: -1))?.isBlocked = true
         let searchResultSet = try Math.breadthFirstSearch(from: CubeCoordinates(x: 0, y: 0, z: 0), in: 2, on: grid)

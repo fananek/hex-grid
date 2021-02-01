@@ -35,6 +35,7 @@ The library is meant for generic backend use. Therefore it doesn't not offer any
 - [x] Get Filled Ring (get all hexes making a filled ring from an origin coordinates in specified radius).  
 - [x] Find reachable hexes within `n` steps (Breath First Search).  
 - [x] Find the shortest path from A to B (optimized A* search algorithm).
+- [x] FieldOfView algorithm (`ShadowCasting` designed for hexagonal grids).
 - [x] Hexagon rendering related stuff (e.g. polygon corners).  
 - [x] Code inline documentation (quick help).
 - [x] Solid unit tests coverage.
@@ -44,7 +45,6 @@ The library is meant for generic backend use. Therefore it doesn't not offer any
 
 - [ ] Review and update readme.md.
 - [ ] Demo with visualization.
-- [ ] Possibly Implement FieldOfView algorithm (evaluating `RayCasting` vs `ShadowCasting` vs `own solution`).
 
 ## Getting Started
 
@@ -219,6 +219,16 @@ let reachableCells = try grid.findReachable(from: origin, in: 4)
 let path = try grid.findPath(from: originCell, to: targetCell)
 ```
 
+#### Calculate field of view (FOV)
+
+```swift
+// find all hexes visible in radius 4 from origin cell
+
+// Note: cells with attribute `isOpaque` set to `true` casts shadows
+// Cell is considered as non-visible if its center is covered by shadow 
+let visibleHexes = try grid.fieldOfView(from: originCell, in: 4)
+```
+
 ### Drawing related functions
 If you want to render a grid, you will need screen coordinates of polygon corners for a `Cell`.
 
@@ -268,6 +278,7 @@ Properties:
 - coordinates: `CubeCoordinates` - cell placement on a grid coordinate system
 - attributes: `[String: Attribute]` - dictionary of custom attributes (most primitive types are supported as well as nesting)
 - isBlocked: `Bool` - used by algorithms (reachableCells, pathfinding etc.)
+- isOpaque: `Bool` - used by fieldOfView algorithm
 - cost: `Float` - used by pathfinding algorithm. For the sake of simplicity let's put graph theory aside. You can imagine cost as an amount of energy needed to pass a cell. Pathfinding algorithm then search for path requiring the less effort.
 
 #### CubeCoordinates

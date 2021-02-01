@@ -346,17 +346,20 @@ internal struct Math {
     ///   - origin: viewers position
     ///   - radius: maximum radius distance from origin
     ///   - grid: grid used for field of view calculation
+    ///   - includePartiallyVisible: include coordinates which are at least partially visible.
+    ///   Default value is `false` which means that center of cooridnates has to be visible in order to include it in a result set.
     /// - Throws: propagates error (usually might be caused by invalid CubeCoordinates)
     /// - Returns: `Set<CubeCoordinates>`
     static func calculateFieldOfView (
         from origin: CubeCoordinates,
         in radius: Int,
-        on grid: HexGrid) throws -> Set<CubeCoordinates> {
+        on grid: HexGrid,
+        includePartiallyVisible: Bool = false) throws -> Set<CubeCoordinates> {
         var results = Set<CubeCoordinates>()
         let opaque = grid.opaqueCellsCoordinates()
         var shadows = Set<Shadow>()
         results.insert(origin)
-        print("Origin: x=\(origin.x), y=\(origin.y), z=\(origin.z)")
+        print("Origin: x=\(origin.x), y=\(origin.y), z=\(origin.z), strictMode: \(includePartiallyVisible)")
         
         switch radius {
         case Int.min..<0:
@@ -369,28 +372,57 @@ internal struct Math {
                     for _ in 0..<step {
                         // opaque cell casts shadow
                         let angleSize = Double((360 / (6 * step)))
-                        let centerAngle = Double((hexIndex - 1)) * angleSize
+                        let centerAngle = (Double(hexIndex) - 1.0) * angleSize
                         let minAngle = centerAngle - angleSize / 2
                         let maxAngle = minAngle + angleSize
                         var isShaded = false
                         for shadow in shadows {
-                            if shadow.minAngle...shadow.maxAngle ~= centerAngle {
-                                isShaded = true
-                                break
+                            switch includePartiallyVisible {
+                            case true:
+                                if numberInCyclingRange(minAngle, in: 360) >= shadow.minAngle
+                                    && numberInCyclingRange(maxAngle, in: 360) <= shadow.maxAngle {
+                                    isShaded = true
+                                    break
+                                }
+                            default:
+                                if numberInCyclingRange(centerAngle, in: 360) >= shadow.minAngle
+                                    && numberInCyclingRange(centerAngle, in: 360) <= shadow.maxAngle {
+                                    isShaded = true
+                                    break
+                                }
                             }
                         }
+                        print("Itt: \(step), Hex: \(hexIndex), isShaded: \(isShaded), center: \(centerAngle), minAngle: \(minAngle), maxAngle: \(maxAngle), Coords: x: \(h.x), y: \(h.y), z: \(h.z)")
                         if !isShaded {
                             results.insert(h)
                         }
                         if opaque.contains(h){
+                            var newShadows = Set<Shadow>()
                             if minAngle < 0 {
-                                shadows.insert(Shadow(minAngle: 360 + minAngle, maxAngle: 360))
-                                shadows.insert(Shadow(minAngle: 0, maxAngle: maxAngle))
+                                newShadows.insert(Shadow(minAngle: 360.0 + minAngle, maxAngle: 360.0))
+                                print("--- SHADOW - Itt: \(step), Hex: \(hexIndex), minAngle: \(360.0 + minAngle), maxAngle: \(360), Coords: x: \(h.x), y: \(h.y), z: \(h.z)")
+                                
+                                newShadows.insert(Shadow(minAngle: 0.0, maxAngle: maxAngle))
+                                print("--- SHADOW - Itt: \(step), Hex: \(hexIndex), minAngle: \(0), maxAngle: \(maxAngle), Coords: x: \(h.x), y: \(h.y), z: \(h.z)")
                             } else {
-                                shadows.insert(Shadow(minAngle: minAngle, maxAngle: maxAngle))
+                                newShadows.insert(Shadow(minAngle: minAngle, maxAngle: maxAngle))
+                                print("--- SHADOW - Itt: \(step), Hex: \(hexIndex), minAngle: \(minAngle), maxAngle: \(maxAngle), Coords: x: \(h.x), y: \(h.y), z: \(h.z)")
                             }
+                                                        
+                            for var newShadow in newShadows {
+                                for shadow in shadows {
+                                    let newShadowRange = newShadow.minAngle...newShadow.maxAngle
+                                    let shadowRange = shadow.minAngle...shadow.maxAngle
+                                    if newShadowRange.overlaps(shadowRange) {
+                                        newShadow.minAngle = min(newShadow.minAngle, shadow.minAngle)
+                                        newShadow.maxAngle = max(newShadow.maxAngle, shadow.maxAngle)
+                                        shadows.remove(shadow)
+                                    }
+                                }
+                                shadows.insert(Shadow(minAngle: newShadow.minAngle, maxAngle: newShadow.maxAngle))
+                            }
+                            
                         }
-                        
                         h = try neighbor(at: side, origin: h)
                         hexIndex += 1
                     }
@@ -477,7 +509,40 @@ extension Math {
     /// `minAngle` - minimal angle related to origin position
     /// `maxAngle` - maximal angle related to origin position
     fileprivate struct Shadow: Hashable {
-        let minAngle: Double
-        let maxAngle: Double
+        var minAngle: Double
+        var maxAngle: Double
+    }
+    
+    
+    /// Convert number into number within range `0.0...upperBound`
+    /// - Parameter input: `Double` - input number
+    /// - Parameter upperBound: `Double`- upper bound of range
+    /// - Returns: `Double` output number
+    /// - Note:
+    /// Using formula `(upperBound + (angle % upperBound)) % upperBound` allow number to cycle within `0.0...upperBound` range in both directions
+    /// angles greater than `upperBound` simply starts from beginning
+    /// angles lower then 0 are coverted into substracted from `upperBound`
+    /// Example:
+    ///  `upperBound` = 360.0
+    /// `-30.0` becomes `330.0`
+    /// `370.0` becomes `10.0`
+    fileprivate static func numberInCyclingRange(_ input: Double, in upperBound: Double ) -> Double {
+        return (upperBound + (input.truncatingRemainder(dividingBy: upperBound))).truncatingRemainder(dividingBy: upperBound)
+    }
+    
+    /// Convert number into number within range `0...upperBound`
+    /// - Parameter input: `Int` - input number
+    /// - Parameter upperBound: `Int` - upper bound of range
+    /// - Returns: `Int` output number
+    /// - Note:
+    /// Using formula `(upperBound + (angle % upperBound)) % upperBound` allow number to cycle within `0...upperBound` range in both directions
+    /// angles greater than `upperBound` simply starts from beginning
+    /// angles lower then 0 are coverted into substracted from `upperBound`
+    /// Example:
+    ///  `upperBound` = 360
+    /// `-30` becomes `330`
+    /// `370` becomes `10`
+    fileprivate static func numberInCyclingRange(_ input: Int, in upperBound: Int ) -> Int {
+        return (upperBound + (input % upperBound)) % upperBound
     }
 }

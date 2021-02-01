@@ -63,14 +63,14 @@ public class HexGrid: Codable {
                 try self.cells = Set(Generator.createHexagonGrid(radius: radius).map { Cell($0) })
             case .rectangle(let width, let height):
                 try self.cells = Set(Generator.createRectangleGrid(
-                    orientation: orientation,
-                    offsetLayout: offsetLayout,
-                    width: width,
-                    height: height).map { Cell($0) })
+                                        orientation: orientation,
+                                        offsetLayout: offsetLayout,
+                                        width: width,
+                                        height: height).map { Cell($0) })
             case .triangle(let sideSize):
                 try self.cells = Set(Generator.createTriangleGrid(
-                    orientation: orientation,
-                    sideSize: sideSize).map { Cell($0) })
+                                        orientation: orientation,
+                                        sideSize: sideSize).map { Cell($0) })
             }
         } catch {
             self.cells = Set<Cell>()
@@ -291,9 +291,9 @@ public class HexGrid: Codable {
     /// - Note: Blocked cells are excluded by default.
     public func ring(from cell: Cell, in radius: Int, includingBlocked: Bool = false) throws -> Set<Cell> {
         return Set(try self.ringCoordinates(
-            from: cell.coordinates,
-            in: radius,
-            includingBlocked: includingBlocked ).compactMap { self.cellAt($0) })
+                    from: cell.coordinates,
+                    in: radius,
+                    includingBlocked: includingBlocked ).compactMap { self.cellAt($0) })
     }
     
     /// Search for coordinates making a filled ring from origin coordinates in specified radius
@@ -322,9 +322,9 @@ public class HexGrid: Codable {
     /// - Note: Blocked cells are excluded by default.
     public func filledRing(from cell: Cell, in radius: Int, includingBlocked: Bool = false) throws -> Set<Cell> {
         return Set(try filledRingCoordinates(
-            from: cell.coordinates,
-            in: radius,
-            includingBlocked: includingBlocked).compactMap{ self.cellAt($0) })
+                    from: cell.coordinates,
+                    in: radius,
+                    includingBlocked: includingBlocked).compactMap{ self.cellAt($0) })
         
     }
     
@@ -350,32 +350,40 @@ public class HexGrid: Codable {
     /// - Note: This function internally use Breadth First Search algorithm.
     public func findReachable(from cell: Cell, in steps: Int) throws -> Set<Cell> {
         return Set(try self.findReachableCoordinates(
-            from: cell.coordinates,
-            in: steps).compactMap{ self.cellAt($0) })
+                    from: cell.coordinates,
+                    in: steps).compactMap{ self.cellAt($0) })
     }
     
     /// Search for the all coordinates visible from origin coordinates
     /// - Parameters:
     ///   - origin: `CubeCoordinates` viewers position
     ///   - radius: `Int` radius from origin coordinates
+    ///   - includePartiallyVisible: include coordinates which are at least partially visible.
+    ///   Default value is `false` which means that center of cooridnates has to be visible in order to include it in a result set.
     /// - Returns: `Set<CubeCoordinates>` set of cooridnates visible from origin coordinates within specified radius
     /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
     /// - Note: This function internally shadowcasting algorithm designed for hexagonal grids.
-    public func fieldOfViewCoordinates(from origin: CubeCoordinates, in radius: Int) throws -> Set<CubeCoordinates> {
-        return try Math.calculateFieldOfView(from: origin, in: radius, on: self)
+    public func fieldOfViewCoordinates(from origin: CubeCoordinates, in radius: Int, includePartiallyVisible: Bool = false) throws -> Set<CubeCoordinates> {
+        return try Math.calculateFieldOfView(
+            from: origin, in: radius,
+            on: self,
+            includePartiallyVisible: includePartiallyVisible)
     }
     
     /// Search for the all cells visible from origin cell
     /// - Parameters:
     ///   - origin: `Cell` viewers position
     ///   - radius: `Int` radius from origin cell
+    ///   - includePartiallyVisible: include cellswhich are at least partially visible.
+    ///   Default value is `false` which means that center of a cell has to be visible in order to include it in result set.
     /// - Returns: `Set<Cell>` set of cells visible from origin coordinates within specified radius
     /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
     /// - Note: This function internally shadowcasting algorithm designed for hexagonal grids.
-    public func fieldOfView(from origin: Cell, in radius: Int) throws -> Set<Cell> {
+    public func fieldOfView(from origin: Cell, in radius: Int, includePartiallyVisible: Bool = false) throws -> Set<Cell> {
         return Set(try self.fieldOfViewCoordinates(
-            from: origin.coordinates,
-            in: radius).compactMap{ self.cellAt($0) })
+                    from: origin.coordinates,
+                    in: radius,
+                    includePartiallyVisible: includePartiallyVisible).compactMap{ self.cellAt($0) })
     }
     
     /// Search for the shortest path from origin to target coordinates

@@ -362,7 +362,7 @@ public class HexGrid: Codable {
     ///   Default value is `false` which means that center of cooridnates has to be visible in order to include it in a result set.
     /// - Returns: `Set<CubeCoordinates>` set of cooridnates visible from origin coordinates within specified radius
     /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
-    /// - Note: This function internally shadowcasting algorithm designed for hexagonal grids.
+    /// - Note: This function internally uses shadowcasting algorithm designed for hexagonal grids.
     public func fieldOfViewCoordinates(from origin: CubeCoordinates, in radius: Int, includePartiallyVisible: Bool = false) throws -> Set<CubeCoordinates> {
         return try Math.calculateFieldOfView(
             from: origin, in: radius,
@@ -374,11 +374,11 @@ public class HexGrid: Codable {
     /// - Parameters:
     ///   - origin: `Cell` viewers position
     ///   - radius: `Int` radius from origin cell
-    ///   - includePartiallyVisible: include cellswhich are at least partially visible.
+    ///   - includePartiallyVisible: include cells which are at least partially visible.
     ///   Default value is `false` which means that center of a cell has to be visible in order to include it in result set.
-    /// - Returns: `Set<Cell>` set of cells visible from origin coordinates within specified radius
+    /// - Returns: `Set<Cell>` set of cells visible from origin cell within specified radius
     /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
-    /// - Note: This function internally shadowcasting algorithm designed for hexagonal grids.
+    /// - Note: This function internally uses shadowcasting algorithm designed for hexagonal grids.
     public func fieldOfView(from origin: Cell, in radius: Int, includePartiallyVisible: Bool = false) throws -> Set<Cell> {
         return Set(try self.fieldOfViewCoordinates(
                     from: origin.coordinates,

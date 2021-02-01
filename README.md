@@ -221,12 +221,25 @@ let path = try grid.findPath(from: originCell, to: targetCell)
 
 #### Calculate field of view (FOV)
 
+`Cell` has an attribute called `isOpaque`. Its value can be `true` or `false`. Based on this information it's possible to calculate so called **field of view**. It means all cells visible from specific position on grid, considering all opque obstacles.
+
+```swift
+// set cell as opaque
+obstacleCell.isOpaque = true 
+```
+
+In order to get field of view, simply call following function.
+
 ```swift
 // find all hexes visible in radius 4 from origin cell
-
-// Note: cells with attribute `isOpaque` set to `true` casts shadows
-// Cell is considered as non-visible if its center is covered by shadow 
 let visibleHexes = try grid.fieldOfView(from: originCell, in: 4)
+```
+
+By default cell is considered visible as soon as its center is visible from the origin cell. If you want to include partially visible cells as well, use optional paramter `includePartiallyVisible`.
+
+```swift
+// find all hexes even partially visible in radius 4 from origin cell
+let visibleHexesIncludingPartials = try grid.fieldOfView(from: originCell, in: 4, includePartiallyVisible: true)
 ```
 
 ### Drawing related functions

@@ -359,7 +359,6 @@ internal struct Math {
         let opaque = grid.opaqueCellsCoordinates()
         var shadows = Set<Shadow>()
         results.insert(origin)
-        print("Origin: x=\(origin.x), y=\(origin.y), z=\(origin.z), strictMode: \(includePartiallyVisible)")
         
         switch radius {
         case Int.min..<0:
@@ -392,7 +391,6 @@ internal struct Math {
                                 }
                             }
                         }
-                        print("Itt: \(step), Hex: \(hexIndex), isShaded: \(isShaded), center: \(centerAngle), minAngle: \(minAngle), maxAngle: \(maxAngle), Coords: x: \(h.x), y: \(h.y), z: \(h.z)")
                         if !isShaded {
                             results.insert(h)
                         }
@@ -400,13 +398,9 @@ internal struct Math {
                             var newShadows = Set<Shadow>()
                             if minAngle < 0 {
                                 newShadows.insert(Shadow(minAngle: 360.0 + minAngle, maxAngle: 360.0))
-                                print("--- SHADOW - Itt: \(step), Hex: \(hexIndex), minAngle: \(360.0 + minAngle), maxAngle: \(360), Coords: x: \(h.x), y: \(h.y), z: \(h.z)")
-                                
                                 newShadows.insert(Shadow(minAngle: 0.0, maxAngle: maxAngle))
-                                print("--- SHADOW - Itt: \(step), Hex: \(hexIndex), minAngle: \(0), maxAngle: \(maxAngle), Coords: x: \(h.x), y: \(h.y), z: \(h.z)")
                             } else {
                                 newShadows.insert(Shadow(minAngle: minAngle, maxAngle: maxAngle))
-                                print("--- SHADOW - Itt: \(step), Hex: \(hexIndex), minAngle: \(minAngle), maxAngle: \(maxAngle), Coords: x: \(h.x), y: \(h.y), z: \(h.z)")
                             }
                                                         
                             for var newShadow in newShadows {

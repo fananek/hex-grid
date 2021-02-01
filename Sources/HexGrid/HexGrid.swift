@@ -357,7 +357,7 @@ public class HexGrid: Codable {
     /// Search for the all coordinates visible from origin coordinates
     /// - Parameters:
     ///   - origin: `CubeCoordinates` viewers position
-    ///   - radius: `Int` target position
+    ///   - radius: `Int` radius from origin coordinates
     /// - Returns: `Set<CubeCoordinates>` set of cooridnates visible from origin coordinates within specified radius
     /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
     /// - Note: This function internally shadowcasting algorithm designed for hexagonal grids.
@@ -365,10 +365,10 @@ public class HexGrid: Codable {
         return try Math.calculateFieldOfView(from: origin, in: radius, on: self)
     }
     
-    /// Search for the all coordinates visible from origin coordinates
+    /// Search for the all cells visible from origin cell
     /// - Parameters:
     ///   - origin: `Cell` viewers position
-    ///   - radius: `Int` target position
+    ///   - radius: `Int` radius from origin cell
     /// - Returns: `Set<Cell>` set of cells visible from origin coordinates within specified radius
     /// - Throws: `InvalidArgumentsError` in case underlying cube coordinates initializer propagate the error.
     /// - Note: This function internally shadowcasting algorithm designed for hexagonal grids.

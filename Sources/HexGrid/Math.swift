@@ -78,8 +78,7 @@ internal struct Math {
     ///     - at: index of desired direction (0...5).
     /// - Returns: Coordinates of a specified direction
     /// - Note:
-    /// This formula `(6 + (index % 6)) % 6` make it work with index outside of 0...5.
-    /// Works also with negative numbers.
+    /// Parameter `at`works with index outside of 0...5. It works also with negative numbers.
     ///
     /// This makes `directions`  a closed loop. When an index overflow the array boundary it continues on the other side.
     ///
@@ -91,7 +90,7 @@ internal struct Math {
     ///
     ///   index `13` will return the same direction as index `1`
     static func direction(at index: Int) -> CubeCoordinates {
-        return directions[(6 + (index % 6)) % 6]
+        return directions[numberInCyclingRange(index, in: 6)]
     }
     
     /// Get coordinates of a neighbor based on specified direction
@@ -135,7 +134,7 @@ internal struct Math {
     ///     - at: index of desired direction (0...5).
     /// - Returns: Coordinates of a specified diagonal direction
     /// - Note:
-    /// This formula `(6 + (index % 6)) % 6` make it work with index outside of 0...5. Works also with negative numbers.
+    /// Parameter `at`works with index outside of 0...5. It works also with negative numbers.
     ///
     /// This makes `diagonalDirections` a closed loop. When index overflow an array boundary it continues on the other side.
     ///
@@ -147,9 +146,7 @@ internal struct Math {
     ///
     ///   index `13` will return the same direction as index `1`
     static func diagonalDirection(at index: Int) -> CubeCoordinates {
-        // This ugly formula make it work with index outside of 0...5
-        // It's useful for negative numbers (e.g. backward rotation)
-        return diagonalDirections[(6 + (index % 6)) % 6]
+        return diagonalDirections[numberInCyclingRange(index, in: 6)]
     }
     
     /// Get coordinates of a diagonal neighbor based on specified direction
@@ -513,7 +510,7 @@ extension Math {
     /// - Parameter upperBound: `Double`- upper bound of range
     /// - Returns: `Double` output number
     /// - Note:
-    /// Using formula `(upperBound + (angle % upperBound)) % upperBound` allow number to cycle within `0.0...upperBound` range in both directions
+    /// Using formula `(upperBound + (input % upperBound)) % upperBound` allow number to cycle within `0.0...upperBound` range in both directions
     /// angles greater than `upperBound` simply starts from beginning
     /// angles lower then 0 are coverted into substracted from `upperBound`
     /// Example:
@@ -529,7 +526,7 @@ extension Math {
     /// - Parameter upperBound: `Int` - upper bound of range
     /// - Returns: `Int` output number
     /// - Note:
-    /// Using formula `(upperBound + (angle % upperBound)) % upperBound` allow number to cycle within `0...upperBound` range in both directions
+    /// Using formula `(upperBound + (input % upperBound)) % upperBound` allow number to cycle within `0...upperBound` range in both directions
     /// angles greater than `upperBound` simply starts from beginning
     /// angles lower then 0 are coverted into substracted from `upperBound`
     /// Example:

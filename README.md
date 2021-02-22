@@ -60,7 +60,7 @@ name: "MyApp",
 dependencies: [
 ...
 // Add HexGrid package here
-.package(url: "https://github.com/fananek/hex-grid.git", from: "0.4.2")
+.package(url: "https://github.com/fananek/hex-grid.git", from: "0.4.3")
 ],
 ...
 targets: [

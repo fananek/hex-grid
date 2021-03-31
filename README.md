@@ -1,7 +1,7 @@
 # HexGrid
 <p align="center">
     <a href="https://swift.org">
-        <img src="http://img.shields.io/badge/swift-5.3-orange.svg" alt="Swift 5.3">
+        <img src="http://img.shields.io/badge/swift-5.2-orange.svg" alt="Swift 5.2+">
     </a>
     <a href="https://swift.org/package-manager">
         <img src="https://img.shields.io/badge/spm-&#x2713-brightgreen.svg" alt="Swift Package Manager Compatible">

@@ -73,7 +73,7 @@ class AttributeCodableTests: XCTestCase {
     }
     
     static var allTests = [
-//        ("Test JSON Encoding", testJSONEncoding),
+        ("Test JSON Encoding", testJSONEncoding),
         ("Test JSON Decoding", testJSONDecoding)
     ]
 }

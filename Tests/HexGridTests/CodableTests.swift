@@ -23,6 +23,6 @@ class CodableTests: XCTestCase {
     }
     
     static var allTests = [
-        ("Test encode grid to JSON", testEncode)
+        ("Test encode/decode grid to/from JSON", testEncode)
     ]
 }

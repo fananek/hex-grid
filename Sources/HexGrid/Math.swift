@@ -80,7 +80,7 @@ internal struct Math {
     /// - Note:
     /// Parameter `at`works with index outside of 0...5. It works also with negative numbers.
     ///
-    /// This makes `directions`  a closed loop. When an index overflow the array boundary it continues on the other side.
+    /// This makes `directions` a closed loop. When an index overflow the array boundary it continues on the other side.
     ///
     /// examples:
     ///

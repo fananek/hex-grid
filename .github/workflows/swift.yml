@@ -7,7 +7,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -15,10 +14,7 @@ jobs:
       uses: slashmo/install-swift@v0.1.0
       with:
         version: 5.5
-        
-    - name: Checkout source code
     - uses: actions/checkout@v1
-    
     - name: Build
       run: swift build -v
     - name: Run tests

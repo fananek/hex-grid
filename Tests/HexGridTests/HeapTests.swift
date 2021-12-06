@@ -159,7 +159,7 @@ class HeapTests: XCTestCase {
     fileprivate func randomArray(_ n: Int) -> [Int] {
         var a = [Int]()
         for _ in 0..<n {
-            a.append(Int(arc4random()))
+            a.append(Int.random(in: 0..<Int.max))
         }
         return a
     }
@@ -264,7 +264,7 @@ class HeapTests: XCTestCase {
             
             let m = (n + 1)/2
             for k in 1...m {
-                let i = Int(arc4random_uniform(UInt32(n - k + 1)))
+                let i = Int.random(in: 0..<(n - k + 1))
                 let v = h.remove(at: i)!
                 let j = a.firstIndex(of: v)!
                 a.remove(at: j)

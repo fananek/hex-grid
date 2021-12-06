@@ -724,7 +724,18 @@ class HexGridTests: XCTestCase {
             Point(x: -0.0000000000000018369701987210296, y: -10.0),
             Point(x: 8.6602540378443837, y: -5.0000000000000044)
         ]
-        XCTAssertTrue(cornersForPointy == expectedCornersForPointy)
+        XCTAssertEqual(cornersForPointy[0].x, expectedCornersForPointy[0].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForPointy[0].y, expectedCornersForPointy[0].y, accuracy: 0.0001)
+        XCTAssertEqual(cornersForPointy[1].x, expectedCornersForPointy[1].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForPointy[1].y, expectedCornersForPointy[1].y, accuracy: 0.0001)
+        XCTAssertEqual(cornersForPointy[2].x, expectedCornersForPointy[2].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForPointy[2].y, expectedCornersForPointy[2].y, accuracy: 0.0001)
+        XCTAssertEqual(cornersForPointy[3].x, expectedCornersForPointy[3].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForPointy[3].y, expectedCornersForPointy[3].y, accuracy: 0.0001)
+        XCTAssertEqual(cornersForPointy[4].x, expectedCornersForPointy[4].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForPointy[4].y, expectedCornersForPointy[4].y, accuracy: 0.0001)
+        XCTAssertEqual(cornersForPointy[5].x, expectedCornersForPointy[5].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForPointy[5].y, expectedCornersForPointy[5].y, accuracy: 0.0001)
         
         
         let gridFlat = HexGrid(
@@ -743,7 +754,18 @@ class HexGridTests: XCTestCase {
             Point(x: -5.0000000000000044, y: -8.6602540378443837),
             Point(x: 5.0, y: -8.6602540378443855)
         ]
-        XCTAssertEqual(cornersForFlat, expectedCornersForFlat)
+        XCTAssertEqual(cornersForFlat[0].x, expectedCornersForFlat[0].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForFlat[0].y, expectedCornersForFlat[0].y, accuracy: 0.0001)
+        XCTAssertEqual(cornersForFlat[1].x, expectedCornersForFlat[1].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForFlat[1].y, expectedCornersForFlat[1].y, accuracy: 0.0001)
+        XCTAssertEqual(cornersForFlat[2].x, expectedCornersForFlat[2].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForFlat[2].y, expectedCornersForFlat[2].y, accuracy: 0.0001)
+        XCTAssertEqual(cornersForFlat[3].x, expectedCornersForFlat[3].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForFlat[3].y, expectedCornersForFlat[3].y, accuracy: 0.0001)
+        XCTAssertEqual(cornersForFlat[4].x, expectedCornersForFlat[4].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForFlat[4].y, expectedCornersForFlat[4].y, accuracy: 0.0001)
+        XCTAssertEqual(cornersForFlat[5].x, expectedCornersForFlat[5].x, accuracy: 0.0001)
+        XCTAssertEqual(cornersForFlat[5].y, expectedCornersForFlat[5].y, accuracy: 0.0001)
     }
     
     /// Test calculation cell pixel coordinates

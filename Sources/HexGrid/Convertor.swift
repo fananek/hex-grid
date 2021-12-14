@@ -80,8 +80,8 @@ internal struct Convertor {
         orientation: Orientation) -> Point {
         let axialCoords = coordinates.toAxial()
         let orientation = OrientationMatrix(orientation: orientation)
-        let x = ((orientation.f00 * Double(axialCoords.q)) + (orientation.f10 * Double(axialCoords.r))) * (hexSize.width / 2)
-        let y = ((orientation.f01 * Double(axialCoords.q)) + (orientation.f11 * Double(axialCoords.r))) * (hexSize.height / 2)
+        let x = ((orientation.f00 * Double(axialCoords.q)) + (orientation.f10 * Double(axialCoords.r))) * hexSize.width
+        let y = ((orientation.f01 * Double(axialCoords.q)) + (orientation.f11 * Double(axialCoords.r))) * hexSize.height
 
         return Point(x: x + gridOrigin.x, y: y + gridOrigin.y)
     }

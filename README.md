@@ -40,11 +40,15 @@ The library is meant for generic backend use. Therefore it doesn't not offer any
 - [x] Code inline documentation (quick help).
 - [x] Solid unit tests coverage.
 - [x] Automated documentation generator (SwiftDoc + GitHub Actions -> hosted on repo GitHub Pages).
+- [x] Demo with visualization.
 
 ## What's coming next?
 
-- [ ] Review and update readme.md.
-- [ ] Demo with visualization.
+- [ ] We are done for the moment. Any feature requests or ideas are welcome. 
+
+## HexGrid in action
+
+See the [demo app](https://github.com/fananek/HexGrid-SwiftUI-Demo).
 
 ## Getting Started
 

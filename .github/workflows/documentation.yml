@@ -19,6 +19,7 @@ jobs:
           module-name: hex-grid
           format: "html"
           base-url: "https://fananek.github.io/hex-grid/"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           output: "Documentation"
       - name: Update Permissions
         run: 'sudo chown --recursive $USER Documentation'

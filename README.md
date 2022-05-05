@@ -6,7 +6,7 @@
     <a href="https://swift.org/package-manager">
         <img src="https://img.shields.io/badge/spm-&#x2713-brightgreen.svg" alt="Swift Package Manager Compatible">
     </a>
-    <a href="LICENSE">
+    <a href="https://github.com/fananek/hex-grid/blob/main/LICENSE.md">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
     </a>
     <a href="https://fananek.github.io/hex-grid/">

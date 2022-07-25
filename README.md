@@ -225,7 +225,7 @@ let path = try grid.findPath(from: originCell, to: targetCell)
 
 #### Calculate field of view (FOV)
 
-`Cell` has an attribute called `isOpaque`. Its value can be `true` or `false`. Based on this information it's possible to calculate so called **field of view**. It means all cells visible from specific position on grid, considering all opque obstacles.
+`Cell` has an attribute called `isOpaque`. Its value can be `true` or `false`. Based on this information it's possible to calculate so called **field of view**. It means all cells visible from specific position on grid, considering all opaque obstacles.
 
 ```swift
 // set cell as opaque

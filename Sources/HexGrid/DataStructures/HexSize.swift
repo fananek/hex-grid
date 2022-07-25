@@ -1,6 +1,5 @@
 public struct HexSize: Codable {
-    var width: Double
-    var height: Double
+    public var width, height: Double
 
     /// Width and Height of a hex
     /// - Parameters:

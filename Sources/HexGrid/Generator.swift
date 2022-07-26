@@ -65,8 +65,8 @@ internal struct Generator {
     static func createHexagonGrid (
         radius: Int
         ) throws -> Set<CubeCoordinates> {
-        guard radius > 0 else {
-            throw InvalidArgumentsError(message: "Hexagon radius must be greater than zero.")
+        guard radius >= 0 else {
+            throw InvalidArgumentsError(message: "Hexagon radius must be greater than or equal to zero.")
         }
         var tiles = Set<CubeCoordinates>()
         for x in -radius...radius {

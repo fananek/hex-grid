@@ -61,7 +61,7 @@ internal struct Generator {
     
     /// Create grid of hexagonal shape
     /// - parameters:
-    ///     - sideLength: radius of desired hexagonal shape (1 -> single tile, 2 -> 7 tiles, 3 -> 19 tiles...)
+    ///     - sideLength: side length of desired hexagonal shape (1 -> single tile, 2 -> 7 tiles, 3 -> 19 tiles...)
     static func createHexagonGrid (
         sideLength: Int
         ) throws -> Set<CubeCoordinates> {

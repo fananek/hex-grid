@@ -16,7 +16,7 @@ class HexGridTests: XCTestCase {
     /// Get non blocked cells
     func testGetNonBlockedCells() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(1))
+            shape: GridShape.hexagon(2))
         grid.cellAt(try CubeCoordinates(x: 1, y: 0, z: -1))?.isBlocked = true
         
         let expectedSet: Set<Cell> = try [
@@ -33,7 +33,7 @@ class HexGridTests: XCTestCase {
     /// Get non blocked coordinates
     func testGetNonBlockedCoordinates() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(1))
+            shape: GridShape.hexagon(2))
         grid.cellAt(try CubeCoordinates(x: 1, y: 0, z: -1))?.isBlocked = true
         
         let expectedSet: Set<CubeCoordinates> = try [
@@ -50,7 +50,7 @@ class HexGridTests: XCTestCase {
     /// Test neighbor coordinates
     func testNeighborCoordinates() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(1))
+            shape: GridShape.hexagon(2))
         
         let expectedCoordinates = try CubeCoordinates(x: 1, y: 0, z: -1)
         let neighborCoordinates = try grid.neighborCoordinates(
@@ -204,7 +204,7 @@ class HexGridTests: XCTestCase {
     /// Get cell neighbors coordinates
     func testGetCellNeighborsCoordinates() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(1))
+            shape: GridShape.hexagon(2))
         let originCoordinates = try CubeCoordinates(x: 1, y: 0, z: -1)
         let neighbors = try grid.neighborsCoordinates(for: originCoordinates)
         let expectedNeighbors: Set<CubeCoordinates> = try [
@@ -218,7 +218,7 @@ class HexGridTests: XCTestCase {
     /// Get cell neighbors
     func testGetCellNeighbors() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(1))
+            shape: GridShape.hexagon(2))
         if let originCell = try grid.cellAt(CubeCoordinates(x: 1, y: 0, z: -1)) {
             let neighbors = try grid.neighbors(for: originCell)
             let expectedNeighbors: Set<Cell> = try [
@@ -241,7 +241,7 @@ class HexGridTests: XCTestCase {
     /// Get cell diagonal neighbor
     func testGetCellDiagonalNeighbor() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(3))
+            shape: GridShape.hexagon(4))
         if let originCell = try grid.cellAt(CubeCoordinates(x: 1, y: 0, z: -1)) {
             if let neighbor = try grid.diagonalNeighbor(for: originCell, at: Direction.Pointy.northEast.rawValue) {
                 let neighborCoords = try CubeCoordinates(x: 3, y: -1, z: -2)
@@ -257,7 +257,7 @@ class HexGridTests: XCTestCase {
     /// Get cell diagonal neighbor coordinates
     func testGetCellDiagonalNeighborCoordinates() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(3))
+            shape: GridShape.hexagon(4))
         var origin = try CubeCoordinates(x: 1, y: 0, z: -1)
         var neighborCoords = try grid.diagonalNeighborCoordinates(for: origin, at: Direction.Pointy.northEast.rawValue)
         let expectedNeighborCoords = try CubeCoordinates(x: 3, y: -1, z: -2)
@@ -272,7 +272,7 @@ class HexGridTests: XCTestCase {
     // Get cell diagonal neighbors coordinates
     func testGetCellDiagonalNeighborsCoordinates() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(2))
+            shape: GridShape.hexagon(3))
         let originCoordinates = try CubeCoordinates(x: 1, y: 0, z: -1)
         let neighbors = try grid.diagonalNeighborsCoordinates(for: originCoordinates)
         let expectedNeighbors: Set<CubeCoordinates> = try [
@@ -293,7 +293,7 @@ class HexGridTests: XCTestCase {
     /// Get cell diagonal neighbors
     func testGetCellDiagonalNeighbors() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(2))
+            shape: GridShape.hexagon(3))
         if let originCell = try grid.cellAt(CubeCoordinates(x: 1, y: 0, z: -1)) {
             let neighbors = try grid.diagonalNeighbors(for: originCell)
             let expectedNeighbors: Set<Cell> = try [
@@ -317,7 +317,7 @@ class HexGridTests: XCTestCase {
     /// Get line between two cells
     func testLine() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(2))
+            shape: GridShape.hexagon(3))
         if let originCell = try grid.cellAt(CubeCoordinates(x: 0, y: 0, z: 0)), let targetCell = grid.cellAt(try CubeCoordinates(x: 2, y: 0, z: -2)) {
             if let line = try grid.line(from: originCell, to: targetCell) {
                 let expectedLine: Set<Cell> = try [
@@ -344,7 +344,7 @@ class HexGridTests: XCTestCase {
     /// Test invalid line
     func testInvalidLine() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(2))
+            shape: GridShape.hexagon(3))
         if let noCell = try grid.cellAt(CubeCoordinates(x: 1, y: 0, z: -1)) {
             grid.cells.remove(noCell)
         }
@@ -360,7 +360,7 @@ class HexGridTests: XCTestCase {
     /// Test ring coordinates
     func testRingCoordinates() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(1))
+            shape: GridShape.hexagon(2))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         
         let testSet: Set<CubeCoordinates> = try [
@@ -390,7 +390,7 @@ class HexGridTests: XCTestCase {
     /// Test ring
     func testRing() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(1))
+            shape: GridShape.hexagon(2))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         
         let testSet: Set<Cell> = try [
@@ -421,7 +421,7 @@ class HexGridTests: XCTestCase {
     /// Test filled ring coordinates
     func testFilledRingCoordinates() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(1))
+            shape: GridShape.hexagon(2))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         
         let testSet: Set<CubeCoordinates> = try [
@@ -453,7 +453,7 @@ class HexGridTests: XCTestCase {
     /// Test filled ring
     func testFilledRing() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(1))
+            shape: GridShape.hexagon(2))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         
         let testSet: Set<Cell> = try [
@@ -484,7 +484,7 @@ class HexGridTests: XCTestCase {
     }
     
     func testFieldOfViewCoordinates() throws {
-        let grid = HexGrid(shape: GridShape.hexagon(3))
+        let grid = HexGrid(shape: GridShape.hexagon(4))
         grid.cellAt(try CubeCoordinates(x: -1,  y:  1,  z:  0))?.isOpaque = true
         grid.cellAt(try CubeCoordinates(x: -1,  y:  0,  z:  1))?.isOpaque = true
         grid.cellAt(try CubeCoordinates(x:  1,  y: -1,  z:  0))?.isOpaque = true
@@ -541,7 +541,7 @@ class HexGridTests: XCTestCase {
     }
     
     func testFieldOfView() throws {
-        let grid = HexGrid(shape: GridShape.hexagon(3))
+        let grid = HexGrid(shape: GridShape.hexagon(4))
         grid.cellAt(try CubeCoordinates(x: -1,  y:  1,  z:  0))?.isOpaque = true
         grid.cellAt(try CubeCoordinates(x: -1,  y:  0,  z:  1))?.isOpaque = true
         grid.cellAt(try CubeCoordinates(x:  1,  y: -1,  z:  0))?.isOpaque = true
@@ -614,7 +614,7 @@ class HexGridTests: XCTestCase {
     
     func testFindReachableCoordinates() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(1))
+            shape: GridShape.hexagon(3))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         grid.cellAt(try CubeCoordinates(x:  1, y: -1, z:  0))?.isBlocked = true
         
@@ -632,7 +632,7 @@ class HexGridTests: XCTestCase {
     
     func testFindReachable() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(1))
+            shape: GridShape.hexagon(3))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         grid.cellAt(try CubeCoordinates(x:  1, y: -1, z:  0))?.isBlocked = true
         
@@ -652,7 +652,7 @@ class HexGridTests: XCTestCase {
     /// Test pathfinding (coordinates only)
     func testFindPathCoordinates() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(2))
+            shape: GridShape.hexagon(4))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         grid.cellAt(try CubeCoordinates(x:  1, y:  1, z: -2))?.isBlocked = true
         
@@ -672,7 +672,7 @@ class HexGridTests: XCTestCase {
     /// Test pathfinding
     func testFindPath() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(2))
+            shape: GridShape.hexagon(4))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         grid.cellAt(try CubeCoordinates(x:  1, y:  1, z: -2))?.isBlocked = true
         
@@ -693,7 +693,7 @@ class HexGridTests: XCTestCase {
     /// Test non existing path
     func testFindNoPath() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(2))
+            shape: GridShape.hexagon(3))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         grid.cellAt(try CubeCoordinates(x:  1, y:  1, z: -2))?.isBlocked = true
         grid.cellAt(try CubeCoordinates(x:  2, y: -1, z: -1))?.isBlocked = true
@@ -808,7 +808,7 @@ class HexGridTests: XCTestCase {
         let hexSize = HexSize(width: 10.0, height: 10.0)
         let gridOrigin = Point(x: 0.0, y: 0.0)
         let gridPointy = HexGrid(
-            shape: GridShape.hexagon(2),
+            shape: GridShape.hexagon(3),
             orientation: Orientation.pointyOnTop,
             offsetLayout: OffsetLayout.even,
             hexSize: hexSize,
@@ -819,7 +819,7 @@ class HexGridTests: XCTestCase {
         XCTAssertEqual(gridPointy.pixelHeight, expectedHeightPointy)
         
         let gridFlat = HexGrid(
-            shape: GridShape.hexagon(2),
+            shape: GridShape.hexagon(3),
             orientation: Orientation.flatOnTop,
             offsetLayout: OffsetLayout.even,
             hexSize: hexSize,

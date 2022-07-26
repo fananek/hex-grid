@@ -377,7 +377,7 @@ class MathTests: XCTestCase {
         
     /// Test breadthFirstSearch algorithm
     func testBreadthFirstSearch() throws {
-        let grid = HexGrid(shape: GridShape.hexagon(2))
+        let grid = HexGrid(shape: GridShape.hexagon(3))
         grid.cellAt(try CubeCoordinates(x:  1,  y:  0,  z: -1))?.isBlocked = true
         grid.cellAt(try CubeCoordinates(x:  0,  y:  1,  z: -1))?.isBlocked = true
         let searchResultSet = try Math.breadthFirstSearch(from: CubeCoordinates(x: 0, y: 0, z: 0), in: 2, on: grid)
@@ -409,7 +409,7 @@ class MathTests: XCTestCase {
     /// Test aStar algorithm
     func testAStarPath() throws {
         let grid = HexGrid(
-            shape: GridShape.hexagon(2))
+            shape: GridShape.hexagon(3))
         grid.cellAt(try CubeCoordinates(x:  1, y:  0, z: -1))?.isBlocked = true
         grid.cellAt(try CubeCoordinates(x:  0, y:  1, z: -1))?.isBlocked = true
         if let path = try Math.aStarPath(from: CubeCoordinates(x: 0, y: 0, z: 0), to: CubeCoordinates(x: 2, y: 0, z: -2), on: grid) {

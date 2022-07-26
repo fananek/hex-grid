@@ -51,19 +51,30 @@ class GridGeneratorTests: XCTestCase {
     
     /// Create hexagonal grid
     func testCreateHexagonGrid () throws {
-        let orientation = Orientation.pointyOnTop
-        let offsetLayout = OffsetLayout.even
+        var orientation = Orientation.pointyOnTop
+        var offsetLayout = OffsetLayout.even
         let hexSize = HexSize(width: 10.0, height: 10.0)
         let origin = Point(x: 0.0, y: 0.0)
-        let shape = GridShape.hexagon(1)
+        var shape = GridShape.hexagon(2)
         
-        let result = HexGrid(
+        let gridPointy = HexGrid(
             shape: shape,
             orientation: orientation,
             offsetLayout: offsetLayout,
             hexSize: hexSize,
             origin: origin)
-        XCTAssertEqual(result.cells.count, 7)
+        XCTAssertEqual(gridPointy.cells.count, 7)
+        
+        orientation = Orientation.flatOnTop
+        offsetLayout = OffsetLayout.odd
+        shape = GridShape.hexagon(3)
+        let gridFlat = HexGrid(
+            shape: shape,
+            orientation: orientation,
+            offsetLayout: offsetLayout,
+            hexSize: hexSize,
+            origin: origin)
+        XCTAssertEqual(gridFlat.cells.count, 19)
     }
     
     /// Create triangular grids in all variations
@@ -80,7 +91,7 @@ class GridGeneratorTests: XCTestCase {
             offsetLayout: offsetLayout,
             hexSize: hexSize,
             origin: origin)
-        XCTAssertEqual(gridPointy.cells.count, 15)
+        XCTAssertEqual(gridPointy.cells.count, 10)
 
         shape = GridShape.triangle(5)
         orientation = Orientation.flatOnTop
@@ -91,7 +102,7 @@ class GridGeneratorTests: XCTestCase {
             offsetLayout: offsetLayout,
             hexSize: hexSize,
             origin: origin)
-        XCTAssertEqual(gridFlat.cells.count, 21)
+        XCTAssertEqual(gridFlat.cells.count, 15)
     }
     
     /// Create invalid shape  grid

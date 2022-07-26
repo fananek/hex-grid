@@ -59,8 +59,8 @@ public class HexGrid: Codable {
         
         do {
             switch shape {
-            case .hexagon(let radius):
-                try self.cells = Set(Generator.createHexagonGrid(radius: radius).map { Cell($0) })
+            case .hexagon(let sideLength):
+                try self.cells = Set(Generator.createHexagonGrid(sideLength: sideLength).map { Cell($0) })
             case .rectangle(let width, let height):
                 try self.cells = Set(Generator.createRectangleGrid(
                                         orientation: orientation,
@@ -70,7 +70,7 @@ public class HexGrid: Codable {
             case .triangle(let sideSize):
                 try self.cells = Set(Generator.createTriangleGrid(
                                         orientation: orientation,
-                                        sideSize: sideSize).map { Cell($0) })
+                                        sideLength: sideSize).map { Cell($0) })
             }
         } catch {
             self.cells = Set<Cell>()

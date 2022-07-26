@@ -61,16 +61,17 @@ internal struct Generator {
     
     /// Create grid of hexagonal shape
     /// - parameters:
-    ///     - radius: radius of desired hexagonal shape (0 -> single tile, 1 -> 7 tiles, 2 -> 19 tiles...)
+    ///     - sideLength: radius of desired hexagonal shape (1 -> single tile, 2 -> 7 tiles, 3 -> 19 tiles...)
     static func createHexagonGrid (
-        radius: Int
+        sideLength: Int
         ) throws -> Set<CubeCoordinates> {
-        guard radius >= 0 else {
-            throw InvalidArgumentsError(message: "Hexagon radius must be greater than or equal to zero.")
+        guard sideLength > 0 else {
+            throw InvalidArgumentsError(message: "Hexagon side length must be greater than zero.")
         }
+        let side = sideLength - 1
         var tiles = Set<CubeCoordinates>()
-        for x in -radius...radius {
-            for y in max(-radius, -x-radius)...min(radius, -x+radius) {
+        for x in -side...side {
+            for y in max(-side, -x-side)...min(side, -x+side) {
                 tiles.insert(try (CubeCoordinates(x: x, y: y, z: -x-y)))
             }
         }
@@ -80,26 +81,26 @@ internal struct Generator {
     /// Create grid of triangular (equilateral) shape
     /// - parameters:
     ///     - orientation: See `OrientationEnumeration` options
-    ///     - sideSize: size of a triangle side (result triangle is equilateral)
+    ///     - sideLength: size of a triangle side (result triangle is equilateral)
     static func createTriangleGrid (
         orientation: Orientation,
-        sideSize: Int
+        sideLength: Int
         ) throws -> Set<CubeCoordinates> {
-        guard sideSize > 0 else {
-            throw InvalidArgumentsError(message: "Triangle side size must be greater than zero.")
+        guard sideLength > 0 else {
+            throw InvalidArgumentsError(message: "Triangle side length must be greater than zero.")
         }
         var tiles = Set<CubeCoordinates>()
-
+        let side = sideLength - 1
         switch orientation {
         case Orientation.pointyOnTop:
-            for x in 0...sideSize {
-                for y in 0...sideSize-x {
+            for x in 0...side {
+                for y in 0...side-x {
                     tiles.insert(try (CubeCoordinates(x: x, y: y, z: -x-y)))
                 }
             }
         case Orientation.flatOnTop:
-            for x in 0...sideSize {
-                for y in sideSize-x...sideSize {
+            for x in 0...side {
+                for y in side-x...side {
                     tiles.insert(try (CubeCoordinates(x: x, y: y, z: -x-y)))
                 }
             }

@@ -48,7 +48,7 @@ The library is meant for generic backend use. Therefore it doesn't not offer any
 
 ## HexGrid in action
 
-HexGrid [demo app](https://github.com/mgrider/SKHexGrid) using SpriteKit.
+HexGrid [demo app](https://github.com/mgrider/SKHexGrid) using SpriteKit.  
 HexGrid [demo app](https://github.com/fananek/HexGrid-SwiftUI-Demo) using SwiftUI.
 
 ## Getting Started

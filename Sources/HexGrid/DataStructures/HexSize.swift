@@ -1,4 +1,5 @@
-public struct HexSize: Codable {
+/// Basic structure holding a `width` and `height`.
+public struct HexSize: Codable, Equatable {
     public var width, height: Double
 
     /// Width and Height of a hex

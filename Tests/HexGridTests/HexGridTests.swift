@@ -815,8 +815,8 @@ class HexGridTests: XCTestCase {
             origin: gridOrigin)
         let expectedWidthPointy: Double = 86.6
         let expectedHeightPointy: Double = 80.0
-        XCTAssertEqual((gridPointy.pixelWidth * 10).rounded()/10, expectedWidthPointy)
-        XCTAssertEqual(gridPointy.pixelHeight, expectedHeightPointy)
+        XCTAssertEqual((gridPointy.pixelSize.width * 10).rounded()/10, expectedWidthPointy)
+        XCTAssertEqual(gridPointy.pixelSize.height, expectedHeightPointy)
         
         let gridFlat = HexGrid(
             shape: GridShape.hexagon(3),
@@ -826,8 +826,8 @@ class HexGridTests: XCTestCase {
             origin: gridOrigin)
         let expectedWidthFlat: Double = 80.0
         let expectedHeightFlat: Double = 86.6
-        XCTAssertEqual(gridFlat.pixelWidth, expectedWidthFlat)
-        XCTAssertEqual((gridFlat.pixelHeight * 10).rounded()/10, expectedHeightFlat)
+        XCTAssertEqual(gridFlat.pixelSize.width, expectedWidthFlat)
+        XCTAssertEqual((gridFlat.pixelSize.height * 10).rounded()/10, expectedHeightFlat)
     }
         
     static var allTests = [

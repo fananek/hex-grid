@@ -1,10 +1,15 @@
-/// Enumeration for hexagonal grid shapes
-
+/// Enumeration for built-in types of hexagonal grid shapes.
+///
+/// Options are: `hexagon`, `rectangle`, and `triangle`.
+/// Each option has stored properties relevant to that shape.
 public enum GridShape {
-    /// width, height
-    case rectangle(Int, Int)
-    /// radius
+
+    /// Hexagonal `GridShape`. Stored property corresponds to side-length.
     case hexagon(Int)
-    /// side size
+
+    /// Rectangular `GridShape`. Stored properties are for width and height.
+    case rectangle(Int, Int)
+
+    /// Triangular `GridShape`. Stored property is side-length.
     case triangle(Int)
 }

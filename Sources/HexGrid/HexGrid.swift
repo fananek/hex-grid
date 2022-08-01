@@ -1,18 +1,41 @@
 /// HexGrid is an entry point of the package. It represents a grid of hexagonal cells
 public class HexGrid: Codable {
+    /// The `Orientation` of all the hexagons in the grid.
     public var orientation: Orientation
+
+    /// The `OffsetLayout` option for the grid.
     public var offsetLayout: OffsetLayout
-    public var hexSize: HexSize
+
+    /// A bounding size for each individual hexagon cell in the grid.
+    /// Note that for regular hexagons, `hexSize` should be square,
+    /// (`width` and `height` values the same), and the
+    /// hexagon itself will be drawn slightly inset inside this box.
+    /// (Which direction depends on the grid's `orientation`.)
+    public var hexSize: HexSize {
+        didSet {
+            if hexSize != oldValue {
+                updatePixelDimensions()
+            }
+        }
+    }
+
+    /// The point of origin for generating pixel coordinates and various drawing-related values.
     public var origin: Point
+
+    /// All the cells in the grid.
     public var cells: Set<Cell> {
         didSet {
             updatePixelDimensions()
         }
     }
+
+    /// User attributes stored on the grid itself.
     public var attributes: [String: Attribute]
-    private(set) public var pixelWidth: Double = 0
-    private(set) public var pixelHeight: Double = 0
-    
+
+    /// Width and height of the entire grid in pixel dimensions.
+    /// - Note: This value is calculated at based on the `hexSize` property.
+    private(set) public var pixelSize = HexSize(width: 0.0, height: 0.0)
+
     // MARK: Initializers
     /// Default initializer
     /// - Parameters:
@@ -445,8 +468,9 @@ public class HexGrid: Codable {
             orientation: self.orientation)
         return cellAt(coords)
     }
-    
+
     // MARK: Internal functions
+
     /// Function keeps grid dimensions updated using property observer
     fileprivate func updatePixelDimensions() -> Void {
         var minX: Double = 0.0
@@ -471,7 +495,7 @@ public class HexGrid: Codable {
             cellPixelWidth = 2.0 * hexSize.width
             cellPixelHeight = (3.0).squareRoot() * hexSize.height
         }
-        pixelWidth = (maxX - minX) + cellPixelWidth
-        pixelHeight = (maxY - minY) + cellPixelHeight
+        pixelSize.width = (maxX - minX) + cellPixelWidth
+        pixelSize.height = (maxY - minY) + cellPixelHeight
     }
 }

@@ -25,7 +25,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#gridshape.rectangle">rectangle</a></li><li class="case"><a href="#gridshape.hexagon">hexagon</a></li><li class="case"><a href="#gridshape.triangle">triangle</a></li></ul></li></ol>
+            <ol><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#gridshape.hexagon">hexagon</a></li><li class="case"><a href="#gridshape.rectangle">rectangle</a></li><li class="case"><a href="#gridshape.triangle">triangle</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -40,26 +40,19 @@
 <pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">GridShape</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
-    <p>Enumeration for hexagonal grid shapes</p>
+    <p>Enumeration for built-in types of hexagonal grid shapes.</p>
+
+</div>
+<div class="discussion">
+    <p>Options are: <code>hexagon</code>, <code>rectangle</code>, and <code>triangle</code>.
+Each option has stored properties relevant to that shape.</p>
 
 </div>
 
     <section id="enumeration cases">
         <h2>Enumeration Cases</h2>
 
-        <div role="article" class="case" id="gridshape.rectangle">
-    <h3>
-        <code><a href="#gridshape.rectangle">rectangle</a></code>
-    </h3>
-    <div class="declaration">
-<pre class="highlight"><code><html><body><span class="keyword">case</span> <span class="variable">rectangle</span>(<span class="type">Int</span>, <span class="type">Int</span>) </body></html></code></pre>
-</div>
-<div class="summary" role="doc-abstract">
-    <p>width, height</p>
-
-</div>
-</div>
-<div role="article" class="case" id="gridshape.hexagon">
+        <div role="article" class="case" id="gridshape.hexagon">
     <h3>
         <code><a href="#gridshape.hexagon">hexagon</a></code>
     </h3>
@@ -67,7 +60,19 @@
 <pre class="highlight"><code><html><body><span class="keyword">case</span> <span class="variable">hexagon</span>(<span class="type">Int</span>) </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
-    <p>radius</p>
+    <p>Hexagonal <code>GridShape</code>. Stored property corresponds to side-length.</p>
+
+</div>
+</div>
+<div role="article" class="case" id="gridshape.rectangle">
+    <h3>
+        <code><a href="#gridshape.rectangle">rectangle</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">case</span> <span class="variable">rectangle</span>(<span class="type">Int</span>, <span class="type">Int</span>) </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Rectangular <code>GridShape</code>. Stored properties are for width and height.</p>
 
 </div>
 </div>
@@ -79,7 +84,7 @@
 <pre class="highlight"><code><html><body><span class="keyword">case</span> <span class="variable">triangle</span>(<span class="type">Int</span>) </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
-    <p>side size</p>
+    <p>Triangular <code>GridShape</code>. Stored property is side-length.</p>
 
 </div>
 </div>
@@ -92,7 +97,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2022-07-27T09:04:03+0000">July 27, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
+    Generated on <time datetime="2022-08-01T07:17:49+0000">August 1, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
 </p>
     </footer>
 </body>

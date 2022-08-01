@@ -1,6 +1,33 @@
 /// Generates grid based on parameters
 internal struct Generator {
-    
+
+    /// A Set of `Cell`s based on `GridShape`, `Orientation`, and `OffsetLayout`.
+    /// - parameters:
+    ///    - shape: The `GridShape` for our `Cell` values.
+    ///    - orientation: An `Orientation` value for the generated set of `Cell` values.
+    ///    - offsetLayout: The `OffsetLayout` for the generated set of `Cell`s.
+    /// - returns: A `Set<Cell>`, suitable for use in `HexGrid`.
+    static func cellsForGridShape(
+        shape: GridShape,
+        orientation: Orientation,
+        offsetLayout: OffsetLayout
+    ) throws -> Set<Cell> {
+        switch shape {
+        case .hexagon(let sideLength):
+            return try Set(Generator.createHexagonGrid(sideLength: sideLength).map { Cell($0) })
+        case .rectangle(let width, let height):
+            return try Set(Generator.createRectangleGrid(
+                orientation: orientation,
+                offsetLayout: offsetLayout,
+                width: width,
+                height: height).map { Cell($0) })
+        case .triangle(let sideSize):
+            return try Set(Generator.createTriangleGrid(
+                orientation: orientation,
+                sideLength: sideSize).map { Cell($0) })
+        }
+    }
+
     /// Create grid of rectangular shape
     /// - parameters:
     ///     - orientation: See `OrientationEnumeration` options

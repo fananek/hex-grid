@@ -803,6 +803,56 @@ class HexGridTests: XCTestCase {
         }
     }
     
+    /// Test fitGrid
+    func testFitGrid() throws {
+        var gridSize = HexSize(width: 150.0, height: 150)
+        // pointy
+        var grid = HexGrid(
+            shape: GridShape.hexagon(2),
+            pixelSize: gridSize
+        )
+        XCTAssertEqual(grid.pixelSize.width, 150.0, accuracy: 1.0)
+        XCTAssertEqual(grid.pixelSize.height, 144.337, accuracy: 1.0)
+        XCTAssertEqual(grid.hexSize.width, 28.8, accuracy: 1.0)
+        XCTAssertEqual(grid.hexSize.height, 28.8, accuracy: 1.0)
+        XCTAssertEqual(grid.origin.x, 75.0, accuracy: 1.0)
+        XCTAssertEqual(grid.origin.y, 75.0, accuracy: 1.0)
+
+        // flat
+        grid = HexGrid(
+            shape: GridShape.hexagon(2),
+            pixelSize: gridSize,
+            orientation: .flatOnTop
+        )
+        XCTAssertEqual(grid.pixelSize.width, 144, accuracy: 1.0)
+        XCTAssertEqual(grid.pixelSize.height, 150, accuracy: 1.0)
+
+        gridSize = HexSize(width: 2000.0, height: 2000)
+        grid = HexGrid(
+            shape: GridShape.triangle(10),
+            pixelSize: gridSize
+        )
+        XCTAssertEqual(grid.pixelSize.width, 2000, accuracy: 1.0)
+        XCTAssertEqual(grid.pixelSize.height, 1789, accuracy: 1.0)
+        XCTAssertEqual(grid.hexSize.width, 115, accuracy: 1.0)
+        XCTAssertEqual(grid.hexSize.height, 115, accuracy: 1.0)
+        XCTAssertEqual(grid.origin.x, 1000, accuracy: 1.0)
+        XCTAssertEqual(grid.origin.y, 1779, accuracy: 1.0)
+
+        gridSize = HexSize(width: 2000.0, height: 2000)
+        grid = HexGrid(
+            shape: GridShape.triangle(10),
+            pixelSize: gridSize,
+            orientation: .flatOnTop
+        )
+        XCTAssertEqual(grid.pixelSize.width, 1789, accuracy: 1.0)
+        XCTAssertEqual(grid.pixelSize.height, 2000, accuracy: 1.0)
+        XCTAssertEqual(grid.hexSize.width, 115, accuracy: 1.0)
+        XCTAssertEqual(grid.hexSize.height, 115, accuracy: 1.0)
+        XCTAssertEqual(grid.origin.x, 220, accuracy: 1.0)
+        XCTAssertEqual(grid.origin.y, 2799, accuracy: 1.0)
+    }
+
     // Test grid pixel dimensions
     func testGridPixelDimensions() throws {
         let hexSize = HexSize(width: 10.0, height: 10.0)
@@ -860,6 +910,7 @@ class HexGridTests: XCTestCase {
         ("Test calculation of polygon corners", testPolygonCorners),
         ("Test calculation cell pixel coordinates", testPixelCoordinates),
         ("Test get cell for pixel coordinates", testCellAtPixel),
+        ("Test fit grid", testFitGrid),
         ("Test grid pixel dimensions", testGridPixelDimensions)
     ]
 }

@@ -9,18 +9,12 @@ public class HexGrid: Codable {
     /// The `OffsetLayout` option for the grid.
     public var offsetLayout: OffsetLayout
 
-    /// A bounding size for each individual hexagon cell in the grid.
-    /// Note that for regular hexagons, `hexSize` should be square,
-    /// (`width` and `height` values the same), and the
-    /// hexagon itself will be drawn slightly inset inside this box.
-    /// (Which direction depends on the grid's `orientation`.)
-    public var hexSize: HexSize {
-        didSet {
-            if hexSize != oldValue {
-                updatePixelDimensions()
-            }
-        }
-    }
+    /// A radius size for each individual hexagon cell in the grid. This describes
+    /// the center of the hexagon to one of its points.
+    /// - Note For regular hexagons, `hexSize` should be a square, meaning
+    /// the `width` and `height` values are the same. Changing one of these values
+    /// to be out of sync with the other will result in hexagons that are "squished".
+    private(set) public var hexSize: HexSize
 
     /// The point of origin for generating pixel coordinates and various drawing-related values.
     public var origin: Point
@@ -105,15 +99,15 @@ public class HexGrid: Codable {
     /// Each hexagon in the grid will "fit" within that size by default.
     /// - Parameters:
     ///   - shape: Shape to be generated
+    ///   - pixelSize: A `HexSize` corresponding to the size for the entire grid.
     ///   - orientation: Grid `Orientation` enumeration
     ///   - offsetLayout: `OffsetLayout` enumeration (used to specify row or column offset for rectangular grids)
-    ///   - pixelSize: A `HexSize` corresponding to the size for the entire grid.
     ///   - attributes: A dictionary of attributes for the entire grid.
     public init(
         shape: GridShape,
+        pixelSize: HexSize,
         orientation: Orientation = Orientation.pointyOnTop,
         offsetLayout: OffsetLayout = OffsetLayout.even,
-        pixelSize: HexSize = HexSize(width: 100.0, height: 100.0),
         attributes: [String: Attribute] = [String: Attribute]()
     ) {
         self.orientation = orientation
@@ -527,16 +521,16 @@ public class HexGrid: Codable {
             newHexSize.width = hexSize.width * heightRatio
         }
         pixelSize = newGridSize
-        hexSize = newHexSize
+        self.hexSize = newHexSize
         setOriginToFitPixelSize(offset: difference)
     }
 
     /// Set the origin to the middle of the grid.
     public func setOriginToFitPixelSize(offset: HexSize) {
-        var minX: Double = 0.0
-        var maxX: Double = 0.0
-        var minY: Double = 0.0
-        var maxY: Double = 0.0
+        var minX: Double = .greatestFiniteMagnitude
+        var maxX: Double = -.greatestFiniteMagnitude
+        var minY: Double = .greatestFiniteMagnitude
+        var maxY: Double = -.greatestFiniteMagnitude
 
         for cell in cells {
             let pixelCoords = pixelCoordinates(for: cell)
@@ -567,10 +561,10 @@ public class HexGrid: Codable {
 
     /// Function keeps grid dimensions updated using property observer
     fileprivate func updatePixelDimensions() -> Void {
-        var minX: Double = 0.0
-        var maxX: Double = 0.0
-        var minY: Double = 0.0
-        var maxY: Double = 0.0
+        var minX: Double = .greatestFiniteMagnitude
+        var maxX: Double = -.greatestFiniteMagnitude
+        var minY: Double = .greatestFiniteMagnitude
+        var maxY: Double = -.greatestFiniteMagnitude
         
         for cell in cells {
             let pixelCoords = pixelCoordinates(for: cell)

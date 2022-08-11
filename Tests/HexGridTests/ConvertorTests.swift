@@ -101,16 +101,28 @@ class ConvertorTests: XCTestCase {
     
     // Convert coordinates from offset to cube
     func testConvertOffsetToCube() throws {
-        let offsetCoordinatesPointy = OffsetCoordinates(column: 2, row: 4, orientation: Orientation.pointyOnTop, offsetLayout: OffsetLayout.odd)
-        var cubeCoordinates = try offsetCoordinatesPointy.toCube()
-        XCTAssertEqual(cubeCoordinates.x, 0)
-        XCTAssertEqual(cubeCoordinates.y, -4)
-        XCTAssertEqual(cubeCoordinates.z, 4)
-        
-        let offsetCoordinatesFlat = OffsetCoordinates(column: 2, row: 4, orientation: Orientation.flatOnTop, offsetLayout: OffsetLayout.odd)
-        cubeCoordinates = try offsetCoordinatesFlat.toCube()
+        let offsetCoordinatesPointyEven = OffsetCoordinates(column: 2, row: -1, orientation: Orientation.pointyOnTop, offsetLayout: OffsetLayout.even)
+        var cubeCoordinates = try offsetCoordinatesPointyEven.toCube()
         XCTAssertEqual(cubeCoordinates.x, 2)
-        XCTAssertEqual(cubeCoordinates.y, -5)
+        XCTAssertEqual(cubeCoordinates.y, -1)
+        XCTAssertEqual(cubeCoordinates.z, -1)
+        
+        let offsetCoordinatesPointyOdd = OffsetCoordinates(column: 2, row: -1, orientation: Orientation.pointyOnTop, offsetLayout: OffsetLayout.odd)
+        cubeCoordinates = try offsetCoordinatesPointyOdd.toCube()
+        XCTAssertEqual(cubeCoordinates.x, 3)
+        XCTAssertEqual(cubeCoordinates.y, -2)
+        XCTAssertEqual(cubeCoordinates.z, -1)
+        
+        let offsetCoordinatesFlatEven = OffsetCoordinates(column: -1, row: 2, orientation: Orientation.flatOnTop, offsetLayout: OffsetLayout.even)
+        cubeCoordinates = try offsetCoordinatesFlatEven.toCube()
+        XCTAssertEqual(cubeCoordinates.x, -1)
+        XCTAssertEqual(cubeCoordinates.y, -1)
+        XCTAssertEqual(cubeCoordinates.z, 2)
+        
+        let offsetCoordinatesFlatOdd = OffsetCoordinates(column: -1, row: 2, orientation: Orientation.flatOnTop, offsetLayout: OffsetLayout.odd)
+        cubeCoordinates = try offsetCoordinatesFlatOdd.toCube()
+        XCTAssertEqual(cubeCoordinates.x, -1)
+        XCTAssertEqual(cubeCoordinates.y, -2)
         XCTAssertEqual(cubeCoordinates.z, 3)
     }
     

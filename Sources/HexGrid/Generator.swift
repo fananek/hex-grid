@@ -45,41 +45,29 @@ internal struct Generator {
         var tiles = Set<CubeCoordinates>()
         switch orientation {
         case Orientation.pointyOnTop:
-            switch offsetLayout {
-            // outer loop: y, inner loop: x
-            case OffsetLayout.even:
-                for y in 0..<height {
-                    let offset = y>>1
-                    for x in -offset..<width-offset {
-                        tiles.insert(try (CubeCoordinates(x: x, y: y, z: -x-y)))
-                    }
+            for r in 0..<height {
+                var offset: Int
+                switch offsetLayout {
+                case OffsetLayout.even:
+                    offset = (r+1)>>1
+                case OffsetLayout.odd:
+                    offset = (r)>>1
                 }
-            // outer loop: x, inner loop: y
-            case OffsetLayout.odd:
-                for x in 0..<height {
-                    let offset = x>>1
-                    for y in -offset..<width-offset {
-                        tiles.insert(try (CubeCoordinates(x: x, y: y, z: -x-y)))
-                    }
+                for q in -offset..<width-offset {
+                    tiles.insert(try AxialCoordinates(q: q, r: r).toCube())
                 }
             }
         case Orientation.flatOnTop:
-            switch offsetLayout {
-            // outer loop: x, inner loop: y
-            case OffsetLayout.even:
-                for x in 0..<width {
-                    let offset = x>>1
-                    for y in -offset..<height-offset {
-                        tiles.insert(try (CubeCoordinates(x: x, y: y, z: -x-y)))
-                    }
+            for q in 0..<width {
+                var offset: Int
+                switch offsetLayout {
+                case OffsetLayout.even:
+                    offset = (q+1)>>1
+                case OffsetLayout.odd:
+                    offset = (q)>>1
                 }
-            // outer loop: z, inner loop: y
-            case OffsetLayout.odd:
-                for z in 0..<width {
-                    let offset = z>>1
-                    for y in -offset..<height-offset {
-                        tiles.insert(try (CubeCoordinates(x: -y-z, y: y, z: z)))
-                    }
+                for r in -offset..<height-offset {
+                    tiles.insert(try AxialCoordinates(q: q, r: r).toCube())
                 }
             }
         }

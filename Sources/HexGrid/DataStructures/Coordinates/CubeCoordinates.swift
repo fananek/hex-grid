@@ -21,6 +21,16 @@ public struct CubeCoordinates: Hashable, Codable {
         }
     }
     
+    /// A non-throwing initializer that just takes `x` & `y` coordinates (`z` is computed)
+    /// - parameters:
+    ///     - x: Value of x axis.
+    ///     - y: Value of y axis.
+    public init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+        self.z = -x-y
+    }
+    
     /// Initializer for Double type
     ///
     /// - parameters:

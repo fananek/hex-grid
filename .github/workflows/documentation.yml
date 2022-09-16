@@ -33,11 +33,11 @@ jobs:
     - name: Generate Docs
       uses: fwcd/swift-docc-action@v1
       with:
-        target: LighthouseClient
+        target: HexGrid
         output: ./public
         transform-for-static-hosting: 'true'
         disable-indexing: 'true'
-        hosting-base-path: lighthouse-swift
+        hosting-base-path: hex-grid
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
       with:

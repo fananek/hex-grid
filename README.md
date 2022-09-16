@@ -9,7 +9,7 @@
     <a href="https://github.com/fananek/hex-grid/blob/main/LICENSE.md">
         <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="MIT License">
     </a>
-    <a href="https://fananek.github.io/hex-grid/">
+    <a href="https://fananek.github.io/hex-grid/documentation/hexgrid">
         <img src="http://img.shields.io/badge/read_the-docs-2196f3.svg" alt="Documentation">
     </a>
 </p>

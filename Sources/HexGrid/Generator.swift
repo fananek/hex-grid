@@ -15,6 +15,10 @@ internal struct Generator {
         switch shape {
         case .hexagon(let sideLength):
             return try Set(Generator.createHexagonGrid(sideLength: sideLength).map { Cell($0) })
+        case .parallelogram(let width, let height):
+            return try Set(Generator.createParallelogramGrid(
+                width: width,
+                height: height).map { Cell($0) })
         case .rectangle(let width, let height):
             return try Set(Generator.createRectangleGrid(
                 orientation: orientation,
@@ -28,17 +32,38 @@ internal struct Generator {
         }
     }
 
-    /// Create grid of rectangular shape
+    /// Create grid of rectangular (parallelogram) shape
+    /// - parameters:
+    ///     - width: number of columns
+    ///     - height: number of rows
+    static func createParallelogramGrid(
+        width: Int,
+        height: Int
+    ) throws -> Set<CubeCoordinates> {
+        guard width > 0, height > 0 else {
+            throw InvalidArgumentsError(message: "Rectangle width and height must be greater than zero.")
+        }
+        var tiles = Set<CubeCoordinates>()
+        for row in 0..<height {
+            for column in 0..<width {
+                tiles.insert(try AxialCoordinates(q: row, r: column).toCube())
+            }
+        }
+        return tiles
+    }
+
+    /// Create grid of rectangular shape (whose edges are more or less vertical and horizontal)
     /// - parameters:
     ///     - orientation: See `OrientationEnumeration` options
     ///     - offsetLayout: See `OffsetLayoutEnumeration` options
     ///     - width: number of columns
     ///     - height: number of rows
-    static func createRectangleGrid (
+    static func createRectangleGrid(
         orientation: Orientation,
         offsetLayout: OffsetLayout,
         width: Int,
-        height: Int) throws -> Set<CubeCoordinates> {
+        height: Int
+    ) throws -> Set<CubeCoordinates> {
         guard width > 0, height > 0 else {
             throw InvalidArgumentsError(message: "Rectangle width and height must be greater than zero.")
         }
@@ -73,13 +98,13 @@ internal struct Generator {
         }
         return tiles
     }
-    
+
     /// Create grid of hexagonal shape
     /// - parameters:
     ///     - sideLength: side length of desired hexagonal shape (1 -> single tile, 2 -> 7 tiles, 3 -> 19 tiles...)
-    static func createHexagonGrid (
+    static func createHexagonGrid(
         sideLength: Int
-        ) throws -> Set<CubeCoordinates> {
+    ) throws -> Set<CubeCoordinates> {
         guard sideLength > 0 else {
             throw InvalidArgumentsError(message: "Hexagon side length must be greater than zero.")
         }
@@ -97,10 +122,10 @@ internal struct Generator {
     /// - parameters:
     ///     - orientation: See `OrientationEnumeration` options
     ///     - sideLength: size of a triangle side (result triangle is equilateral)
-    static func createTriangleGrid (
+    static func createTriangleGrid(
         orientation: Orientation,
         sideLength: Int
-        ) throws -> Set<CubeCoordinates> {
+    ) throws -> Set<CubeCoordinates> {
         guard sideLength > 0 else {
             throw InvalidArgumentsError(message: "Triangle side length must be greater than zero.")
         }

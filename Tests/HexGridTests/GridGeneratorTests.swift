@@ -141,15 +141,92 @@ class GridGeneratorTests: XCTestCase {
             hexSize: hexSize,
             origin: origin)
         XCTAssertEqual(result.cells.count, 0)
+
+        // test for invalid parallelogram
+        shape = GridShape.parallelogram(-3, 5)
+        result = HexGrid(
+            shape: shape,
+            orientation: orientation,
+            offsetLayout: offsetLayout,
+            hexSize: hexSize,
+            origin: origin)
+        XCTAssertEqual(result.cells.count, 0)
+
+        // test for invalid irregular hexagon
+        shape = GridShape.irregularHexagon(-3, 5)
+        result = HexGrid(
+            shape: shape,
+            orientation: orientation,
+            offsetLayout: offsetLayout,
+            hexSize: hexSize,
+            origin: origin)
+        XCTAssertEqual(result.cells.count, 0)
     }
-    
-    
+
+    /// Create parallelogram grids
+    func testCreateParallelogramGrids () throws {
+        var orientation = Orientation.pointyOnTop
+        var offsetLayout = OffsetLayout.even
+        let hexSize = HexSize(width: 10.0, height: 10.0)
+        let origin = Point(x: 0.0, y: 0.0)
+
+        var shape = GridShape.parallelogram(3, 4)
+        let gridPointy = HexGrid(
+            shape: shape,
+            orientation: orientation,
+            offsetLayout: offsetLayout,
+            hexSize: hexSize,
+            origin: origin)
+        XCTAssertEqual(gridPointy.cells.count, 12)
+
+        shape = GridShape.parallelogram(10, 20)
+        orientation = Orientation.flatOnTop
+        offsetLayout = OffsetLayout.even
+        let gridFlat = HexGrid(
+            shape: shape,
+            orientation: orientation,
+            offsetLayout: offsetLayout,
+            hexSize: hexSize,
+            origin: origin)
+        XCTAssertEqual(gridFlat.cells.count, 200)
+    }
+
+    /// Create irregular hexagon grids
+    func testCreateIrregularHexagonGrids () throws {
+        var orientation = Orientation.pointyOnTop
+        var offsetLayout = OffsetLayout.even
+        let hexSize = HexSize(width: 10.0, height: 10.0)
+        let origin = Point(x: 0.0, y: 0.0)
+
+        var shape = GridShape.irregularHexagon(3, 4)
+        let gridPointy = HexGrid(
+            shape: shape,
+            orientation: orientation,
+            offsetLayout: offsetLayout,
+            hexSize: hexSize,
+            origin: origin)
+        XCTAssertEqual(gridPointy.cells.count, 27)
+
+        shape = GridShape.irregularHexagon(2, 3)
+        orientation = Orientation.flatOnTop
+        offsetLayout = OffsetLayout.even
+        let gridFlat = HexGrid(
+            shape: shape,
+            orientation: orientation,
+            offsetLayout: offsetLayout,
+            hexSize: hexSize,
+            origin: origin)
+        XCTAssertEqual(gridFlat.cells.count, 12)
+    }
+
     
     static var allTests = [
         ("Create rectangular grids", testCreateRectangleGrid),
         ("Create hexagonal grid", testCreateHexagonGrid),
         ("Create triangular grid", testCreateTriangleGrid),
-        ("Create invalid shape grid", testCreateInvalidShapeGrid)
+        ("Create invalid shape grid", testCreateInvalidShapeGrid),
+        ("Create parallelogram shape grid", testCreateParallelogramGrids),
+        ("Create irregular hexagon shape grid", testCreateIrregularHexagonGrids),
         ]
     
 }

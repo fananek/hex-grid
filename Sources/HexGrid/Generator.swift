@@ -15,6 +15,11 @@ internal struct Generator {
         switch shape {
         case .hexagon(let sideLength):
             return try Set(Generator.createHexagonGrid(sideLength: sideLength).map { Cell($0) })
+        case .irregularHexagon(let side1, let side2):
+            return try Set(Generator.createIrregularHexGrid(
+                side1: side1,
+                side2: side2
+            ).map { Cell($0) })
         case .parallelogram(let width, let height):
             return try Set(Generator.createParallelogramGrid(
                 width: width,
@@ -30,6 +35,59 @@ internal struct Generator {
                 orientation: orientation,
                 sideLength: sideSize).map { Cell($0) })
         }
+    }
+
+    /// Create grid of hexagonal shape
+    /// - parameters:
+    ///     - sideLength: side length of desired hexagonal shape (1 -> single tile, 2 -> 7 tiles, 3 -> 19 tiles...)
+    static func createHexagonGrid(
+        sideLength: Int
+    ) throws -> Set<CubeCoordinates> {
+        guard sideLength > 0 else {
+            throw InvalidArgumentsError(message: "Hexagon side length must be greater than zero.")
+        }
+        let side = sideLength - 1
+        var tiles = Set<CubeCoordinates>()
+        for x in -side...side {
+            for y in max(-side, -x-side)...min(side, -x+side) {
+                tiles.insert(try (CubeCoordinates(x: x, y: y, z: -x-y)))
+            }
+        }
+        return tiles
+    }
+
+    /// Create an irregular hexagon shape
+    /// - parameters:
+    ///     - side1: number of hexes on the first side
+    ///     - side2: number of hexes along the second side
+    static func createIrregularHexGrid(
+        side1: Int,
+        side2: Int
+    ) throws -> Set<CubeCoordinates> {
+        guard side1 > 0, side2 > 0 else {
+            throw InvalidArgumentsError(message: "Rectangle width and height must be greater than zero.")
+        }
+        guard side1 != side2 else {
+            return try createHexagonGrid(sideLength: side1)
+        }
+        let total = side1 + side2 - 1
+        var tiles = Set<CubeCoordinates>()
+        // first half
+        for r in 0..<side1 {
+            let start = total - side2 - r
+            for q in start..<total {
+                tiles.insert(try AxialCoordinates(q: q, r: r).toCube())
+            }
+        }
+        // second half
+        for rIndex in 0..<total-side1 {
+            let r = side1 + rIndex
+            let end = total - rIndex - 1
+            for q in 0..<end {
+                tiles.insert(try AxialCoordinates(q: q, r: r).toCube())
+            }
+        }
+        return tiles
     }
 
     /// Create grid of rectangular (parallelogram) shape
@@ -94,25 +152,6 @@ internal struct Generator {
                 for r in -offset..<height-offset {
                     tiles.insert(try AxialCoordinates(q: q, r: r).toCube())
                 }
-            }
-        }
-        return tiles
-    }
-
-    /// Create grid of hexagonal shape
-    /// - parameters:
-    ///     - sideLength: side length of desired hexagonal shape (1 -> single tile, 2 -> 7 tiles, 3 -> 19 tiles...)
-    static func createHexagonGrid(
-        sideLength: Int
-    ) throws -> Set<CubeCoordinates> {
-        guard sideLength > 0 else {
-            throw InvalidArgumentsError(message: "Hexagon side length must be greater than zero.")
-        }
-        let side = sideLength - 1
-        var tiles = Set<CubeCoordinates>()
-        for x in -side...side {
-            for y in max(-side, -x-side)...min(side, -x+side) {
-                tiles.insert(try (CubeCoordinates(x: x, y: y, z: -x-y)))
             }
         }
         return tiles

@@ -342,11 +342,15 @@ There are four offset types depending on orientation of hexagons. The “row” 
 
 ##### GridShape
 
+Cases from this enumeration can be passed into the `HexGrid` constructor to generate grids of various shapes and sizes.
+
 Options:
 
-- `rectangle(Int, Int)` - rectangle width and height
-- `hexagon(Int)` - radius of hexagon
-- `triangle(Int)` - size of triangle side
+- `rectangle(Int, Int)` - Associated values are column width and row height of the generated grid. Sides of the grid will be essentially parallel to the edges of the screen.
+- `parallelogram(Int, Int)` - Associated values are both side-lengths.
+- `hexagon(Int)` - This generates a regular hexagon shaped grid, with all sides the length of the associated value.
+- `irregularHexagon(Int, Int)` - This is used to generate a grid shaped like a hexagon where every other side is the length of the associated values.
+- `triangle(Int)` - Generates an equilateral triangle with all sides the length of the associated value.
 
 ##### Rotation
 

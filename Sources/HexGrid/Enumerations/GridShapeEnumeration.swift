@@ -7,7 +7,14 @@ public enum GridShape {
     /// Hexagonal `GridShape`. Stored property corresponds to side-length.
     case hexagon(Int)
 
-    /// Rectangular `GridShape`. Stored properties are for width and height.
+    /// Irregular hexagon `GridShape`. Stored properties correspond to side-lengths.
+    /// Note that if the side lengths are the same, this falls back to the default hexagon shape.
+    case irregularHexagon(Int, Int)
+
+    /// Rectangular `GridShape` that does not attempt to be square. Stored properties are for width and height.
+    case parallelogram(Int, Int)
+
+    /// Rectangular `GridShape` that attempts to create a more or less square shape. Stored properties are for width and height.
     case rectangle(Int, Int)
 
     /// Triangular `GridShape`. Stored property is side-length.

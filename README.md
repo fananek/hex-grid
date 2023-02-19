@@ -86,7 +86,7 @@ import HexGrid
 
 ### Creating a grid
 
-Grid can be initialized either with set of cells or HexGrid can generate some of standard shapes for you.
+Grids can be initialized either with a set of cell coordinates, or HexGrid can generate some standard shaped grids for you.
 
 #### Standard shape grids
 
@@ -120,6 +120,10 @@ var grid = HexGrid(cells: gridCells)
 ...
 ```
 
+#### Initializers and drawing
+
+Note that, assuming you want to draw your grid, you'll want to think about whether to pass a size for each cell (`hexSize`) or a size for the entire Grid (`pixelSize`) to the initializer. (See "Drawing the Grid" below.)
+
 #### HexGrid <-> JSON
 
 HexGrid conforms to swift `Codable` protocol so it can be easily encoded to or decoded from JSON.
@@ -140,7 +144,8 @@ let grid = try decoder.decode(HexGrid.self, from: data)
 ```
 
 ### Grid operations examples
-Almost all functions has two variants. One works with `Cell` and the other one works with `CubeCoordinates`. Use those which better fulfill your needs.
+
+Almost all functions have two variants. One that works with `Cell` and the other one works with `CubeCoordinates`. Use those which better fulfill your needs.
 
 #### Get Cell at coordinates
 
@@ -150,7 +155,7 @@ let cell = grid.cellAt(try CubeCoordinates(x: 1, y: 0, z: -1))
 
 #### Validate coordinates
 
-Check whether some coordinates are valid (means it exist on a grid).
+Check whether a coordinate is valid (meaning it has a corresponding `Cell` in the grid's `cells` array).
 
 ```swift
 // returns Bool
@@ -247,22 +252,52 @@ By default cell is considered visible as soon as its center is visible from the 
 let visibleHexesIncludingPartials = try grid.fieldOfView(from: originCell, in: 4, includePartiallyVisible: true)
 ```
 
-### Drawing related functions
-If you want to render a grid, you will need screen coordinates of polygon corners for a `Cell`.
+### Drawing the Grid
+
+Internally, `HexGrid` calculates all "pixel coordinates" using one of two methods:
+
+1. Using a size for each `Cell` (stored in the `hexSize` property).
+
+*...or...*
+
+2. Using a size for the entire Grid (stored in the `pixelSize` property).
+
+> *Note that both the `hexSize` and `pixelSize` properties are stored internally as `HexSize` structures. Try not to get confused by this! `HexSize` is just a convenient way to store `width` and `height` values.*
+
+Which flavor of `HexGrid` initializer you want to use will depend on which of these methods best applies to your use case. When specifying the `hexSize`, the `pixelSize` is calculated for you, and when specifying the `pixelSize`, the `hexSize` is likewise set automatically.
+
+While it is not possible to modify the `hexSize` or `pixelSize` properties directly (after initialization), you can set the grid's `pixelSize` (and re-calculate `hexSize` from it) at any time using the `fitGrid(in size: HexSize)` function. Note that this also resets the `origin` property.
+
+#### The origin property
+
+You can think of the `HexGrid`'s' `origin` property as the center point of the `Cell` at `CubeCoordinate` `0,0,0`.
+
+> *Note that you can specify the `origin` at initialization, but only when using the `cellSize` method. When specifying `pixelSize`, the origin is set for you, so the grid "fits" inside the specified width & height.*
+
+It will be important to change the `origin` property any time you want to change the pixel coordinates for your Grid. *Changing the `origin` will modify the return values of all pixel-calculating functions.* You can use this to apply an offset for your grid, or "re-center" it later.
+
+#### Corner Pixel Coordinates
+
+Usually, when drawing hexagons, you will want the screen coordinates of the polygon corners for each `Cell`.
 
 ```swift
 let corners = grid.polygonCorners(for: someCell)
 ```
 
-Converting cell coordinates to pixel coordinates and vice versa might be handy as well.
+#### Center Pixel Coordinates
+
+This function returns a `Point` struct (x: and y: values) for the center of a `Cell`.
 
 ```swift
-// return Ponit struct with x: and y: values
-let screenCoords = grid.pixelCoordinates(for: cell)
+let screenCoords = grid.pixelCoordinates(for: someCell)
+```
 
+#### Finding a Cell at screen coordinates
+
+```swift
 // return cell for specified screen coordinates (or nil if such cell doesn't exists)
 let cell = try grid.cellAt(point)
-``` 
+```
 
 ## Implementation fundamentals
 

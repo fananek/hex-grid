@@ -191,6 +191,45 @@ class GridGeneratorTests: XCTestCase {
         XCTAssertEqual(gridFlat.cells.count, 200)
     }
 
+    /// Create extended hexagon grids
+    func testCreateElongatedHexagonGrids () throws {
+
+        var shape = GridShape.elongatedHexagon(3, 4)
+        var grid = HexGrid(
+            shape: shape,
+            orientation: .pointyOnTop)
+        XCTAssertEqual(grid.cells.count, 30)
+
+        // flat
+        grid = HexGrid(
+            shape: shape,
+            orientation: .flatOnTop)
+        XCTAssertEqual(grid.cells.count, 24)
+
+        shape = GridShape.elongatedHexagon(2, 3)
+        grid = HexGrid(
+            shape: shape,
+            orientation: .pointyOnTop)
+        XCTAssertEqual(grid.cells.count, 14)
+
+        grid = HexGrid(
+            shape: shape,
+            orientation: .flatOnTop)
+        XCTAssertEqual(grid.cells.count, 10)
+
+        shape = GridShape.elongatedHexagon(7, 3)
+        grid = HexGrid(
+            shape: shape,
+            orientation: .pointyOnTop)
+        XCTAssertEqual(grid.cells.count, 39)
+
+        shape = GridShape.elongatedHexagon(3, 7)
+        grid = HexGrid(
+            shape: shape,
+            orientation: .flatOnTop)
+        XCTAssertEqual(grid.cells.count, 39)
+    }
+
     /// Create irregular hexagon grids
     func testCreateIrregularHexagonGrids () throws {
         var orientation = Orientation.pointyOnTop
@@ -219,14 +258,14 @@ class GridGeneratorTests: XCTestCase {
         XCTAssertEqual(gridFlat.cells.count, 12)
     }
 
-    
     static var allTests = [
         ("Create rectangular grids", testCreateRectangleGrid),
         ("Create hexagonal grid", testCreateHexagonGrid),
         ("Create triangular grid", testCreateTriangleGrid),
         ("Create invalid shape grid", testCreateInvalidShapeGrid),
         ("Create parallelogram shape grid", testCreateParallelogramGrids),
+        ("Create elongated hexagon shape grid", testCreateElongatedHexagonGrids),
         ("Create irregular hexagon shape grid", testCreateIrregularHexagonGrids),
-        ]
-    
+    ]
+
 }

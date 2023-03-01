@@ -18,25 +18,25 @@
     
     API might change without further notice until first major release 1.x.x.
 
-HexGrid library provides easy and intuitive way of working with hexagonal grids. Under the hood it handles all the math so you can focus on more important stuff.
+The `HexGrid` library provides an easy and intuitive way of working with hexagonal grids. Under the hood it handles all the math so you can focus on more important stuff.
 
-- Support any gird shape, including irregular one or grid with holes.
+- Support for grids of any shape, including irregular shapes, or grids with holes in them.
 
-The library is meant for generic backend use. Therefore it doesn't not offer any UI or rendering stuff. However, it provides calculations needed for grid rendering.
+The library is meant for generic backend use. Therefore it doesn't perform any UI or rendering. However, it provides the calculations that will be needed for rendering.
 
 ## Features
 
-- [x] Create or generate a grid with hexagonal cells.  
-- [x] Various coordinate systems (cube, axial, offset).  
-- [x] Rotation, Manhattan distance, linear interpolation.  
-- [x] Get Neighbors or diagonal neighbors.  
-- [x] Get Line (get all hexes making a line from A to B).  
-- [x] Get Ring (get all hexes making a ring from an origin coordinates in specified radius).  
-- [x] Get Filled Ring (get all hexes making a filled ring from an origin coordinates in specified radius).  
-- [x] Find reachable hexes within `n` steps (Breath First Search).  
+- [x] Create or generate a grid of hexagonal cells.
+- [x] Various coordinate systems (cube, axial, offset), and conversion between them.
+- [x] Rotation, Manhattan distance, linear interpolation.
+- [x] Get Neighbors or diagonal neighbors.
+- [x] Get Line (get all hexes making a line from A to B).
+- [x] Get Ring (get all hexes making a ring from an origin coordinates in specified radius).
+- [x] Get Filled Ring (get all hexes making a filled ring from an origin coordinates in specified radius).
+- [x] Find reachable hexes within `n` steps (Breath First Search).
 - [x] Find the shortest path from A to B (optimized A* search algorithm).
 - [x] FieldOfView algorithm (`ShadowCasting` designed for hexagonal grids).
-- [x] Hexagon rendering related stuff (e.g. polygon corners).  
+- [x] Hexagon rendering related functions (e.g. get polygon corners).
 - [x] Code inline documentation (quick help).
 - [x] Solid unit tests coverage.
 - [x] Automated documentation generator (SwiftDoc + GitHub Actions -> hosted on repo GitHub Pages).
@@ -90,7 +90,7 @@ Grids can be initialized either with a set of cell coordinates, or HexGrid can g
 
 #### Standard shape grids
 
-Example:
+For example:
 
 ```swift
 ...
@@ -101,6 +101,8 @@ var grid = HexGrid(shape: GridShape.rectangle(8, 12))
 // or triangular shape
 var grid = HexGrid(shape: GridShape.triangle(6))
 ```
+
+See the section on `GridShape` below for more details, and a full list of the available grid shapes.
 
 #### Custom grids
 
@@ -384,7 +386,8 @@ Options:
 - `rectangle(Int, Int)` - Associated values are column width and row height of the generated grid. Sides of the grid will be essentially parallel to the edges of the screen.
 - `parallelogram(Int, Int)` - Associated values are both side-lengths.
 - `hexagon(Int)` - This generates a regular hexagon shaped grid, with all sides the length of the associated value.
-- `irregularHexagon(Int, Int)` - This is used to generate a grid shaped like a hexagon where every other side is the length of the associated values.
+- `elongatedHexagon(Int, Int)` - This is used to generate a grid shaped like a regular hexagon that has been stretched or elongated in one dimension. The associated values are side lengths.
+- `irregularHexagon(Int, Int)` - This is used to generate a grid shaped like a hexagon where every other side is the length of the two associated values.
 - `triangle(Int)` - Generates an equilateral triangle with all sides the length of the associated value.
 
 ##### Rotation

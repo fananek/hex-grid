@@ -48,7 +48,7 @@ The library is meant for generic backend use. Therefore it doesn't perform any U
 
 ## HexGrid in action
 
-HexGrid [demo app](https://github.com/mgrider/SKHexGrid) using SpriteKit.  
+HexGrid [demo app](https://github.com/mgrider/SKHexGrid) using SpriteKit.  (Also available [in the App Store](https://apps.apple.com/us/app/hexagon-grid-generator/id6445898427).)
 HexGrid [demo app](https://github.com/fananek/HexGrid-SwiftUI-Demo) using SwiftUI.
 
 ## Getting Started
@@ -320,8 +320,7 @@ Properties:
 - offsetLayout: `OffsetLayout` - see [OffsetLayout enumeration](#OffsetLayout)
 - hexSize: `HexSize` - width and height of a hexagon
 - origin: `Point` - 'display coordinates' (x, y) of a grid origin
-- pixelWidth: `Double` - pixel width of a grid
-- pixelHeight: `Double` - pixel width of a grid
+- pixelSize: `HexSize` - pixel width and height of the entire grid
 - attributes: `[String: Attribute]` - dictionary of custom attributes (most primitive types are supported as well as nesting)
 
 #### Cell
